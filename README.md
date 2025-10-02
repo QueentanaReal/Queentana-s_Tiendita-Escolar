@@ -340,7 +340,7 @@
     $('#bank-confirm').addEventListener('click', ()=>{
       // after user did transfer, open whatsapp to send comprobante + order
       $('#bank-modal').classList.add('hidden');
-      const phone = '5210000000000';
+      const phone = '526143515170';
       const msg = buildWhatsAppMessage() + encodeURIComponent('\nHe realizado la transferencia, adjunto comprobante.');
       const url = `https://wa.me/${phone}?text=${msg}`;
       window.open(url, '_blank');
