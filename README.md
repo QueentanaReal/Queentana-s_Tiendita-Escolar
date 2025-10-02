@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tiendita escolar queentana</title>
+  <title>Tiendita escolar Tania Queentana</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
@@ -343,7 +343,7 @@
       const lines = cart.map(i=> `${i.qty} x ${i.name}${i.options ? ' ('+i.options+')' : ''} - $${formatCurrency(i.price * i.qty)}`);
       const total = formatCurrency(cart.reduce((s,i)=>s + i.price * i.qty,0));
       const msg = `Hola Queentana, quiero hacer este pedido:%0A${lines.join('%0A')}%0ATotal: $${total}`;
-      const phone = '521XXXXXXXXXX'; // <<< Reemplaza con tu número (con código país) ejemplo 52155...
+      const phone = '526143515170'; // <<< Reemplaza con tu número (con código país) ejemplo 52155...
       const url = `https://wa.me/${phone}?text=${msg}`;
       window.open(url, '_blank');
     });
