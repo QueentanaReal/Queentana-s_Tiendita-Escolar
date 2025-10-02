@@ -365,7 +365,7 @@
     // Pago por WhatsApp
     document.getElementById('payWhatsapp').addEventListener('click', ()=>{
       if(cart.length===0){ alert('Tu carrito está vacío. Agrega algo antes de pagar.'); return; }
-      const phone = '52REPLACEPHONE'; // <<--- REEMPLAZA con tu número (ej: 521234567890)
+      const phone = '526143515170'; // <<--- REEMPLAZA con tu número (ej: 521234567890)
       let text = 'Hola%20Queentana!%20Quiero%20hacer%20un%20pedido:%0A';
       cart.forEach(it=>{
         text += encodeURIComponent(`- ${it.qty} x ${it.name}`) + '%0A';
