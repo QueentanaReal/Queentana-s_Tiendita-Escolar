@@ -143,8 +143,9 @@
 
     const especialDia = [
       // Ejemplo: cambia aquí los especiales del día
-      { id: 'especial-1', name: 'Brownie especial', price: 28 },
-      { id: 'especial-2', name: 'Galleta con chispas', price: 15 }
+      { id: 'especial-1', name: 'Pozole', price: 28 },
+      { id: 'especial-2', name: 'Nothingh', price: 0 }
+      { id: 'especial-2', name: 'Nothingh', price: 0 }
     ];
 
     // Cart
