@@ -66,8 +66,8 @@
       <div class="card p-6">
         <h3 class="text-2xl font-bold mb-4">Especial del día</h3>
         <p class="text-sm text-[var(--muted)] mb-4">Aquí aparecen los productos especiales que cambiamos cada día. Puedes actualizar esta lista desde el código fácilmente.</p>
-        <div id="especial-dia" class="space-y-4">
-          <!-- Specials added by JS -->
+        <div id="especial-dia" class="flex gap-4 overflow-x-auto">
+          <!-- Specials added by JS horizontally -->
         </div>
       </div>
     </section>
@@ -125,7 +125,6 @@
   </div>
 
   <script>
-    // Data model
     const menuDiario = [
       { id: 'mini-torta', name: 'Mini torta de pan blanco', price: 13 },
       { id: 'moyete', name: 'Moyete', price: 13 },
@@ -142,24 +141,18 @@
     ];
 
     const especialDia = [
-      // Ejemplo: cambia aquí los especiales del día
-      { id: 'especial-1', name: 'Pozole', price: 28 },
-      { id: 'especial-2', name: 'Nothingh', price: 0 }
+      { id: 'especial-1', name: 'Brownie especial', price: 28 },
+      { id: 'especial-2', name: 'Galleta con chispas', price: 15 }
     ];
 
-    // Cart
     let cart = [];
 
-    // Utilities
     const $ = sel => document.querySelector(sel);
-    const $$ = sel => document.querySelectorAll(sel);
-
     function format(n){ return '$' + n.toFixed(2); }
 
-    // Render product card
     function createProductElement(p){
       const el = document.createElement('div');
-      el.className = 'p-4 border rounded-lg flex flex-col gap-3';
+      el.className = 'p-4 border rounded-lg flex flex-col gap-3 min-w-[200px]';
       el.innerHTML = `
         <div class="flex justify-between items-start">
           <div>
@@ -173,8 +166,6 @@
           <select class="qty-select p-1 border rounded">
             ${[1,2,3,4,5].map(q=>`<option value="${q}">${q}</option>`).join('')}
           </select>
-
-          ${p.options ? `<div class="ml-auto">Opciones disponibles</div>` : '' }
         </div>
 
         <div class="options-area"></div>
@@ -184,40 +175,25 @@
         </div>
       `;
 
-      // fill options
       const optionsArea = el.querySelector('.options-area');
       if(p.options){
         if(p.options.size){
           const sizeSel = document.createElement('select');
           sizeSel.className = 'size-select p-1 border rounded';
           sizeSel.innerHTML = p.options.size.map(s=>`<option value="${s.k}" data-price="${s.price}">${s.label}</option>`).join('');
-          const wrapper = document.createElement('div');
-          wrapper.className = 'flex items-center gap-2';
-          wrapper.innerHTML = '<label class="text-sm">Tamaño</label>';
-          wrapper.appendChild(sizeSel);
-          optionsArea.appendChild(wrapper);
-
-          // if flavor required for agua de sabor
+          optionsArea.appendChild(sizeSel);
           const saborSel = document.createElement('select');
           saborSel.className = 'sabor-select p-1 border rounded';
           saborSel.innerHTML = `<option value="">-- Sabor --</option>` + p.options.sabor.map(s=>`<option value="${s}">${s}</option>`).join('');
-          const saborWrapper = document.createElement('div');
-          saborWrapper.className = 'mt-2';
-          saborWrapper.appendChild(saborSel);
-          optionsArea.appendChild(saborWrapper);
+          optionsArea.appendChild(saborSel);
         }
         if(p.options.toppings){
           const topSel = document.createElement('select');
           topSel.className = 'topping-select p-1 border rounded';
           topSel.innerHTML = `<option value="">Sin topping</option>` + p.options.toppings.map(t=>`<option value="${t}">${t}</option>`).join('');
-          const wrapper = document.createElement('div');
-          wrapper.className = 'flex items-center gap-2';
-          wrapper.innerHTML = '<label class="text-sm">Topping</label>';
-          wrapper.appendChild(topSel);
-          optionsArea.appendChild(wrapper);
+          optionsArea.appendChild(topSel);
         }
         if(p.options.sabor && !p.options.size){
-          // gelatina flavor
           const saborSel = document.createElement('select');
           saborSel.className = 'sabor-select p-1 border rounded';
           saborSel.innerHTML = p.options.sabor.map(s=>`<option value="${s}">${s}</option>`).join('');
@@ -225,34 +201,11 @@
         }
       }
 
-      // add event
       el.querySelector('.add-btn').addEventListener('click', ()=>{
         const qty = parseInt(el.querySelector('.qty-select').value);
-        const item = { id: p.id, name: p.name, basePrice: p.price };
-        // handle options
-        if(p.options){
-          if(p.options.size){
-            const size = el.querySelector('.size-select').value;
-            const selectedOption = p.options.size.find(s=>s.k===size);
-            if(selectedOption) item.size = selectedOption.k, item.price = (selectedOption.price || 0);
-            const sabor = el.querySelector('.sabor-select').value;
-            if(sabor) item.sabor = sabor;
-          }
-          if(p.options.toppings){
-            const topping = el.querySelector('.topping-select').value;
-            if(topping) item.topping = topping;
-            item.price = p.price; // yoghurt price
-          }
-          if(p.options.sabor && !p.options.size){
-            // gelatina
-            const sabor = el.querySelector('.sabor-select').value;
-            if(sabor) item.sabor = sabor;
-            item.price = p.price;
-          }
-        }
-        if(!item.price) item.price = p.price;
-        item.qty = qty;
-        addToCart(item);
+        const item = { id: p.id, name: p.name, price: p.price, qty };
+        cart.push(item);
+        updateCartUI();
       });
 
       return el;
@@ -268,90 +221,14 @@
       especialDia.forEach(p=> especial.appendChild(createProductElement(p)));
     }
 
-    function addToCart(item){
-      // simple merge by id + options
-      const key = JSON.stringify({id:item.id, size:item.size || '', sabor:item.sabor||'', topping:item.topping||''});
-      const existing = cart.find(c=>c.key===key);
-      if(existing){ existing.qty += item.qty; }
-      else { cart.push({...item, key}); }
-      updateCartUI();
-    }
-
-    function removeFromCart(key){ cart = cart.filter(i=>i.key!==key); updateCartUI(); }
-    function clearCart(){ cart=[]; updateCartUI(); }
-
     function updateCartUI(){
-      const count = cart.reduce((s,i)=>s+i.qty,0);
-      $('#cart-count').textContent = count;
       const total = cart.reduce((s,i)=> s + (i.price * i.qty), 0);
-      $('#cart-total').textContent = format(total);
-      $('#drawer-total').textContent = format(total);
-
-      const list = $('#cart-list'); list.innerHTML = '';
-      cart.forEach(i=>{
-        const li = document.createElement('li');
-        li.className = 'flex justify-between items-start gap-2';
-        li.innerHTML = `<div class="text-sm">
-          <div class="font-medium">${i.name} ${i.size? '('+i.size+')':''} ${i.sabor?'- '+i.sabor:''} ${i.topping?'- '+i.topping:''}</div>
-          <div class="text-[var(--muted)]">${i.qty} x ${format(i.price)}</div>
-        </div>
-        <div class="text-right">
-          <div class="font-medium">${format(i.price * i.qty)}</div>
-          <button class="remove text-xs mt-1">Eliminar</button>
-        </div>`;
-        li.querySelector('.remove').addEventListener('click', ()=> removeFromCart(i.key));
-        list.appendChild(li);
-      });
-
-      // small animation to show drawer if items
-      if(cart.length>0) $('#cart-drawer').classList.remove('hidden'); else $('#cart-drawer').classList.add('hidden');
+      document.getElementById('cart-count').textContent = cart.length;
+      document.getElementById('cart-total').textContent = format(total);
+      document.getElementById('drawer-total').textContent = format(total);
     }
 
-    // Buttons
-    $('#cart-btn').addEventListener('click', ()=>{
-      const drawer = $('#cart-drawer'); drawer.classList.toggle('hidden');
-    });
-    $('#close-cart').addEventListener('click', ()=> $('#cart-drawer').classList.add('hidden'));
-    $('#clear-cart').addEventListener('click', ()=> clearCart());
-
-    // Payment actions
-    function buildWhatsAppMessage(){
-      const lines = ['Hola, quisiera confirmar mi pedido desde Tiendita Escolar Queentana:'];
-      cart.forEach(i=>{
-        lines.push(`${i.qty}x ${i.name} ${i.size?('('+i.size+')'):''} ${i.sabor?('- '+i.sabor):''} ${i.topping?('- '+i.topping):''} - ${format(i.price * i.qty)}`);
-      });
-      const total = cart.reduce((s,i)=> s + (i.price * i.qty), 0);
-      lines.push('Total: ' + format(total));
-      return encodeURIComponent(lines.join('\n'));
-    }
-
-    $('#pay-whatsapp').addEventListener('click', ()=>{
-      if(cart.length===0){ alert('El carrito está vacío. Agrega productos antes de pagar.'); return; }
-      const phone = '5210000000000'; // reemplaza con tu número (ej: 521 + lada + número)
-      const msg = buildWhatsAppMessage();
-      const url = `https://wa.me/${phone}?text=${msg}`;
-      window.open(url, '_blank');
-    });
-
-    $('#pay-bank').addEventListener('click', ()=>{
-      $('#bank-modal').classList.remove('hidden');
-    });
-    $('#close-bank').addEventListener('click', ()=> $('#bank-modal').classList.add('hidden'));
-    $('#bank-confirm').addEventListener('click', ()=>{
-      // after user did transfer, open whatsapp to send comprobante + order
-      $('#bank-modal').classList.add('hidden');
-      const phone = '526143515170';
-      const msg = buildWhatsAppMessage() + encodeURIComponent('\nHe realizado la transferencia, adjunto comprobante.');
-      const url = `https://wa.me/${phone}?text=${msg}`;
-      window.open(url, '_blank');
-    });
-
-    // Init
     renderMenus();
-    updateCartUI();
-
-    // Small UX: close modal on outside click
-    document.getElementById('bank-modal').addEventListener('click', (e)=>{ if(e.target.id==='bank-modal') e.currentTarget.classList.add('hidden'); });
   </script>
 </body>
 </html>
