@@ -157,23 +157,93 @@
       </div>
     </section>
 
-    <!-- SECCION 4: TEMPORADA -->
-    <section>
-      <h2 class="text-2xl font-bold mb-4">Temporada</h2>
-      <div class="grid md:grid-cols-5 gap-6 mt-4">
-        <!-- 10 espacios de productos -->
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 1</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 2</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 3</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 4</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 5</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 6</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 7</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 8</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 9</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 10</h4></div>
-      </div>
-    </section>
+   <!-- SECCION 4: TEMPORADA -->
+<section>
+  <h2 class="text-2xl font-bold mb-4">Temporada</h2>
+  <div class="grid md:grid-cols-5 gap-6 mt-4">
+
+    <!-- Producto 1 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp1.jpg" alt="Producto 1" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 1</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 1', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp2.jpg" alt="Producto 2" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 2</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 2', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp3.jpg" alt="Producto 3" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 3</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 3', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp4.jpg" alt="Producto 4" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 4</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 4', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp5.jpg" alt="Producto 5" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 5</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 5', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp6.jpg" alt="Producto 6" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 6</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 6', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp7.jpg" alt="Producto 7" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 7</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 7', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp8.jpg" alt="Producto 8" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 8</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 8', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp9.jpg" alt="Producto 9" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 9</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 9', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="border rounded-xl p-4 bg-white shadow">
+      <img src="img/temp10.jpg" alt="Producto 10" class="rounded-xl mb-2">
+      <h4 class="font-bold">Producto 10</h4>
+      <p class="font-semibold mt-2">$00</p>
+      <button onclick="addToCart('Producto 10', 0)" class="mt-2 bg-[#C69B4B] text-white px-3 py-1 rounded">Agregar</button>
+    </div>
+
+  </div>
+</section>
 
   </main>
 
