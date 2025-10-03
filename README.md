@@ -7,12 +7,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#F9F6F0] text-[#1F1F1F]">
+  <!-- Logo superior -->
+  <div class="p-4 text-center">
+    <img src="img/logo.png" alt="Logo Queentana´s Tiendita Escolar" class="mx-auto h-24">
+  </div>
+
   <!-- Encabezado -->
   <header class="bg-[#C69B4B] text-white p-6 text-center shadow-lg">
-    <!-- Logo -->
-    <img src="img/logo.png" alt="Logo Tiendita Escolar" class="mx-auto mb-4 w-28 h-auto">
-    
-    <!-- Título -->
     <h1 class="text-3xl font-bold">👑 Queentana´s Tiendita Escolar</h1>
     <p class="text-lg">Menú completo para todos los gustos</p>
   </header>
@@ -45,9 +46,17 @@
         <!-- Burritos -->
         <div class="border rounded-xl p-4 bg-white shadow">
           <img src="img/burrito.jpg" alt="Burritos" class="rounded-xl mb-2">
-          <h4 class="font-bold">Burritos (Guisado Variado)</h4>
-          <p class="text-sm">Papas con chorizo, salsa verde, deshebrada, wini con chipotle, bistec a la mexicana, discada</p>
-          <p class="font-semibold">$24</p>
+          <h4 class="font-bold">Burritos</h4>
+          <p class="text-sm">Elige tu guisado favorito</p>
+          <select class="border rounded p-2 w-full mt-2">
+            <option>Papas con chorizo</option>
+            <option>Salsa verde</option>
+            <option>Deshebrada</option>
+            <option>Wini con chipotle</option>
+            <option>Bistec a la mexicana</option>
+            <option>Discada</option>
+          </select>
+          <p class="font-semibold mt-2">$24</p>
         </div>
       </div>
 
@@ -181,52 +190,12 @@
         <div class="border rounded-xl p-4 bg-white shadow text-center">
           <img src="img/temp1.jpg" alt="Producto 1" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Producto 1</h4>
-          <p class="font-semibold">0</p>
+          <p class="font-semibold">$$$</p>
         </div>
         <div class="border rounded-xl p-4 bg-white shadow text-center">
           <img src="img/temp2.jpg" alt="Producto 2" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Producto 2</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 3" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 3</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 4" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 4</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 5" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 5</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 6" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 6</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 7" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 7</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 8" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 8</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 9" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 9</h4>
-          <p class="font-semibold">0</p>
-        </div>
-        <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" alt="Producto 10" class="mx-auto rounded-xl mb-2">
-          <h4 class="font-bold">Producto 10</h4>
-          <p class="font-semibold">0</p>
+          <p class="font-semibold">$$$</p>
         </div>
         <!-- repite hasta producto 10 -->
       </div>
