@@ -190,12 +190,32 @@
         <div class="border rounded-xl p-4 bg-white shadow text-center">
           <img src="img/temp1.jpg" alt="Producto 1" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Producto 1</h4>
-          <p class="font-semibold">$$$</p>
+          <p class="font-semibold">0</p>
         </div>
         <div class="border rounded-xl p-4 bg-white shadow text-center">
           <img src="img/temp2.jpg" alt="Producto 2" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Producto 2</h4>
-          <p class="font-semibold">$$$</p>
+          <p class="font-semibold">0</p>
+        </div>
+         <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp2.jpg" alt="Producto 3" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 3</h4>
+          <p class="font-semibold">0</p>
+        </div>
+         <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp2.jpg" alt="Producto 4" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 4</h4>
+          <p class="font-semibold">0</p>
+        </div>
+         <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp2.jpg" alt="Producto 5" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 5</h4>
+          <p class="font-semibold">0</p>
+        </div>
+         <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp2.jpg" alt="Producto 6" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 6</h4>
+          <p class="font-semibold">0</p>
         </div>
         <!-- repite hasta producto 10 -->
       </div>
