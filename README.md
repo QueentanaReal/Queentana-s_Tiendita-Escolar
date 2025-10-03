@@ -187,7 +187,7 @@
 
   <!-- FOOTER -->
   <footer class="bg-[#C69B4B] text-white text-center p-4 mt-12">
-    <p>&copy; 2025 Queentana´s Tiendita Escolar - Todos los derechos reservados</p>
+    <p>&copy; 2025 Queentana´s Tiendita Escolar - Hecho con amor</p>
   </footer>
 
   <!-- SCRIPT -->
@@ -243,7 +243,7 @@
       message += "%0A%0APor favor, realiza tu transferencia a:%0ABBVA - 4152314309562018%0AA nombre de: Tania Quintana";
       message += "%0A%0A⚠️ IMPORTANTE: Adjunta tu comprobante de pago antes de enviar este mensaje.";
 
-      window.open("https://wa.me/5216142425718?text=" + message, "_blank");
+      window.open("https://wa.me/526143515170?text=" + message, "_blank");
     }
   </script>
 
