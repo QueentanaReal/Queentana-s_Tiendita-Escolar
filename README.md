@@ -191,16 +191,15 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 2: Especial del Día (editable) -->
+    <!-- SECCIÓN 2: Especial del Día (YA NO EDITABLE POR EL USUARIO) -->
     <section>
       <h2 class="text-2xl font-bold mb-4">⭐ Especial del Día</h2>
       <div class="border rounded-xl p-6 bg-white shadow text-center space-y-3">
         <img src="img/especial.jpg" alt="Especial del día" class="mx-auto rounded-xl mb-2 h-36 object-cover">
-        <div class="flex gap-2 justify-center">
-          <input id="especialName" class="border rounded p-2 w-2/3" placeholder="Nombre del platillo (ej. Torta especial)"/>
-          <input id="especialPrice" type="number" class="border rounded p-2 w-1/3" placeholder="Precio"/>
-        </div>
-        <p class="text-sm">Descripción breve</p>
+        <!-- Cambia el nombre y precio del especial aquí abajo (en el script -> variables especialName y especialPrice) -->
+        <h3 id="especialDisplayName" class="text-xl font-bold">Especial del día: (editar en el código)</h3>
+        <p id="especialDisplayPrice" class="font-semibold">$0.00</p>
+        <p class="text-sm">Descripción breve del especial.</p>
         <button id="addEspecialBtn" class="bg-[#C69B4B] text-white px-4 py-2 rounded">Agregar Especial al carrito</button>
       </div>
     </section>
@@ -228,12 +227,6 @@
     <section>
       <h2 class="text-2xl font-bold mb-4">🎉 Temporada</h2>
       <div class="grid md:grid-cols-5 gap-4">
-        <!-- Generamos 10 tarjetas editables -->
-        <!-- Cada tarjeta: input nombre, input precio, boton agregar -->
-        <script>
-          // placeholder - se renderizará al final del body para mantener html limpio
-        </script>
-        <!-- We'll inject season cards with JS below -->
         <div id="seasonContainer" class="contents"></div>
       </div>
     </section>
@@ -243,7 +236,8 @@
   <!-- Modal Carrito -->
   <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
     <div class="bg-white w-96 p-6 rounded-xl shadow-lg">
-      <h2 class="text-xl font-bold mb-4">🛒 Carrito de Compras</h2>
+      <h2 class="text-xl font-bold mb-2">🛒 Carrito de Compras</h2>
+      <p class="text-sm text-gray-600 mb-3">Folio: <span id="folioDisplay">-</span></p>
       <ul id="cartItems" class="mb-4 space-y-2 max-h-64 overflow-auto"></ul>
       <p class="font-bold">Total: $<span id="cartTotal">0.00</span></p>
       <div class="flex justify-between mt-4">
@@ -258,6 +252,11 @@
   </footer>
 
   <script>
+    /********** Configuración: cambia el Especial DEL DÍA aquí (solo aquí si quieres) **********/
+    // Edita estos valores cuando quieras cambiar el platillo del día
+    let especialName = "Tostada Especial";     // <-- cambia ese texto por el que quieras
+    let especialPrice = 28;                    // <-- cambia el precio aquí (número)
+
     /********** Inicialización dinámica de tarjetas de Temporada (10) **********/
     const seasonContainer = document.getElementById('seasonContainer');
     for (let i = 1; i <= 10; i++) {
@@ -280,17 +279,42 @@
     const cartCount = document.getElementById("cartCount");
     const cartTotal = document.getElementById("cartTotal");
     const checkout = document.getElementById("checkout");
+    const folioDisplay = document.getElementById("folioDisplay");
+    const especialDisplayName = document.getElementById("especialDisplayName");
+    const especialDisplayPrice = document.getElementById("especialDisplayPrice");
 
+    /********** Estado del carrito y folio **********/
     let cart = [];
+    let folioCounter = 0;    // contador secuencial
+    let currentFolio = null; // folio actual (PED-001...)
+
+    /********** Mostrar detalles del Especial del Día (no editable por el usuario) **********/
+    function renderEspecialDisplay() {
+      especialDisplayName.textContent = `${especialName}`;
+      especialDisplayPrice.textContent = `$${Number(especialPrice).toFixed(2)}`;
+    }
+    renderEspecialDisplay();
 
     /********** Control abrir/cerrar carrito **********/
     cartBtn.addEventListener("click", () => cartModal.classList.remove("hidden"));
     closeCart.addEventListener("click", () => cartModal.classList.add("hidden"));
 
+    /********** Funciones del folio **********/
+    function generateFolio() {
+      folioCounter++;
+      currentFolio = "PED-" + String(folioCounter).padStart(3, "0");
+      folioDisplay.textContent = currentFolio;
+    }
+
+    function ensureFolio() {
+      if (!currentFolio) generateFolio();
+    }
+
     /********** Funciones del carrito **********/
     function addToCart(name, price) {
       const parsedPrice = Number(price) || 0;
       cart.push({ name, price: parsedPrice });
+      ensureFolio();
       renderCart();
     }
 
@@ -307,6 +331,7 @@
       });
       cartTotal.textContent = total.toFixed(2);
       cartCount.textContent = cart.length;
+      folioDisplay.textContent = currentFolio ? currentFolio : "-";
     }
 
     function removeFromCart(index) {
@@ -317,7 +342,9 @@
 
     /********** Botones "Agregar" simples (data-name, data-price) **********/
     document.querySelectorAll(".addToCart").forEach(btn => {
-      btn.addEventListener("click", () => addToCart(btn.dataset.name, btn.dataset.price));
+      btn.addEventListener("click", () => {
+        addToCart(btn.dataset.name, btn.dataset.price);
+      });
     });
 
     /********** Añadir Burrito (selección) **********/
@@ -361,51 +388,56 @@
       addToCart(`Fruta (${opcion})`, 25);
     });
 
-    /********** Especial del Día (inputs editables) **********/
+    /********** Especial del Día (AHORA NO EDITABLE POR USUARIOS) **********/
     document.getElementById('addEspecialBtn').addEventListener('click', () => {
-      const name = document.getElementById('especialName').value.trim() || "Especial del día";
-      const price = Number(document.getElementById('especialPrice').value) || 0;
-      addToCart(name, price);
-      // opcional: limpiar campos
-      // document.getElementById('especialName').value = '';
-      // document.getElementById('especialPrice').value = '';
+      addToCart(especialName, especialPrice);
     });
 
     /********** Temporada (10 tarjetas editables) **********/
-    document.querySelectorAll('.addTemporada').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const idx = e.target.dataset.index;
-        const name = document.getElementById(`tempName${idx}`).value.trim() || `Producto Temporada ${idx}`;
-        const price = Number(document.getElementById(`tempPrice${idx}`).value) || 0;
-        addToCart(name, price);
+    // Esperamos a que los botones se hayan insertado
+    setTimeout(() => {
+      document.querySelectorAll('.addTemporada').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = e.target.dataset.index;
+          const name = document.getElementById(`tempName${idx}`).value.trim() || `Producto Temporada ${idx}`;
+          const price = Number(document.getElementById(`tempPrice${idx}`).value) || 0;
+          addToCart(name, price);
+        });
       });
-    });
+    }, 50);
 
-    /********** Checkout por WhatsApp (incluye cuenta y solicitud de comprobante) **********/
+    /********** Checkout por WhatsApp (incluye cuenta y solicitud de comprobante y folio) **********/
     checkout.addEventListener('click', () => {
       if (cart.length === 0) {
         alert("Tu carrito está vacío.");
         return;
       }
 
-      let message = "¡Hola! Quiero hacer un pedido:\n";
+      let message = "¡Hola! Quiero hacer un pedido:%0A";
+      if (currentFolio) {
+        message += `Folio: ${currentFolio}%0A%0A`;
+      }
       cart.forEach(item => {
-        message += `- ${item.name} - $${Number(item.price).toFixed(2)}\n`;
+        message += `- ${item.name} - $${Number(item.price).toFixed(2)}%0A`;
       });
-      message += `\nTotal: $${cartTotal.textContent}\n\n`;
-      message += "📌 Realiza tu pago por transferencia a:\nBBVA 4152314309562018\nTitular: Tania Quintana\n\n";
+      message += `%0ATotal: $${cartTotal.textContent}%0A%0A`;
+      message += "📌 Realiza tu pago por transferencia a:%0ABBVA 4152314309562018%0ATitular: Tania Quintana%0A%0A";
       message += "⚠️ Importante: Por favor adjunta en este chat la captura de tu comprobante de pago.";
 
       const phone = "5216143515170"; // formato wa.me (MX)
-      const encoded = encodeURIComponent(message);
-      window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank");
+      const encoded = encodeURIComponent(decodeURIComponent(message)); // already encoded parts but ensure correct
+      window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+
+      // Después de redirigir: limpiar carrito y preparar nuevo folio
+      cart = [];
+      currentFolio = null;
+      renderCart();
+      // Folio counter ya aumentó cuando se generó, se mantendrá secuencial al siguiente pedido
     });
 
-    /********** Abrir carrito también al agregar (opcional, comentado) **********/
-    // Si quieres que el carrito se abra automáticamente cada vez que se agrega, descomenta:
-    // function openCart() { cartModal.classList.remove('hidden'); }
-    // En addToCart() puedes llamar openCart();
-
+    /********** Mostrar carrito automáticamente (opcional) **********/
+    // Si quieres que el carrito se abra automáticamente cuando se agrega algo:
+    // dentro de addToCart() puedes llamar a cartModal.classList.remove('hidden');
   </script>
 </body>
 </html>
