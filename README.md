@@ -9,7 +9,11 @@
 <body class="bg-[#F9F6F0] text-[#1F1F1F]">
   <!-- Encabezado -->
   <header class="bg-[#C69B4B] text-white p-6 text-center shadow-lg">
-    <h1 class="text-3xl font-bold">🍎 Queentana´s Tiendita Escolar</h1>
+    <!-- Logo -->
+    <img src="img/logo.png" alt="Logo Tiendita Escolar" class="mx-auto mb-4 w-28 h-auto">
+    
+    <!-- Título -->
+    <h1 class="text-3xl font-bold">👑 Queentana´s Tiendita Escolar</h1>
     <p class="text-lg">Menú completo para todos los gustos</p>
   </header>
 
