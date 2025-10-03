@@ -9,7 +9,7 @@
 <body class="bg-[#F9F6F0] text-[#1F1F1F]">
   <!-- Logo superior -->
   <div class="p-4 text-center">
-    <img src="img/logo.png" alt="Logo Queentana´s Tiendita Escolar" class="mx-auto h-24">
+    <img src="LOGO MAMA.png" alt="Logo Queentana´s Tiendita Escolar" class="mx-auto h-24">
   </div>
 
   <!-- Encabezado -->
