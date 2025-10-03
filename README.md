@@ -162,16 +162,10 @@
       <h2 class="text-2xl font-bold mb-4">Temporada</h2>
       <div class="grid md:grid-cols-5 gap-6 mt-4">
         <!-- 10 espacios de productos -->
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 1</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 2</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 3</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 4</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 5</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 6</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 7</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 8</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 9</h4></div>
-        <div class="border rounded-xl p-4 bg-white shadow"><h4 class="font-bold">Producto 10</h4></div>
+         <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp2.jpg" alt="Producto 1" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 1</h4>
+          <p class="font-semibold">0</p>
       </div>
     </section>
 
