@@ -1,234 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tiendita Escolar Queentana</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queentana´s Tiendita Escolar</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{
-      --brand-bg: #F9F6F0;
-      --text-dark: #1F1F1F;
-      --accent-gold: #C69B4B;
-      --muted: #7a7468;
-    }
-    body{background:var(--brand-bg); color:var(--text-dark);}
-    .brand-gradient{background:linear-gradient(90deg, rgba(198,155,75,0.12), rgba(198,155,75,0.02));}
-    .card {background: white; border-radius: 14px; box-shadow: 0 6px 18px rgba(31,31,31,0.06);}
-    .accent {color: var(--accent-gold)}
-  </style>
 </head>
-<body class="min-h-screen p-6 md:p-12">
-  <header class="max-w-5xl mx-auto mb-8">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <!-- logo placeholder -->
-        <div class="w-14 h-14 rounded-full brand-gradient flex items-center justify-center font-semibold text-lg">Q</div>
-        <div>
-          <h1 class="text-2xl md:text-3xl font-extrabold">Tiendita Escolar <span class="accent">Queentana</span></h1>
-          <p class="text-sm text-[var(--muted)]">Dulces y antojos para tu día a día — con cariño y sazón real.</p>
-        </div>
-      </div>
-      <nav>
-        <button id="cart-btn" class="relative btn px-4 py-2 bg-white card hover:shadow-md rounded-lg">
-          🛒 Carrito <span id="cart-count" class="ml-2 bg-[var(--accent-gold)] text-white rounded-full px-2 py-0.5 text-xs">0</span>
-        </button>
-      </nav>
-    </div>
+<body class="bg-[#F9F6F0] text-[#1F1F1F]">
+  <!-- Encabezado -->
+  <header class="bg-[#C69B4B] text-white p-6 text-center shadow-lg">
+    <h1 class="text-3xl font-bold">🍎 Queentana´s Tiendita Escolar</h1>
+    <p class="text-lg">Menú completo para todos los gustos</p>
   </header>
 
-  <main class="max-w-5xl mx-auto grid gap-8">
-    <!-- Welcome -->
-    <section class="card p-6 md:p-10">
-      <div class="md:flex md:items-center md:justify-between">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-bold">Bienvenido a mi tiendita escolar</h2>
-          <p class="mt-3 text-lg text-[var(--muted)]">Elige lo que más te apetezca hoy: desde un antojito calentito hasta una bebida refrescante. Todo preparado con cariño y listo para acompañarte en tu día. ¡Explora el menú y arma tu pedido!</p>
-        </div>
-        <div class="mt-6 md:mt-0 md:ml-6">
-          <img src="" alt="imagen de la tiendita (opcional)" class="w-48 h-32 object-cover rounded-lg border" />
-        </div>
-      </div>
-    </section>
+  <main class="p-6 space-y-12">
 
-    <!-- Sections -->
-    <section class="grid md:grid-cols-2 gap-6">
-      <!-- Menu Diario -->
-      <div class="card p-6">
-        <h3 class="text-2xl font-bold mb-4">Menu diario</h3>
-
-        <div id="menu-diario" class="space-y-4">
-          <!-- Product template will be injected by JS -->
-        </div>
-      </div>
-
-      <!-- Especial del día -->
-      <div class="card p-6">
-        <h3 class="text-2xl font-bold mb-4">Especial del día</h3>
-        <p class="text-sm text-[var(--muted)] mb-4">Aquí aparecen los productos especiales que cambiamos cada día. Puedes actualizar esta lista desde el código fácilmente.</p>
-        <div id="especial-dia" class="flex gap-4 overflow-x-auto">
-          <!-- Specials added by JS horizontally -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Checkout & Payment info -->
-    <section class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <div>
-        <h4 class="font-semibold">Resumen del carrito</h4>
-        <p class="text-sm text-[var(--muted)]">Los totales se actualizan automáticamente cuando agregas o quitas productos.</p>
-      </div>
-      <div class="ml-auto flex gap-3 items-center">
-        <div class="text-right">
-          <div class="text-sm text-[var(--muted)]">Total</div>
-          <div id="cart-total" class="text-xl font-bold">$0.00</div>
-        </div>
-        <div class="flex gap-2">
-          <button id="pay-whatsapp" class="px-4 py-2 rounded-lg card">Pagar por WhatsApp</button>
-          <button id="pay-bank" class="px-4 py-2 rounded-lg bg-white card">Pagar por BBVA</button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Cart Drawer -->
-  <div id="cart-drawer" class="fixed right-6 bottom-6 w-80 max-h-[70vh] overflow-y-auto card p-4 hidden">
-    <h4 class="font-semibold mb-2">Tu carrito</h4>
-    <ul id="cart-list" class="space-y-3 text-sm"></ul>
-    <div class="mt-4 flex justify-between items-center">
-      <div>Total:</div>
-      <div id="drawer-total" class="font-bold">$0.00</div>
-    </div>
-    <div class="mt-3 flex gap-2">
-      <button id="close-cart" class="flex-1 px-3 py-2 rounded-lg">Cerrar</button>
-      <button id="clear-cart" class="flex-1 px-3 py-2 rounded-lg bg-white card">Vaciar</button>
-    </div>
-  </div>
-
-  <!-- Modal for BBVA details -->
-  <div id="bank-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center hidden">
-    <div class="bg-white p-6 rounded-lg w-[90%] max-w-md card">
-      <h4 class="font-bold mb-2">Pago por transferencia (BBVA)</h4>
-      <p class="text-sm text-[var(--muted)] mb-4">Usa los siguientes datos para realizar tu pago y luego confirma en WhatsApp con la foto del comprobante.</p>
-      <div class="bg-gray-50 p-4 rounded">
-        <p><strong>Banco:</strong> BBVA</p>
-        <p><strong>Titular:</strong> Queentana Real (Tu nombre)</p>
-        <p><strong>Cuenta CLABE:</strong> 012345678901234567</p>
-        <p><strong>Referencia:</strong> Pedido Tiendita Escolar</p>
-      </div>
-      <div class="mt-4 flex gap-2 justify-end">
-        <button id="close-bank" class="px-3 py-2 rounded-lg">Cerrar</button>
-        <button id="bank-confirm" class="px-3 py-2 rounded-lg bg-white card">Confirmar y enviar por WhatsApp</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const menuDiario = [
-      { id: 'mini-torta', name: 'Mini torta de pan blanco', price: 13 },
-      { id: 'moyete', name: 'Moyete', price: 13 },
-      { id: 'burritos', name: 'Burritos (guisado variado)', price: 24 },
-      { id: 'fruta', name: 'Fruta', price: 25 },
-      { id: 'jugo', name: 'Jugo', price: 12 },
-      { id: 'papas', name: 'Papas caseras', price: 32 },
-      { id: 'agua', name: 'Agua', price: 0, options: {
-        size: [{k:'chica', label:'Chica $6', price:6},{k:'grande', label:'Grande $12', price:12},{k:'sabor', label:'Agua de sabor $25', price:25}],
-        sabor: ['Jamaica','Horchata','Piña colada','Limón','Sandía','Melón']
-      }},
-      { id: 'yoghurt', name: 'Yoghurt', price: 18, options: { toppings: ['Cacahuate','Chispas payaso','Chispas de chocolate','Nuez','Miel'] }},
-      { id: 'gelatina', name: 'Gelatina', price: 12, options: { sabor: ['Limón','Piña','Fresa','Durazno','Mango'] }},
-    ];
-
-    const especialDia = [
-      { id: 'especial-1', name: 'Brownie especial', price: 28 },
-      { id: 'especial-2', name: 'Galleta con chispas', price: 15 }
-    ];
-
-    let cart = [];
-
-    const $ = sel => document.querySelector(sel);
-    function format(n){ return '$' + n.toFixed(2); }
-
-    function createProductElement(p){
-      const el = document.createElement('div');
-      el.className = 'p-4 border rounded-lg flex flex-col gap-3 min-w-[200px]';
-      el.innerHTML = `
-        <div class="flex justify-between items-start">
-          <div>
-            <div class="font-semibold">${p.name}</div>
-            <div class="text-sm text-[var(--muted)]">${p.price>0 ? format(p.price) : ''}</div>
-          </div>
+    <!-- SECCIÓN 1: Menú Diario -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
+      
+      <!-- Categoría: Comida -->
+      <h3 class="text-xl font-semibold mb-2">🍽️ Comida</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Mini torta -->
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/mini-torta.jpg" alt="Mini torta" class="rounded-xl mb-2">
+          <h4 class="font-bold">Mini torta de pan blanco</h4>
+          <p class="text-sm">Mayonesa, Jamón, Salchicha, Tomate y Lechuga</p>
+          <p class="font-semibold">$13</p>
         </div>
 
-        <div class="flex gap-2 items-center">
-          <label class="text-sm">Cantidad</label>
-          <select class="qty-select p-1 border rounded">
-            ${[1,2,3,4,5].map(q=>`<option value="${q}">${q}</option>`).join('')}
+        <!-- Mollete -->
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/mollete.jpg" alt="Mollete" class="rounded-xl mb-2">
+          <h4 class="font-bold">Mollete</h4>
+          <p class="text-sm">Frijoles y Queso</p>
+          <p class="font-semibold">$13</p>
+        </div>
+
+        <!-- Burritos -->
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/burrito.jpg" alt="Burritos" class="rounded-xl mb-2">
+          <h4 class="font-bold">Burritos (Guisado Variado)</h4>
+          <p class="text-sm">Papas con chorizo, salsa verde, deshebrada, wini con chipotle, bistec a la mexicana, discada</p>
+          <p class="font-semibold">$24</p>
+        </div>
+      </div>
+
+      <!-- Categoría: Bebidas -->
+      <h3 class="text-xl font-semibold mt-8 mb-2">🥤 Bebidas</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Agua -->
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/agua.jpg" alt="Agua" class="rounded-xl mb-2">
+          <h4 class="font-bold">Agua</h4>
+          <select class="border rounded p-2 w-full mt-2">
+            <option>Agua Chica - $6</option>
+            <option>Agua Grande - $12</option>
           </select>
         </div>
 
-        <div class="options-area"></div>
-
-        <div class="flex gap-2 mt-2">
-          <button class="add-btn px-3 py-1 rounded-lg bg-white card">Agregar</button>
+        <!-- Jugo -->
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/jugo.jpg" alt="Jugo Jumexito" class="rounded-xl mb-2">
+          <h4 class="font-bold">Jugo Jumexito</h4>
+          <p class="font-semibold">$12</p>
         </div>
-      `;
+      </div>
 
-      const optionsArea = el.querySelector('.options-area');
-      if(p.options){
-        if(p.options.size){
-          const sizeSel = document.createElement('select');
-          sizeSel.className = 'size-select p-1 border rounded';
-          sizeSel.innerHTML = p.options.size.map(s=>`<option value="${s.k}" data-price="${s.price}">${s.label}</option>`).join('');
-          optionsArea.appendChild(sizeSel);
-          const saborSel = document.createElement('select');
-          saborSel.className = 'sabor-select p-1 border rounded';
-          saborSel.innerHTML = `<option value="">-- Sabor --</option>` + p.options.sabor.map(s=>`<option value="${s}">${s}</option>`).join('');
-          optionsArea.appendChild(saborSel);
-        }
-        if(p.options.toppings){
-          const topSel = document.createElement('select');
-          topSel.className = 'topping-select p-1 border rounded';
-          topSel.innerHTML = `<option value="">Sin topping</option>` + p.options.toppings.map(t=>`<option value="${t}">${t}</option>`).join('');
-          optionsArea.appendChild(topSel);
-        }
-        if(p.options.sabor && !p.options.size){
-          const saborSel = document.createElement('select');
-          saborSel.className = 'sabor-select p-1 border rounded';
-          saborSel.innerHTML = p.options.sabor.map(s=>`<option value="${s}">${s}</option>`).join('');
-          optionsArea.appendChild(saborSel);
-        }
-      }
+      <!-- Categoría: Snacks -->
+      <h3 class="text-xl font-semibold mt-8 mb-2">🍪 Snacks</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/galletas.jpg" alt="Galletas" class="rounded-xl mb-2">
+          <h4 class="font-bold">Galletas en vara</h4>
+          <p class="font-semibold">$5</p>
+        </div>
 
-      el.querySelector('.add-btn').addEventListener('click', ()=>{
-        const qty = parseInt(el.querySelector('.qty-select').value);
-        const item = { id: p.id, name: p.name, price: p.price, qty };
-        cart.push(item);
-        updateCartUI();
-      });
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/cacahuates.jpg" alt="Cacahuates" class="rounded-xl mb-2">
+          <h4 class="font-bold">Cacahuates</h4>
+          <select class="border rounded p-2 w-full mt-2">
+            <option>Garampiñado - $10</option>
+            <option>Jalapeño - $10</option>
+            <option>Japonés - $10</option>
+            <option>Enchilado - $5</option>
+            <option>Natural - $5</option>
+            <option>Energético - $10</option>
+          </select>
+        </div>
 
-      return el;
-    }
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/carlota.jpg" alt="Carlota" class="rounded-xl mb-2">
+          <h4 class="font-bold">Carlota</h4>
+          <p class="font-semibold">$30</p>
+        </div>
+      </div>
 
-    function renderMenus(){
-      const diario = document.getElementById('menu-diario');
-      diario.innerHTML = '';
-      menuDiario.forEach(p=> diario.appendChild(createProductElement(p)));
+      <!-- Categoría: Fitness -->
+      <h3 class="text-xl font-semibold mt-8 mb-2">💪 Fitness</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/gelatina.jpg" alt="Gelatina" class="rounded-xl mb-2">
+          <h4 class="font-bold">Gelatina</h4>
+          <select class="border rounded p-2 w-full mt-2">
+            <option>Fresa</option>
+            <option>Mango</option>
+            <option>Durazno</option>
+            <option>Limón</option>
+            <option>Frambuesa</option>
+            <option>Piña</option>
+          </select>
+          <p class="font-semibold">$12</p>
+        </div>
 
-      const especial = document.getElementById('especial-dia');
-      especial.innerHTML = '';
-      especialDia.forEach(p=> especial.appendChild(createProductElement(p)));
-    }
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/yogurt.jpg" alt="Yogurt" class="rounded-xl mb-2">
+          <h4 class="font-bold">Yogurt</h4>
+          <select class="border rounded p-2 w-full mt-2">
+            <option>Solo</option>
+            <option>Nuez</option>
+            <option>Cacahuate</option>
+            <option>Chispas Payaso</option>
+            <option>Chispas de Chocolate</option>
+            <option>Miel de abeja</option>
+          </select>
+          <p class="font-semibold">$18</p>
+        </div>
 
-    function updateCartUI(){
-      const total = cart.reduce((s,i)=> s + (i.price * i.qty), 0);
-      document.getElementById('cart-count').textContent = cart.length;
-      document.getElementById('cart-total').textContent = format(total);
-      document.getElementById('drawer-total').textContent = format(total);
-    }
+        <div class="border rounded-xl p-4 bg-white shadow">
+          <img src="img/fruta.jpg" alt="Fruta" class="rounded-xl mb-2">
+          <h4 class="font-bold">Fruta</h4>
+          <select class="border rounded p-2 w-full mt-2">
+            <option>Sola</option>
+            <option>Tico</option>
+            <option>Chile y limón</option>
+          </select>
+          <p class="font-semibold">$25</p>
+        </div>
+      </div>
+    </section>
 
-    renderMenus();
-  </script>
+    <!-- SECCIÓN 2: Especial del Día -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">⭐ Especial del Día</h2>
+      <div class="border rounded-xl p-6 bg-white shadow text-center">
+        <img src="img/especial.jpg" alt="Especial del día" class="mx-auto rounded-xl mb-2">
+        <h4 class="font-bold">Nombre del Platillo</h4>
+        <p class="text-sm">Descripción breve</p>
+        <p class="font-semibold">$$$</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: Exclusivo para maestros -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">🎓 Exclusivo para maestros(as)</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/refresco.jpg" alt="Refresco" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Refresco</h4>
+          <p class="font-semibold">$25</p>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/cafe.jpg" alt="Café" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Café</h4>
+          <p class="font-semibold">$20</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: Temporada -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">🎉 Temporada</h2>
+      <div class="grid md:grid-cols-5 gap-6">
+        <!-- 10 lugares para productos -->
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp1.jpg" alt="Producto 1" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 1</h4>
+          <p class="font-semibold">$$$</p>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp2.jpg" alt="Producto 2" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 2</h4>
+          <p class="font-semibold">$$$</p>
+        </div>
+        <!-- repite hasta producto 10 -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#C69B4B] text-white text-center p-4 mt-12">
+    <p>&copy; 2025 Queentana´s Tiendita Escolar - Todos los derechos reservados</p>
+  </footer>
 </body>
 </html>
