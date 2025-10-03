@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Queentana´s Tiendita Escolar</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -30,8 +30,20 @@
     <div class="bg-white rounded-lg shadow-lg max-w-lg mx-auto mt-20 p-6 relative">
       <button onclick="toggleCart()" class="absolute top-2 right-2 text-red-500">✖</button>
       <h2 class="text-2xl font-bold mb-4">🛒 Tu carrito</h2>
-      <ul id="cart-items" class="space-y-2"></ul>
+
+      <ul id="cart-items" class="space-y-2 max-h-48 overflow-auto"></ul>
+
       <p class="font-bold mt-4">Total: $<span id="cart-total">0</span></p>
+
+      <!-- Datos bancarios visibles -->
+      <div class="mt-4 p-3 border rounded bg-gray-50">
+        <p class="font-semibold mb-1">Transferencia bancaria (opcional):</p>
+        <p class="text-sm">Banco: <span id="bank-name">BBVA</span></p>
+        <p class="text-sm">Número de cuenta: <span id="bank-account">4152314309562018</span></p>
+        <p class="text-sm">A nombre de: <span id="bank-nameholder">Tania Quintana</span></p>
+        <p class="text-xs text-gray-600 mt-2">Después de transferir, envía el comprobante en la conversación de WhatsApp.</p>
+      </div>
+
       <button onclick="checkout()" class="bg-green-500 text-white px-4 py-2 rounded-lg mt-4 w-full">Pagar por WhatsApp</button>
     </div>
   </div>
@@ -46,16 +58,16 @@
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Mini torta -->
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/mini-torta.jpg" class="rounded-xl mb-2">
-          <h4 class="font-bold">Mini torta</h4>
+          <img src="img/mini-torta.jpg" alt="Mini torta" class="rounded-xl mb-2">
+          <h4 class="font-bold">Mini torta de pan blanco</h4>
           <p class="text-sm">Mayonesa, Jamón, Salchicha, Tomate y Lechuga</p>
           <p class="font-semibold">$13</p>
-          <button onclick="addToCart('Mini torta', 13)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+          <button onclick="addToCart('Mini torta de pan blanco', 13)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
         </div>
 
         <!-- Mollete -->
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/mollete.jpg" class="rounded-xl mb-2">
+          <img src="img/mollete.jpg" alt="Mollete" class="rounded-xl mb-2">
           <h4 class="font-bold">Mollete</h4>
           <p class="text-sm">Frijoles y Queso</p>
           <p class="font-semibold">$13</p>
@@ -64,7 +76,7 @@
 
         <!-- Burritos -->
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/burrito.jpg" class="rounded-xl mb-2">
+          <img src="img/burrito.jpg" alt="Burritos" class="rounded-xl mb-2">
           <h4 class="font-bold">Burritos</h4>
           <p class="text-sm">Elige tu guisado favorito</p>
           <select id="burrito-opcion" class="border rounded p-2 w-full mt-2">
@@ -80,21 +92,21 @@
         </div>
       </div>
 
-      <!-- Categoría: Bebidas -->
+      <!-- Bebidas -->
       <h3 class="text-xl font-semibold mt-8 mb-2">🥤 Bebidas</h3>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/agua.jpg" class="rounded-xl mb-2">
+          <img src="img/agua.jpg" alt="Agua" class="rounded-xl mb-2">
           <h4 class="font-bold">Agua</h4>
           <select id="agua-opcion" class="border rounded p-2 w-full mt-2">
             <option value="6">Agua Chica - $6</option>
             <option value="12">Agua Grande - $12</option>
           </select>
-          <button onclick="addToCart('Agua', parseInt(document.getElementById('agua-opcion').value))" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+          <button onclick="addToCart('Agua - ' + document.getElementById('agua-opcion').options[document.getElementById('agua-opcion').selectedIndex].text, parseInt(document.getElementById('agua-opcion').value))" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
         </div>
 
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/jugo.jpg" class="rounded-xl mb-2">
+          <img src="img/jugo.jpg" alt="Jugo Jumexito" class="rounded-xl mb-2">
           <h4 class="font-bold">Jugo Jumexito</h4>
           <p class="font-semibold">$12</p>
           <button onclick="addToCart('Jugo Jumexito', 12)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
@@ -105,14 +117,14 @@
       <h3 class="text-xl font-semibold mt-8 mb-2">🍪 Snacks</h3>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/galletas.jpg" class="rounded-xl mb-2">
+          <img src="img/galletas.jpg" alt="Galletas" class="rounded-xl mb-2">
           <h4 class="font-bold">Galletas en vara</h4>
           <p class="font-semibold">$5</p>
           <button onclick="addToCart('Galletas en vara', 5)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
         </div>
 
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/cacahuates.jpg" class="rounded-xl mb-2">
+          <img src="img/cacahuates.jpg" alt="Cacahuates" class="rounded-xl mb-2">
           <h4 class="font-bold">Cacahuates</h4>
           <select id="cacahuate-opcion" class="border rounded p-2 w-full mt-2">
             <option value="10">Garampiñado - $10</option>
@@ -126,7 +138,7 @@
         </div>
 
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/carlota.jpg" class="rounded-xl mb-2">
+          <img src="img/carlota.jpg" alt="Carlota" class="rounded-xl mb-2">
           <h4 class="font-bold">Carlota</h4>
           <p class="font-semibold">$30</p>
           <button onclick="addToCart('Carlota', 30)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
@@ -137,7 +149,7 @@
       <h3 class="text-xl font-semibold mt-8 mb-2">💪 Fitness</h3>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/gelatina.jpg" class="rounded-xl mb-2">
+          <img src="img/gelatina.jpg" alt="Gelatina" class="rounded-xl mb-2">
           <h4 class="font-bold">Gelatina</h4>
           <select id="gelatina-opcion" class="border rounded p-2 w-full mt-2">
             <option>Fresa</option>
@@ -152,7 +164,7 @@
         </div>
 
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/yogurt.jpg" class="rounded-xl mb-2">
+          <img src="img/yogurt.jpg" alt="Yogurt" class="rounded-xl mb-2">
           <h4 class="font-bold">Yogurt</h4>
           <select id="yogurt-opcion" class="border rounded p-2 w-full mt-2">
             <option>Solo</option>
@@ -167,7 +179,7 @@
         </div>
 
         <div class="border rounded-xl p-4 bg-white shadow">
-          <img src="img/fruta.jpg" class="rounded-xl mb-2">
+          <img src="img/fruta.jpg" alt="Fruta" class="rounded-xl mb-2">
           <h4 class="font-bold">Fruta</h4>
           <select id="fruta-opcion" class="border rounded p-2 w-full mt-2">
             <option>Sola</option>
@@ -184,7 +196,7 @@
     <section>
       <h2 class="text-2xl font-bold mb-4">⭐ Especial del Día</h2>
       <div class="border rounded-xl p-6 bg-white shadow text-center">
-        <img src="img/especial.jpg" class="mx-auto rounded-xl mb-2">
+        <img src="img/especial.jpg" alt="Especial del día" class="mx-auto rounded-xl mb-2">
         <h4 class="font-bold">Nombre del Platillo</h4>
         <p class="text-sm">Descripción breve</p>
         <p class="font-semibold">$$$</p>
@@ -197,13 +209,13 @@
       <h2 class="text-2xl font-bold mb-4">🎓 Exclusivo para maestros(as)</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/refresco.jpg" class="mx-auto rounded-xl mb-2">
+          <img src="img/refresco.jpg" alt="Refresco" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Refresco</h4>
           <p class="font-semibold">$25</p>
           <button onclick="addToCart('Refresco', 25)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
         </div>
         <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/cafe.jpg" class="mx-auto rounded-xl mb-2">
+          <img src="img/cafe.jpg" alt="Café" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Café</h4>
           <p class="font-semibold">$20</p>
           <button onclick="addToCart('Café', 20)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
@@ -215,64 +227,125 @@
     <section>
       <h2 class="text-2xl font-bold mb-4">🎉 Temporada</h2>
       <div class="grid md:grid-cols-5 gap-6">
-        <!-- 10 lugares -->
+        <!-- Aquí tienes 10 lugares listos: copia y ajusta nombre/precio/imagen -->
         <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp1.jpg" class="mx-auto rounded-xl mb-2">
+          <img src="img/temp1.jpg" alt="Producto 1" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Producto 1</h4>
           <p class="font-semibold">$0</p>
           <button onclick="addToCart('Producto 1', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
         </div>
         <div class="border rounded-xl p-4 bg-white shadow text-center">
-          <img src="img/temp2.jpg" class="mx-auto rounded-xl mb-2">
+          <img src="img/temp2.jpg" alt="Producto 2" class="mx-auto rounded-xl mb-2">
           <h4 class="font-bold">Producto 2</h4>
           <p class="font-semibold">$0</p>
           <button onclick="addToCart('Producto 2', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
         </div>
-        <!-- repite hasta Producto 10 -->
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp3.jpg" alt="Producto 3" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 3</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 3', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp4.jpg" alt="Producto 4" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 4</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 4', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp5.jpg" alt="Producto 5" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 5</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 5', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+
+        <!-- Otros 5 lugares -->
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp6.jpg" alt="Producto 6" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 6</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 6', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp7.jpg" alt="Producto 7" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 7</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 7', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp8.jpg" alt="Producto 8" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 8</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 8', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp9.jpg" alt="Producto 9" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 9</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 9', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
+        <div class="border rounded-xl p-4 bg-white shadow text-center">
+          <img src="img/temp10.jpg" alt="Producto 10" class="mx-auto rounded-xl mb-2">
+          <h4 class="font-bold">Producto 10</h4>
+          <p class="font-semibold">$0</p>
+          <button onclick="addToCart('Producto 10', 0)" class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="bg-[#C69B4B] text-white text-center p-4 mt-12">
-    <p>&copy; 2025 Queentana´s Tiendita Escolar - Hecho con amor</p>
+    <p>&copy; 2025 Queentana´s Tiendita Escolar - Todos los derechos reservados</p>
   </footer>
 
   <script>
+    // Datos de WhatsApp y banco
+    const WHATSAPP_TO = "5216142425718"; // número destino (usa formato internacional sin signos)
+    const BANK_NAME = "BBVA";
+    const BANK_ACCOUNT = "4152314309562018";
+    const BANK_HOLDER = "Tania Quintana";
+
     let cart = [];
 
     function toggleCart() {
       document.getElementById("cart-modal").classList.toggle("hidden");
+      updateCartDisplay();
     }
 
     function addToCart(name, price) {
       cart.push({ name, price });
-      updateCart();
+      updateCartDisplay();
     }
 
     function removeFromCart(index) {
       cart.splice(index, 1);
-      updateCart();
+      updateCartDisplay();
     }
 
-    function updateCart() {
-      const cartItems = document.getElementById("cart-items");
-      const cartCount = document.getElementById("cart-count");
-      const cartTotal = document.getElementById("cart-total");
-      cartItems.innerHTML = "";
+    function updateCartDisplay() {
+      const cartItemsEl = document.getElementById("cart-items");
+      const cartCountEl = document.getElementById("cart-count");
+      const cartTotalEl = document.getElementById("cart-total");
+
+      // Actualiza el contador en el botón principal también
+      document.getElementById("cart-count").textContent = cart.length;
+
+      cartItemsEl.innerHTML = "";
       let total = 0;
 
       cart.forEach((item, index) => {
         total += item.price;
-        cartItems.innerHTML += `
-          <li class="flex justify-between items-center">
-            ${item.name} - $${item.price}
+        cartItemsEl.innerHTML += `
+          <li class="flex justify-between items-center border-b pb-1">
+            <span>${item.name} - $${item.price}</span>
             <button onclick="removeFromCart(${index})" class="text-red-500 ml-2">✖</button>
           </li>
         `;
       });
 
-      cartCount.textContent = cart.length;
-      cartTotal.textContent = total;
+      cartTotalEl.textContent = total;
+      // También actualiza contador visible arriba (si el modal está cerrado)
+      document.getElementById("cart-count").textContent = cart.length;
     }
 
     function checkout() {
@@ -280,14 +353,30 @@
         alert("Tu carrito está vacío.");
         return;
       }
-      let message = "Hola! Quiero hacer mi pedido:\n";
-      cart.forEach(item => {
-        message += `- ${item.name}: $${item.price}\n`;
-      });
-      message += `\nTotal: $${cart.reduce((sum, item) => sum + item.price, 0)}`;
 
-      window.open(`https://wa.me/526143515170?text=${encodeURIComponent(message)}`, "_blank");
+      // Construir mensaje con pedido, total y datos bancarios
+      let mensaje = "Hola! Quiero hacer mi pedido:%0A";
+      cart.forEach(item => {
+        mensaje += `- ${item.name}: $${item.price}%0A`;
+      });
+
+      const total = cart.reduce((s, i) => s + i.price, 0);
+      mensaje += `%0ATotal: $${total}%0A%0A`;
+
+      // Agregar instrucción de transferencia y datos bancarios
+      mensaje += `Realizaré transferencia a la cuenta:%0ABanco: ${BANK_NAME}%0ANúmero: ${BANK_ACCOUNT}%0AA nombre de: ${BANK_HOLDER}%0A%0APor favor confirmar recepción y enviar instrucciones si aplica.%0A%0AEnvío comprobante en este chat.`;
+
+      // Abre WhatsApp con el mensaje (encode)
+      const url = `https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank");
     }
+
+    // Inicializar display (por si)
+    updateCartDisplay();
+    // Mostrar datos de cuenta en el modal (por si se cambian dinámicamente)
+    document.getElementById("bank-name").textContent = BANK_NAME;
+    document.getElementById("bank-account").textContent = BANK_ACCOUNT;
+    document.getElementById("bank-nameholder").textContent = BANK_HOLDER;
   </script>
 </body>
 </html>
