@@ -234,7 +234,7 @@
   </main>
 
   <footer class="bg-[#C69B4B] text-white text-center p-4 mt-12">
-    <p>&copy; 2025 Queentana´s Tiendita Escolar - Todos los derechos reservados</p>
+    <p>&copy; 2025 Queentana´s Tiendita Escolar - Hecho con amor</p>
   </footer>
 
   <script>
