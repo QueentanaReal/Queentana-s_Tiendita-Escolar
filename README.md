@@ -12,9 +12,7 @@
 <header class="bg-[#C69B4B] text-white p-4 shadow-lg flex items-center justify-between">
   <button id="menuBtn" class="text-2xl">☰</button>
 
-  <a href="#" onclick="scrollToSection('inicio')" class="text-center">
-    <h1 class="text-xl md:text-2xl font-bold">👑 Queentana´s Tiendita</h1>
-  </a>
+  <h1 class="text-xl md:text-2xl font-bold">👑 Queentana´s Tiendita</h1>
 
   <button id="cartBtn" class="bg-white text-[#C69B4B] px-3 py-1 rounded-lg shadow font-bold">
     🛒 (<span id="cartCount">0</span>)
@@ -22,27 +20,14 @@
 </header>
 
 <!-- NOTIFICACIÓN -->
-<div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300">
-  Producto agregado 🛒
-</div>
+<div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"></div>
 
-<!-- MENÚ -->
-<div id="menu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform z-50 p-6 space-y-4">
-  <button id="closeMenu" class="text-right w-full text-xl">✖</button>
+<!-- SONIDO -->
+<audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
-  <a href="#" onclick="scrollToSection('menuSec')" class="block font-bold">📋 Menú diario</a>
-  <a href="#" onclick="scrollToSection('bebidas')" class="block font-bold">🥤 Bebidas</a>
-  <a href="#" onclick="scrollToSection('especial')" class="block font-bold">⭐ Especial</a>
-  <a href="#" onclick="scrollToSection('maestros')" class="block font-bold">🎓 Maestros</a>
-  <a href="#" onclick="scrollToSection('temporada')" class="block font-bold">🍂 Temporada</a>
-</div>
+<main class="p-6 space-y-12">
 
-<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
-
-<main id="inicio" class="p-6 space-y-12">
-
-<!-- MENÚ -->
-<section id="menuSec">
+<section>
 <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
 
 <div class="grid md:grid-cols-3 gap-6">
@@ -69,7 +54,7 @@
   </div>
 </div>
 
-<h3 id="bebidas" class="text-xl font-semibold mt-8">🥤 Bebidas</h3>
+<h3 class="text-xl font-semibold mt-8">🥤 Bebidas</h3>
 <div class="grid md:grid-cols-3 gap-6 mt-4">
   <div class="border p-4 bg-white rounded shadow">
     <h4>Agua</h4>
@@ -88,97 +73,74 @@
 </div>
 </section>
 
-<!-- ESPECIAL -->
-<section id="especial">
-<h2 class="text-2xl font-bold mb-4">⭐ Especial del día</h2>
-
-<div class="border p-4 bg-white rounded shadow">
-  <h4>Platillo del día</h4>
-  <p>$30</p>
-  <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-    data-name="Especial del día" data-price="30">
-    Agregar
-  </button>
-</div>
-</section>
-
-<!-- MAESTROS -->
-<section id="maestros">
-<h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
-
-<div class="grid md:grid-cols-2 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Refresco</h4>
-    <p>$25</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Refresco" data-price="25">
-      Agregar
-    </button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Café</h4>
-    <p>$20</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Café" data-price="20">
-      Agregar
-    </button>
-  </div>
-</div>
-</section>
-
-<!-- TEMPORADA -->
-<section id="temporada">
-<h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
-
-<div class="grid md:grid-cols-3 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Bolis</h4>
-    <p>$10</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Bolis" data-price="10">
-      Agregar
-    </button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Mangoneada</h4>
-    <p>$12</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Mangoneada" data-price="12">
-      Agregar
-    </button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Paleta</h4>
-    <p>$25</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Paleta" data-price="25">
-      Agregar
-    </button>
-  </div>
-</div>
-</section>
-
 </main>
+
+<!-- CARRITO -->
+<div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+  <div class="bg-white w-96 p-6 rounded-xl">
+    <h2 class="text-xl font-bold mb-4">🛒 Carrito</h2>
+
+    <ul id="cartItems" class="space-y-2"></ul>
+
+    <p class="font-bold mt-4">Total: $<span id="cartTotal">0</span></p>
+
+    <button id="closeCart" class="bg-gray-400 text-white w-full mt-4 py-2 rounded">
+      Cerrar
+    </button>
+  </div>
+</div>
 
 <script>
 let cart = [];
 
+const cartBtn = document.getElementById("cartBtn");
+const cartModal = document.getElementById("cartModal");
+const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
+
 const toast = document.getElementById("toast");
+const sound = document.getElementById("sound");
+
+cartBtn.onclick = () => cartModal.classList.remove("hidden");
+closeCart.onclick = () => cartModal.classList.add("hidden");
 
 function showToast(text){
   toast.textContent = text;
   toast.classList.remove("opacity-0");
+  sound.play();
   setTimeout(()=> toast.classList.add("opacity-0"),1500);
 }
 
 function addToCart(name, price){
   cart.push({name, price: parseFloat(price)});
-  cartCount.textContent = cart.length;
+  renderCart();
   showToast(name + " agregado 🛒");
+}
+
+function renderCart(){
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, i)=>{
+    total += item.price;
+
+    cartItems.innerHTML += `
+      <li class="flex justify-between">
+        ${item.name} - $${item.price}
+        <button onclick="removeItem(${i})" class="text-red-500">✕</button>
+      </li>
+    `;
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+  cartCount.textContent = cart.length;
+}
+
+function removeItem(i){
+  cart.splice(i,1);
+  renderCart();
 }
 
 document.querySelectorAll(".addToCart").forEach(btn=>{
