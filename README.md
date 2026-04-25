@@ -137,20 +137,20 @@
           <img src="img/temp1.jpg" alt="Producto temporada" class="rounded-xl mb-2">
           <h4 class="font-bold">Producto Temporada 1</h4>
           <p class="font-semibold">$0</p>
-          <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Producto Temporada 1" data-price="20">Agregar</button>
+          <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Bolis" data-price="10">Agregar</button>
         </div>
 
         <div class="border rounded-xl p-4 bg-white shadow">
           <img src="img/temp2.jpg" alt="Producto temporada" class="rounded-xl mb-2">
           <h4 class="font-bold">Producto Temporada 2</h4>
           <p class="font-semibold">$0</p>
-          <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Producto Temporada 2" data-price="25">Agregar</button>
+          <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Heladitos7Mangoneada" data-price="12">Agregar</button>
         </div>
         <div class="border rounded-xl p-4 bg-white shadow">
           <img src="img/temp2.jpg" alt="Producto temporada" class="rounded-xl mb-2">
           <h4 class="font-bold">Producto Temporada 3</h4>
           <p class="font-semibold">$0</p>
-          <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Producto Temporada 2" data-price="25">Agregar</button>
+          <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Paleta" data-price="25">Agregar</button>
         </div>
         <div class="border rounded-xl p-4 bg-white shadow">
           <img src="img/temp2.jpg" alt="Producto temporada" class="rounded-xl mb-2">
@@ -179,7 +179,7 @@
   </div>
 
   <footer class="bg-[#C69B4B] text-white text-center p-4 mt-12">
-    <p>&copy; 2025 Queentana´s Tiendita Escolar - Todos los derechos reservados</p>
+    <p>&copy; 2025 Queentana´s Tiendita Escolar - QueentanaReal</p>
   </footer>
 
   <script>
