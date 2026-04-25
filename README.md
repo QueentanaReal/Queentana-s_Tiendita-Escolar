@@ -158,7 +158,57 @@
 
 </main>
 
-<!-- (TODO tu script queda EXACTAMENTE igual, no hay que tocarlo) -->
+<script>
+let cart=[];
+
+function addToCart(name,price){
+  cart.push({name,price:parseFloat(price)});
+  renderCart();
+}
+
+function renderCart(){
+  const count=document.getElementById("cartCount");
+  count.textContent=cart.length;
+}
+
+document.querySelectorAll(".addToCart").forEach(btn=>{
+  btn.onclick=()=>addToCart(btn.dataset.name,btn.dataset.price);
+});
+
+document.querySelector(".addBurrito").onclick=(e)=>{
+  const opt=document.querySelector(".burritoOption").value;
+  addToCart("Burrito "+opt,e.target.dataset.price);
+};
+
+document.querySelector(".addAgua").onclick=()=>{
+  const opt=document.querySelector(".aguaOption").value.split(" - ");
+  addToCart(opt[0],opt[1]);
+};
+
+// MENÚ
+const menuBtn=document.getElementById("menuBtn");
+const menu=document.getElementById("menu");
+const closeMenu=document.getElementById("closeMenu");
+const overlay=document.getElementById("overlay");
+
+menuBtn.onclick=()=>{
+  menu.classList.remove("-translate-x-full");
+  overlay.classList.remove("hidden");
+};
+
+function closeMenuFunc(){
+  menu.classList.add("-translate-x-full");
+  overlay.classList.add("hidden");
+}
+
+closeMenu.onclick=closeMenuFunc;
+overlay.onclick=closeMenuFunc;
+
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+  closeMenuFunc();
+}
+</script>
 
 </body>
 </html>
