@@ -21,6 +21,21 @@
       🛒 (<span id="cartCount">0</span>)
     </button>
   </header>
+  <p class="font-bold mt-4">Total: $<span id="cartTotal">0</span></p>
+  <!-- MÉTODO DE PAGO -->
+<div class="mt-4">
+  <p class="font-bold mb-2">Método de pago:</p>
+
+  <select id="paymentMethod" class="w-full border rounded p-2">
+    <option value="">Selecciona una opción</option>
+    <option value="transferencia">💳 Transferencia</option>
+    <option value="efectivo">💵 Efectivo</option>
+  </select>
+</div>
+
+<button id="checkout" class="bg-green-600 text-white w-full mt-4 py-2 rounded font-bold">
+  Confirmar pedido
+</button>
 
   <!-- MENÚ -->
   <div id="menu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform z-50 p-6 space-y-4">
@@ -212,6 +227,59 @@
       closeMenuFunc();
     }
   </script>
+// CHECKOUT
+const checkout = document.getElementById("checkout");
 
+checkout.addEventListener("click", () => {
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
+
+  const payment = document.getElementById("paymentMethod").value;
+
+  if (!payment) {
+    alert("Selecciona un método de pago");
+    return;
+  }
+
+  // Generar folio
+  const folio = Math.floor(100000 + Math.random() * 900000);
+
+  // Crear mensaje
+  let message = "🧾 *Nuevo Pedido*%0A";
+  message += "Folio: " + folio + "%0A%0A";
+
+  cart.forEach(item => {
+    message += "- " + item.name + " - $" + item.price + "%0A";
+  });
+
+  message += "%0ATotal: $" + cartTotal.textContent + "%0A";
+  message += "Método de pago: " + payment + "%0A";
+
+  if (payment === "transferencia") {
+    message += "%0A💳 Datos de pago:%0A";
+    message += "BBVA 4152314309562018%0A";
+    message += "Titular: Tania Quintana%0A";
+    message += "Envía comprobante con este folio.";
+
+    const phone = "52161435135170";
+
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  }
+
+  if (payment === "efectivo") {
+    alert(
+      "Pedido confirmado ✅\n\n" +
+      "Folio: " + folio + "\n" +
+      "Total: $" + cartTotal.textContent + "\n\n" +
+      "Paga en efectivo al recoger tu pedido."
+    );
+  }
+
+  // Limpiar carrito
+  cart = [];
+  renderCart();
+});
 </body>
 </html>
