@@ -21,21 +21,6 @@
       🛒 (<span id="cartCount">0</span>)
     </button>
   </header>
-  <p class="font-bold mt-4">Total: $<span id="cartTotal">0</span></p>
-  <!-- MÉTODO DE PAGO -->
-<div class="mt-4">
-  <p class="font-bold mb-2">Método de pago:</p>
-
-  <select id="paymentMethod" class="w-full border rounded p-2">
-    <option value="">Selecciona una opción</option>
-    <option value="transferencia">💳 Transferencia</option>
-    <option value="efectivo">💵 Efectivo</option>
-  </select>
-</div>
-
-<button id="checkout" class="bg-green-600 text-white w-full mt-4 py-2 rounded font-bold">
-  Confirmar pedido
-</button>
 
   <!-- MENÚ -->
   <div id="menu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform z-50 p-6 space-y-4">
@@ -53,6 +38,7 @@
   <!-- CONTENIDO -->
   <main id="inicio" class="p-6 space-y-12">
 
+    <!-- MENÚ -->
     <section id="menuSec">
       <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
 
@@ -99,6 +85,7 @@
       </div>
     </section>
 
+    <!-- ESPECIAL -->
     <section id="especial">
       <h2 class="text-2xl font-bold mb-4">⭐ Especial</h2>
       <div class="border p-4 bg-white rounded shadow">
@@ -108,6 +95,7 @@
       </div>
     </section>
 
+    <!-- MAESTROS -->
     <section id="maestros">
       <h2 class="text-2xl font-bold mb-4">🎓 Maestros</h2>
       <div class="border p-4 bg-white rounded shadow">
@@ -117,6 +105,7 @@
       </div>
     </section>
 
+    <!-- TEMPORADA -->
     <section id="temporada">
       <h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
       <div class="border p-4 bg-white rounded shadow">
@@ -132,15 +121,34 @@
   <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
     <div class="bg-white w-96 p-6 rounded-xl">
       <h2 class="text-xl font-bold mb-4">🛒 Carrito</h2>
+
       <ul id="cartItems" class="space-y-2"></ul>
+
       <p class="font-bold mt-4">Total: $<span id="cartTotal">0</span></p>
 
-      <div class="flex justify-between mt-4">
-        <button id="closeCart" class="bg-gray-400 text-white px-4 py-2 rounded">Cerrar</button>
+      <!-- MÉTODO DE PAGO -->
+      <div class="mt-4">
+        <p class="font-bold mb-2">Método de pago:</p>
+
+        <select id="paymentMethod" class="w-full border rounded p-2">
+          <option value="">Selecciona una opción</option>
+          <option value="transferencia">💳 Transferencia</option>
+          <option value="efectivo">💵 Efectivo</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-2 mt-4">
+        <button id="checkout" class="bg-green-600 text-white py-2 rounded font-bold">
+          Confirmar pedido
+        </button>
+        <button id="closeCart" class="bg-gray-400 text-white py-2 rounded">
+          Cerrar
+        </button>
       </div>
     </div>
   </div>
 
+  <!-- SCRIPT -->
   <script>
     let cart = [];
 
@@ -203,6 +211,39 @@
       addToCart(opt[0], opt[1]);
     };
 
+    // CHECKOUT
+    document.getElementById("checkout").onclick = () => {
+      if (cart.length === 0) return alert("Tu carrito está vacío");
+
+      const payment = document.getElementById("paymentMethod").value;
+      if (!payment) return alert("Selecciona un método de pago");
+
+      const folio = Math.floor(100000 + Math.random() * 900000);
+
+      let message = "🧾 Pedido%0A";
+      message += "Folio: " + folio + "%0A%0A";
+
+      cart.forEach(item => {
+        message += "- " + item.name + " - $" + item.price + "%0A";
+      });
+
+      message += "%0ATotal: $" + cartTotal.textContent + "%0A";
+      message += "Pago: " + payment + "%0A";
+
+      if (payment === "transferencia") {
+        message += "%0ABBVA 4152314309562018%0ATania Quintana";
+
+        window.open(`https://wa.me/52161435135170?text=${message}`, "_blank");
+      }
+
+      if (payment === "efectivo") {
+        alert("Pedido confirmado ✅\nFolio: " + folio + "\nTotal: $" + cartTotal.textContent);
+      }
+
+      cart = [];
+      renderCart();
+    };
+
     // MENÚ
     const menuBtn = document.getElementById("menuBtn");
     const menu = document.getElementById("menu");
@@ -227,59 +268,6 @@
       closeMenuFunc();
     }
   </script>
-// CHECKOUT
-const checkout = document.getElementById("checkout");
 
-checkout.addEventListener("click", () => {
-  if (cart.length === 0) {
-    alert("Tu carrito está vacío");
-    return;
-  }
-
-  const payment = document.getElementById("paymentMethod").value;
-
-  if (!payment) {
-    alert("Selecciona un método de pago");
-    return;
-  }
-
-  // Generar folio
-  const folio = Math.floor(100000 + Math.random() * 900000);
-
-  // Crear mensaje
-  let message = "🧾 *Nuevo Pedido*%0A";
-  message += "Folio: " + folio + "%0A%0A";
-
-  cart.forEach(item => {
-    message += "- " + item.name + " - $" + item.price + "%0A";
-  });
-
-  message += "%0ATotal: $" + cartTotal.textContent + "%0A";
-  message += "Método de pago: " + payment + "%0A";
-
-  if (payment === "transferencia") {
-    message += "%0A💳 Datos de pago:%0A";
-    message += "BBVA 4152314309562018%0A";
-    message += "Titular: Tania Quintana%0A";
-    message += "Envía comprobante con este folio.";
-
-    const phone = "52161435135170";
-
-    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
-  }
-
-  if (payment === "efectivo") {
-    alert(
-      "Pedido confirmado ✅\n\n" +
-      "Folio: " + folio + "\n" +
-      "Total: $" + cartTotal.textContent + "\n\n" +
-      "Paga en efectivo al recoger tu pedido."
-    );
-  }
-
-  // Limpiar carrito
-  cart = [];
-  renderCart();
-});
 </body>
 </html>
