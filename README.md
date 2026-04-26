@@ -84,8 +84,15 @@ Agregar
 <!-- MAESTROS -->
 <section>
 <h2 class="text-2xl font-bold">🎓 Maestros</h2>
-<button class="addToCart" data-name="Refresco Maestro" data-price="25">Refresco $25</button>
-<button class="addToCart" data-name="Café Maestro" data-price="20">Café $20</button>
+<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+data-name="Refresco Maestro" data-price="25">
+Agregar Refresco ($25)
+</button>
+
+<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+data-name="Café Maestro" data-price="20">
+Agregar Café ($20)
+</button>
 </section>
 
 <!-- TEMPORADA -->
