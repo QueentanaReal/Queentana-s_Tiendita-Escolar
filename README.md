@@ -75,7 +75,10 @@
 <!-- ESPECIAL -->
 <section>
 <h2 class="text-2xl font-bold">⭐ Especial del día</h2>
-<button class="addToCart" data-name="Especial del día" data-price="30">Agregar Especial ($30)</button>
+<button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+data-name="Especial del día" data-price="30">
+Agregar
+</button>
 </section>
 
 <!-- MAESTROS -->
