@@ -189,11 +189,12 @@ const cartItems = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
 const cartTotal = document.getElementById("cartTotal");
 
+  document.getElementById("sendWhatsApp").onclick = ()=>{
+    
 const toast = document.getElementById("toast");
 const sound = document.getElementById("sound");
 
-  
-  const paymentMethod = document.getElementById("paymentMethod");
+const paymentMethod = document.getElementById("paymentMethod");
 const transferInfo = document.getElementById("transferInfo");
 
 paymentMethod.addEventListener("change", () => {
@@ -203,6 +204,7 @@ paymentMethod.addEventListener("change", () => {
     transferInfo.classList.add("hidden");
   }
 });
+    
 cartBtn.onclick = () => cartModal.classList.remove("hidden");
 closeCart.onclick = () => cartModal.classList.add("hidden");
 
@@ -255,8 +257,6 @@ document.querySelector(".addAgua").onclick = ()=>{
   const opt = document.querySelector(".aguaOption").value.split(" - ");
   addToCart(opt[0], opt[1]);
 };
-
-document.getElementById("sendWhatsApp").onclick = ()=>{
 
   if(cart.length === 0) return alert("Carrito vacío");
 
