@@ -122,24 +122,6 @@ const cartItems = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
 const cartTotal = document.getElementById("cartTotal");
   
-  document.getElementById("sendWhatsApp").onclick = ()=>{
-  if(cart.length === 0) return alert("Carrito vacío");
-
-  const payment = document.getElementById("paymentMethod").value;
-  if(!payment) return alert("Selecciona método de pago");
-
-  const folio = Math.floor(100000 + Math.random() * 900000);
-
-  let msg = "🧾 Pedido:%0A";
-  msg += "Folio: " + folio + "%0A%0A";
-
-  cart.forEach(i=> msg += "- " + i.name + "%0A");
-
-  msg += "%0ATotal $" + cartTotal.textContent + "%0A";
-  msg += "Pago: " + payment;
-
-  window.open("https://wa.me/5216143515170?text=" + msg);
-};
 
 const toast = document.getElementById("toast");
 const sound = document.getElementById("sound");
@@ -194,7 +176,24 @@ document.getElementById("sendWhatsApp").onclick = ()=>{
   cart.forEach(i=> msg += "- " + i.name + "%0A");
   msg += "Total $" + cartTotal.textContent;
 
-  window.open("https://wa.me/526143515170?text=" + msg);
+   document.getElementById("sendWhatsApp").onclick = ()=>{
+  if(cart.length === 0) return alert("Carrito vacío");
+
+  const payment = document.getElementById("paymentMethod").value;
+  if(!payment) return alert("Selecciona método de pago");
+
+  const folio = Math.floor(100000 + Math.random() * 900000);
+
+  let msg = "🧾 Pedido:%0A";
+  msg += "Folio: " + folio + "%0A%0A";
+
+  cart.forEach(i=> msg += "- " + i.name + "%0A");
+
+  msg += "%0ATotal $" + cartTotal.textContent + "%0A";
+  msg += "Pago: " + payment;
+
+  window.open("https://wa.me/5216143515170?text=" + msg);
+};
 };
 </script>
 
