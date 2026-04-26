@@ -11,9 +11,7 @@
 
 <header class="bg-[#C69B4B] text-white p-4 shadow-lg flex items-center justify-between">
   <button id="menuBtn" class="text-2xl">☰</button>
-
   <h1 class="text-xl md:text-2xl font-bold">👑 Queentana´s Tiendita</h1>
-
   <button id="cartBtn" class="bg-white text-[#C69B4B] px-3 py-1 rounded-lg shadow font-bold">
     🛒 (<span id="cartCount">0</span>)
   </button>
@@ -27,6 +25,7 @@
 
 <main class="p-6 space-y-12">
 
+<!-- MENÚ ORIGINAL -->
 <section>
 <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
 
@@ -34,23 +33,23 @@
   <div class="border p-4 bg-white rounded shadow">
     <h4>Mini torta</h4>
     <p>$13</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Mini torta" data-price="13">Agregar</button>
+    <button class="addToCart" data-name="Mini torta" data-price="13">Agregar</button>
   </div>
 
   <div class="border p-4 bg-white rounded shadow">
     <h4>Mollete</h4>
     <p>$13</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Mollete" data-price="13">Agregar</button>
+    <button class="addToCart" data-name="Mollete" data-price="13">Agregar</button>
   </div>
 
   <div class="border p-4 bg-white rounded shadow">
     <h4>Burrito</h4>
-    <select class="border rounded p-2 w-full mt-2 burritoOption">
+    <select class="burritoOption">
       <option>Papas con chorizo</option>
       <option>Deshebrada</option>
     </select>
     <p>$24</p>
-    <button class="addBurrito bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-price="24">Agregar</button>
+    <button class="addBurrito" data-price="24">Agregar</button>
   </div>
 </div>
 
@@ -58,98 +57,52 @@
 <div class="grid md:grid-cols-3 gap-6 mt-4">
   <div class="border p-4 bg-white rounded shadow">
     <h4>Agua</h4>
-    <select class="border rounded p-2 w-full mt-2 aguaOption">
+    <select class="aguaOption">
       <option value="Agua chica - 6">Chica $6</option>
       <option value="Agua grande - 12">Grande $12</option>
     </select>
-    <button class="addAgua bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
+    <button class="addAgua">Agregar</button>
   </div>
 
   <div class="border p-4 bg-white rounded shadow">
     <h4>Jugo</h4>
     <p>$12</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Jugo" data-price="12">Agregar</button>
+    <button class="addToCart" data-name="Jugo" data-price="12">Agregar</button>
   </div>
 </div>
 </section>
 
 <!-- ESPECIAL -->
 <section>
-<h2 class="text-2xl font-bold mb-4">⭐ Especial del día</h2>
-<div class="border p-4 bg-white rounded shadow">
-  <h4>Platillo del día</h4>
-  <p>$30</p>
-  <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-    data-name="Especial del día" data-price="30">Agregar</button>
-</div>
+<h2 class="text-2xl font-bold">⭐ Especial del día</h2>
+<button class="addToCart" data-name="Especial del día" data-price="30">Agregar Especial ($30)</button>
 </section>
 
 <!-- MAESTROS -->
 <section>
-<h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
-<div class="grid md:grid-cols-2 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Refresco</h4>
-    <p>$25</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Refresco" data-price="25">Agregar</button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Café</h4>
-    <p>$20</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Café" data-price="20">Agregar</button>
-  </div>
-</div>
+<h2 class="text-2xl font-bold">🎓 Maestros</h2>
+<button class="addToCart" data-name="Refresco Maestro" data-price="25">Refresco $25</button>
+<button class="addToCart" data-name="Café Maestro" data-price="20">Café $20</button>
 </section>
 
 <!-- TEMPORADA -->
 <section>
-<h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
-<div class="grid md:grid-cols-3 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Bolis</h4>
-    <p>$10</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Bolis" data-price="10">Agregar</button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Mangoneada</h4>
-    <p>$12</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Mangoneada" data-price="12">Agregar</button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Paleta</h4>
-    <p>$25</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Paleta" data-price="25">Agregar</button>
-  </div>
-</div>
+<h2 class="text-2xl font-bold">🍂 Temporada</h2>
+<button class="addToCart" data-name="Bolis" data-price="10">Bolis $10</button>
+<button class="addToCart" data-name="Mangoneada" data-price="12">Mangoneada $12</button>
+<button class="addToCart" data-name="Paleta" data-price="25">Paleta $25</button>
 </section>
 
 </main>
 
 <!-- CARRITO -->
-<div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
-  <div class="bg-white w-96 p-6 rounded-xl">
-    <h2 class="text-xl font-bold mb-4">🛒 Carrito</h2>
+<div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white p-6 rounded">
+    <ul id="cartItems"></ul>
+    <p>Total: $<span id="cartTotal">0</span></p>
 
-    <ul id="cartItems" class="space-y-2"></ul>
-
-    <p class="font-bold mt-4">Total: $<span id="cartTotal">0</span></p>
-
-    <!-- BOTÓN WHATSAPP -->
-    <button id="sendWhatsApp" class="bg-green-500 text-white w-full mt-4 py-2 rounded font-bold">
-      Enviar pedido por WhatsApp
-    </button>
-
-    <button id="closeCart" class="bg-gray-400 text-white w-full mt-2 py-2 rounded">
-      Cerrar
-    </button>
+    <button id="sendWhatsApp">Enviar por WhatsApp</button>
+    <button id="closeCart">Cerrar</button>
   </div>
 </div>
 
@@ -179,7 +132,7 @@ function showToast(text){
 function addToCart(name, price){
   cart.push({name, price: parseFloat(price)});
   renderCart();
-  showToast(name + " agregado 🛒");
+  showToast(name + " agregado");
 }
 
 function renderCart(){
@@ -188,38 +141,12 @@ function renderCart(){
 
   cart.forEach((item, i)=>{
     total += item.price;
-
-    cartItems.innerHTML += `
-      <li class="flex justify-between">
-        ${item.name} - $${item.price}
-        <button onclick="removeItem(${i})" class="text-red-500">✕</button>
-      </li>
-    `;
+    cartItems.innerHTML += `<li>${item.name} - $${item.price}</li>`;
   });
 
-  cartTotal.textContent = total.toFixed(2);
+  cartTotal.textContent = total;
   cartCount.textContent = cart.length;
 }
-
-function removeItem(i){
-  cart.splice(i,1);
-  renderCart();
-}
-
-/* WHATSAPP */
-document.getElementById("sendWhatsApp").onclick = () => {
-  if(cart.length === 0) return alert("Tu carrito está vacío");
-
-  let message = "🧾 Pedido%0A%0A";
-
-  cart.forEach(item=>{
-    message += "- " + item.name + " $" + item.price + "%0A";
-  });
-
-  message += "%0ATotal: $" + cartTotal.textContent;
-
-  window.open(`https://wa.me/526143515170?text=${message}`, "_blank");
-};
 
 document.querySelectorAll(".addToCart").forEach(btn=>{
   btn.onclick = ()=> addToCart(btn.dataset.name, btn.dataset.price);
@@ -233,6 +160,16 @@ document.querySelector(".addBurrito").onclick = (e)=>{
 document.querySelector(".addAgua").onclick = ()=>{
   const opt = document.querySelector(".aguaOption").value.split(" - ");
   addToCart(opt[0], opt[1]);
+};
+
+document.getElementById("sendWhatsApp").onclick = ()=>{
+  if(cart.length === 0) return alert("Carrito vacío");
+
+  let msg = "Pedido:%0A";
+  cart.forEach(i=> msg += "- " + i.name + "%0A");
+  msg += "Total $" + cartTotal.textContent;
+
+  window.open("https://wa.me/5216143515170?text=" + msg);
 };
 </script>
 
