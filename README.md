@@ -128,8 +128,15 @@ Agregar Paleta ($25)
   <option value="Efectivo">Efectivo</option>
 </select>
 
-    <button id="sendWhatsApp">Enviar por WhatsApp</button>
-    <button id="closeCart">Cerrar</button>
+<button id="sendWhatsApp"
+class="bg-green-600 text-white w-full py-2 mt-3 rounded font-bold shadow">
+📲 Enviar pedido por WhatsApp
+</button>
+
+<button id="closeCart"
+class="bg-gray-400 text-white w-full py-2 mt-2 rounded shadow">
+Cerrar
+</button>
   </div>
 </div>
 
@@ -213,7 +220,7 @@ document.getElementById("sendWhatsApp").onclick = ()=>{
   msg += "%0ATotal $" + cartTotal.textContent + "%0A";
   msg += "Pago: " + payment;
 
-  window.open("https://wa.me/5216143515170?text=" + msg);
+  window.open("https://wa.me/526143515170?text=" + msg);
 };
 };
 </script>
