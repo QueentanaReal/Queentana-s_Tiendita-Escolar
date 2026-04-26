@@ -192,6 +192,17 @@ const cartTotal = document.getElementById("cartTotal");
 const toast = document.getElementById("toast");
 const sound = document.getElementById("sound");
 
+  
+  const paymentMethod = document.getElementById("paymentMethod");
+const transferInfo = document.getElementById("transferInfo");
+
+paymentMethod.addEventListener("change", () => {
+  if(paymentMethod.value === "Transferencia"){
+    transferInfo.classList.remove("hidden");
+  } else {
+    transferInfo.classList.add("hidden");
+  }
+});
 cartBtn.onclick = () => cartModal.classList.remove("hidden");
 closeCart.onclick = () => cartModal.classList.add("hidden");
 
@@ -247,16 +258,6 @@ document.querySelector(".addAgua").onclick = ()=>{
 
 document.getElementById("sendWhatsApp").onclick = ()=>{
 
-  const paymentMethod = document.getElementById("paymentMethod");
-const transferInfo = document.getElementById("transferInfo");
-
-paymentMethod.addEventListener("change", () => {
-  if(paymentMethod.value === "Transferencia"){
-    transferInfo.classList.remove("hidden");
-  } else {
-    transferInfo.classList.add("hidden");
-  }
-});
   if(cart.length === 0) return alert("Carrito vacío");
 
   const payment = document.getElementById("paymentMethod").value;
