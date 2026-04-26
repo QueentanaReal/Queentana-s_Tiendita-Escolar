@@ -74,11 +74,20 @@
 
 <!-- ESPECIAL -->
 <section>
-<h2 class="text-2xl font-bold">⭐ Especial del día</h2>
-<button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-data-name="Especial del día" data-price="30">
-Agregar
-</button>
+<h2 class="text-2xl font-bold mb-4">⭐ Especial del día</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Platillo del día</h4>
+    <p>$30</p>
+
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+      data-name="Especial del día" data-price="30">
+      Agregar
+    </button>
+  </div>
+</div>
+
 </section>
 
 <!-- MAESTROS -->
