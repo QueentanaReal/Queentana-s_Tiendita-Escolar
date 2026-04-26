@@ -159,6 +159,13 @@
       <option value="Transferencia">Transferencia</option>
       <option value="Efectivo">Efectivo</option>
     </select>
+    <div id="transferInfo" class="hidden mt-3 p-3 border rounded bg-gray-100 text-sm">
+  <p class="font-bold">💳 Datos para transferencia:</p>
+  <p>Tarjeta: 4152 3143 0956 2018</p>
+  <p class="mt-2 text-green-700 font-semibold">
+    📸 Manda tu comprobante de pago
+  </p>
+</div>
 
     <button id="sendWhatsApp"
     class="bg-green-600 text-white w-full py-2 mt-3 rounded font-bold shadow">
@@ -239,6 +246,17 @@ document.querySelector(".addAgua").onclick = ()=>{
 };
 
 document.getElementById("sendWhatsApp").onclick = ()=>{
+
+  const paymentMethod = document.getElementById("paymentMethod");
+const transferInfo = document.getElementById("transferInfo");
+
+paymentMethod.addEventListener("change", () => {
+  if(paymentMethod.value === "Transferencia"){
+    transferInfo.classList.remove("hidden");
+  } else {
+    transferInfo.classList.add("hidden");
+  }
+});
   if(cart.length === 0) return alert("Carrito vacío");
 
   const payment = document.getElementById("paymentMethod").value;
