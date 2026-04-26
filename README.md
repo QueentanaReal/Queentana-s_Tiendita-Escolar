@@ -17,7 +17,10 @@
   </button>
 </header>
 
+<!-- NOTIFICACIÓN -->
 <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"></div>
+
+<!-- SONIDO -->
 <audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
 <main class="p-6 space-y-12">
@@ -25,50 +28,47 @@
 <!-- MENÚ -->
 <section>
 <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
+
 <div class="grid md:grid-cols-3 gap-6">
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Mini torta</h4>
+    <p>$13</p>
+    <button class="addToCart" data-name="Mini torta" data-price="13">Agregar</button>
+  </div>
 
-<div class="border p-4 bg-white rounded shadow">
-<h4>Mini torta</h4>
-<p>$13</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Mini torta" data-price="13">Agregar</button>
-</div>
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Mollete</h4>
+    <p>$13</p>
+    <button class="addToCart" data-name="Mollete" data-price="13">Agregar</button>
+  </div>
 
-<div class="border p-4 bg-white rounded shadow">
-<h4>Mollete</h4>
-<p>$13</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Mollete" data-price="13">Agregar</button>
-</div>
-
-<div class="border p-4 bg-white rounded shadow">
-<h4>Burrito</h4>
-<select class="burritoOption border p-2 w-full mt-2">
-<option>Papas con chorizo</option>
-<option>Deshebrada</option>
-</select>
-<p>$24</p>
-<button class="addBurrito bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-price="24">Agregar</button>
-</div>
-
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Burrito</h4>
+    <select class="burritoOption">
+      <option>Papas con chorizo</option>
+      <option>Deshebrada</option>
+    </select>
+    <p>$24</p>
+    <button class="addBurrito" data-price="24">Agregar</button>
+  </div>
 </div>
 
 <h3 class="text-xl font-semibold mt-8">🥤 Bebidas</h3>
 <div class="grid md:grid-cols-3 gap-6 mt-4">
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Agua</h4>
+    <select class="aguaOption">
+      <option value="Agua chica - 6">Chica $6</option>
+      <option value="Agua grande - 12">Grande $12</option>
+    </select>
+    <button class="addAgua">Agregar</button>
+  </div>
 
-<div class="border p-4 bg-white rounded shadow">
-<h4>Agua</h4>
-<select class="aguaOption border p-2 w-full mt-2">
-<option value="Agua chica - 6">Chica $6</option>
-<option value="Agua grande - 12">Grande $12</option>
-</select>
-<button class="addAgua bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
-</div>
-
-<div class="border p-4 bg-white rounded shadow">
-<h4>Jugo</h4>
-<p>$12</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Jugo" data-price="12">Agregar</button>
-</div>
-
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Jugo</h4>
+    <p>$12</p>
+    <button class="addToCart" data-name="Jugo" data-price="12">Agregar</button>
+  </div>
 </div>
 </section>
 
@@ -76,61 +76,61 @@
 <section>
 <h2 class="text-2xl font-bold mb-4">⭐ Especial del día</h2>
 <div class="grid md:grid-cols-3 gap-6">
-
-<div class="border p-4 bg-white rounded shadow">
-<h4>Platillo del día</h4>
-<p>$30</p>
-<button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2" data-name="Especial del día" data-price="30">
-Agregar
-</button>
-</div>
-
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Platillo del día</h4>
+    <p>$30</p>
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+      data-name="Especial del día" data-price="30">Agregar</button>
+  </div>
 </div>
 </section>
 
 <!-- MAESTROS -->
 <section>
 <h2 class="text-2xl font-bold mb-4">🎓 Maestros</h2>
+
 <div class="grid md:grid-cols-3 gap-6">
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Refresco</h4>
+    <p>$25</p>
+    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+    data-name="Refresco Maestro" data-price="25">Agregar</button>
+  </div>
 
-<div class="border p-4 bg-white rounded shadow">
-<h4>Refresco</h4>
-<p>$25</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Refresco Maestro" data-price="25">Agregar</button>
-</div>
-
-<div class="border p-4 bg-white rounded shadow">
-<h4>Café</h4>
-<p>$20</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Café Maestro" data-price="20">Agregar</button>
-</div>
-
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Café</h4>
+    <p>$20</p>
+    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+    data-name="Café Maestro" data-price="20">Agregar</button>
+  </div>
 </div>
 </section>
 
 <!-- TEMPORADA -->
 <section>
 <h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
+
 <div class="grid md:grid-cols-3 gap-6">
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Bolis</h4>
+    <p>$10</p>
+    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+    data-name="Bolis" data-price="10">Agregar</button>
+  </div>
 
-<div class="border p-4 bg-white rounded shadow">
-<h4>Bolis</h4>
-<p>$10</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Bolis" data-price="10">Agregar</button>
-</div>
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Mangoneada</h4>
+    <p>$12</p>
+    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+    data-name="Mangoneada" data-price="12">Agregar</button>
+  </div>
 
-<div class="border p-4 bg-white rounded shadow">
-<h4>Mangoneada</h4>
-<p>$12</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Mangoneada" data-price="12">Agregar</button>
-</div>
-
-<div class="border p-4 bg-white rounded shadow">
-<h4>Paleta</h4>
-<p>$25</p>
-<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Paleta" data-price="25">Agregar</button>
-</div>
-
+  <div class="border p-4 bg-white rounded shadow">
+    <h4>Paleta</h4>
+    <p>$25</p>
+    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+    data-name="Paleta" data-price="25">Agregar</button>
+  </div>
 </div>
 </section>
 
@@ -138,27 +138,26 @@ Agregar
 
 <!-- CARRITO -->
 <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-<div class="bg-white p-6 rounded w-80">
+  <div class="bg-white p-6 rounded w-80">
+    <ul id="cartItems"></ul>
+    <p class="mt-2">Total: $<span id="cartTotal">0</span></p>
 
-<ul id="cartItems" class="space-y-2"></ul>
+    <select id="paymentMethod" class="border p-2 mt-2 w-full">
+      <option value="">Selecciona método de pago</option>
+      <option value="Transferencia">Transferencia</option>
+      <option value="Efectivo">Efectivo</option>
+    </select>
 
-<p class="font-bold mt-3">Total: $<span id="cartTotal">0</span></p>
+    <button id="sendWhatsApp"
+    class="bg-green-600 text-white w-full py-2 mt-3 rounded font-bold shadow">
+    📲 Enviar pedido por WhatsApp
+    </button>
 
-<select id="paymentMethod" class="border p-2 mt-2 w-full">
-<option value="">Selecciona método de pago</option>
-<option value="Transferencia">Transferencia</option>
-<option value="Efectivo">Efectivo</option>
-</select>
-
-<button id="sendWhatsApp" class="bg-green-600 text-white w-full py-2 mt-3 rounded font-bold">
-📲 Enviar pedido
-</button>
-
-<button id="closeCart" class="bg-gray-400 text-white w-full py-2 mt-2 rounded">
-Cerrar
-</button>
-
-</div>
+    <button id="closeCart"
+    class="bg-gray-400 text-white w-full py-2 mt-2 rounded shadow">
+    Cerrar
+    </button>
+  </div>
 </div>
 
 <script>
@@ -190,6 +189,11 @@ function addToCart(name, price){
   showToast(name + " agregado");
 }
 
+function removeItem(i){
+  cart.splice(i,1);
+  renderCart();
+}
+
 function renderCart(){
   cartItems.innerHTML = "";
   let total = 0;
@@ -197,7 +201,7 @@ function renderCart(){
   cart.forEach((item, i)=>{
     total += item.price;
     cartItems.innerHTML += `
-      <li class="flex justify-between">
+      <li class="flex justify-between items-center">
         ${item.name} - $${item.price}
         <button onclick="removeItem(${i})" class="text-red-500">✕</button>
       </li>
@@ -206,11 +210,6 @@ function renderCart(){
 
   cartTotal.textContent = total;
   cartCount.textContent = cart.length;
-}
-
-function removeItem(i){
-  cart.splice(i,1);
-  renderCart();
 }
 
 document.querySelectorAll(".addToCart").forEach(btn=>{
