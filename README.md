@@ -98,9 +98,20 @@ Agregar Café ($20)
 <!-- TEMPORADA -->
 <section>
 <h2 class="text-2xl font-bold">🍂 Temporada</h2>
-<button class="addToCart" data-name="Bolis" data-price="10">Bolis $10</button>
-<button class="addToCart" data-name="Mangoneada" data-price="12">Mangoneada $12</button>
-<button class="addToCart" data-name="Paleta" data-price="25">Paleta $25</button>
+<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+data-name="Bolis" data-price="10">
+Agregar Bolis ($10)
+</button>
+
+<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+data-name="Mangoneada" data-price="12">
+Agregar Mangoneada ($12)
+</button>
+
+<button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+data-name="Paleta" data-price="25">
+Agregar Paleta ($25)
+</button>
 </section>
 
 </main>
