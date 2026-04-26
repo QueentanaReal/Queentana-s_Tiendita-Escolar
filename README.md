@@ -218,7 +218,7 @@ document.getElementById("sendWhatsApp").onclick = () => {
 
   message += "%0ATotal: $" + cartTotal.textContent;
 
-  window.open(`https://wa.me/5216143515170?text=${message}`, "_blank");
+  window.open(`https://wa.me/526143515170?text=${message}`, "_blank");
 };
 
 document.querySelectorAll(".addToCart").forEach(btn=>{
