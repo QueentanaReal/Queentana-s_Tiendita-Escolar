@@ -10,8 +10,6 @@
 <body class="bg-[#F9F6F0] text-[#1F1F1F]">
 
 <header class="bg-[#C69B4B] text-white p-4 shadow-lg flex items-center justify-between">
-  <button id="menuBtn" class="text-2xl">☰</button>
-
   <h1 class="text-xl md:text-2xl font-bold">👑 Queentana´s Tiendita</h1>
 
   <button id="cartBtn" class="bg-white text-[#C69B4B] px-3 py-1 rounded-lg shadow font-bold">
@@ -22,7 +20,6 @@
 <!-- NOTIFICACIÓN -->
 <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"></div>
 
-<!-- SONIDO -->
 <audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
 <main class="p-6 space-y-12">
@@ -54,23 +51,6 @@
   </div>
 </div>
 
-<h3 class="text-xl font-semibold mt-8">🥤 Bebidas</h3>
-<div class="grid md:grid-cols-3 gap-6 mt-4">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Agua</h4>
-    <select class="border rounded p-2 w-full mt-2 aguaOption">
-      <option value="Agua chica - 6">Chica $6</option>
-      <option value="Agua grande - 12">Grande $12</option>
-    </select>
-    <button class="addAgua bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">Agregar</button>
-  </div>
-
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Jugo</h4>
-    <p>$12</p>
-    <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2" data-name="Jugo" data-price="12">Agregar</button>
-  </div>
-</div>
 </section>
 
 </main>
@@ -84,7 +64,12 @@
 
     <p class="font-bold mt-4">Total: $<span id="cartTotal">0</span></p>
 
-    <button id="closeCart" class="bg-gray-400 text-white w-full mt-4 py-2 rounded">
+    <!-- BOTÓN WHATSAPP -->
+    <button id="sendOrder" class="bg-green-600 text-white w-full mt-4 py-2 rounded font-bold">
+      Enviar pedido por WhatsApp 📲
+    </button>
+
+    <button id="closeCart" class="bg-gray-400 text-white w-full mt-2 py-2 rounded">
       Cerrar
     </button>
   </div>
@@ -155,6 +140,30 @@ document.querySelector(".addBurrito").onclick = (e)=>{
 document.querySelector(".addAgua").onclick = ()=>{
   const opt = document.querySelector(".aguaOption").value.split(" - ");
   addToCart(opt[0], opt[1]);
+};
+
+<!-- WHATSAPP -->
+document.getElementById("sendOrder").onclick = () => {
+  if(cart.length === 0){
+    alert("Tu carrito está vacío");
+    return;
+  }
+
+  const folio = Math.floor(100000 + Math.random() * 900000);
+
+  let message = "🧾 Pedido%0A";
+  message += "Folio: " + folio + "%0A%0A";
+
+  cart.forEach(item=>{
+    message += "- " + item.name + " - $" + item.price + "%0A";
+  });
+
+  message += "%0ATotal: $" + cartTotal.textContent;
+
+  window.open(`https://wa.me/5216143515170?text=${message}`, "_blank");
+
+  cart = [];
+  renderCart();
 };
 </script>
 
