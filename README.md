@@ -87,28 +87,32 @@
 </section>
 
 <!-- MAESTROS -->
-<section>
-<h2 class="text-2xl font-bold mb-4">🎓 Maestros</h2>
+<section id="maestros">
+<h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 gap-6">
   <div class="border p-4 bg-white rounded shadow">
     <h4>Refresco</h4>
     <p>$25</p>
     <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-    data-name="Refresco Maestro" data-price="25">Agregar</button>
+      data-name="Refresco" data-price="25">
+      Agregar
+    </button>
   </div>
 
   <div class="border p-4 bg-white rounded shadow">
     <h4>Café</h4>
     <p>$20</p>
     <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-    data-name="Café Maestro" data-price="20">Agregar</button>
+      data-name="Café" data-price="20">
+      Agregar
+    </button>
   </div>
 </div>
 </section>
 
 <!-- TEMPORADA -->
-<section>
+<section id="temporada">
 <h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
 
 <div class="grid md:grid-cols-3 gap-6">
@@ -116,26 +120,33 @@
     <h4>Bolis</h4>
     <p>$10</p>
     <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-    data-name="Bolis" data-price="10">Agregar</button>
+      data-name="Bolis" data-price="10">
+      Agregar
+    </button>
   </div>
 
   <div class="border p-4 bg-white rounded shadow">
     <h4>Mangoneada</h4>
     <p>$12</p>
     <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-    data-name="Mangoneada" data-price="12">Agregar</button>
+      data-name="Mangoneada" data-price="12">
+      Agregar
+    </button>
   </div>
 
   <div class="border p-4 bg-white rounded shadow">
     <h4>Paleta</h4>
     <p>$25</p>
     <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-    data-name="Paleta" data-price="25">Agregar</button>
+      data-name="Paleta" data-price="25">
+      Agregar
+    </button>
   </div>
 </div>
 </section>
 
 </main>
+
 
 <!-- CARRITO -->
 <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
