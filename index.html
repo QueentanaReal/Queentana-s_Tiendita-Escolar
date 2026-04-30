@@ -306,6 +306,20 @@ document.querySelector(".addBurrito").onclick = (e)=>{
   addToCart("Burrito " + opt, e.target.dataset.price);
 };
 
+// AGUA
+const aguaOption = document.getElementById("aguaOption");
+const aguaPrice = document.getElementById("aguaPrice");
+
+aguaOption.addEventListener("change", () => {
+  aguaPrice.textContent = aguaOption.value;
+});
+
+document.getElementById("addAgua").onclick = () => {
+  const tipo = aguaOption.options[aguaOption.selectedIndex].text;
+  const precio = aguaOption.value;
+
+  addToCart(tipo, precio);
+};
 // WhatsApp
 document.getElementById("sendWhatsApp").onclick = ()=>{
   if(cart.length === 0) return alert("Carrito vacío");
