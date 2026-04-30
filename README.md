@@ -230,6 +230,13 @@ const sound = document.getElementById("sound");
 const paymentMethod = document.getElementById("paymentMethod");
 const transferInfo = document.getElementById("transferInfo");
 
+  const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.onclick = () => {
+  menu.classList.toggle("hidden");
+};
+
 // Mostrar/ocultar transferencia
 paymentMethod.addEventListener("change", () => {
   if(paymentMethod.value === "Transferencia"){
