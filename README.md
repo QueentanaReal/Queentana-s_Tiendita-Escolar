@@ -18,7 +18,7 @@
 </header>
 
 <!-- MENÚ DESPLEGABLE -->
-<div id="menu" class="hidden bg-white shadow-lg p-4">
+<div id="menu" class="hidden absolute top-16 left-4 bg-white shadow-lg p-4 rounded-lg z-50">
   <ul class="space-y-2 font-semibold">
     <li><a href="#menuDiario">📋 Menú Diario</a></li>
     <li><a href="#bebidas">🥤 Bebidas</a></li>
