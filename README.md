@@ -28,14 +28,13 @@
   </ul>
 </div>
 
-<div id="toast"></div>
 <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"></div>
 <audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
 <main class="p-6 space-y-12">
 
 <!-- MENÚ -->
-<section>
+<section id="menuDiario">
   <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
 
   <div class="grid md:grid-cols-3 gap-6">
@@ -75,7 +74,7 @@
 </section>
 
 <!-- BEBIDAS -->
-<section>
+<section id="bebidas">
   <h2 class="text-2xl font-bold mb-4">🥤 Bebidas</h2>
 
   <div class="grid md:grid-cols-2 gap-6">
@@ -102,7 +101,7 @@
 </section>
 
 <!-- PLATILLO ESPECIAL -->
-<section>
+<section id="especial">
   <h2 class="text-2xl font-bold mb-4">⭐ Platillo especial</h2>
 
   <div class="max-w-sm border p-4 bg-white rounded shadow">
@@ -116,7 +115,7 @@
 </section>
 
 <!-- MAESTROS -->
-<section>
+<section id="maestros">
   <h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
 
   <div class="grid md:grid-cols-2 gap-6">
@@ -143,7 +142,7 @@
 </section>
 
 <!-- TEMPORADA -->
-<section>
+<section id="temporada">  
   <h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
 
   <div class="grid md:grid-cols-3 gap-6">
