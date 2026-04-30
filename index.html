@@ -79,14 +79,21 @@
 
   <div class="grid md:grid-cols-2 gap-6">
 
-    <div class="border p-4 bg-white rounded shadow">
-      <h4 class="font-semibold">Agua</h4>
-      <p>$10</p>
-      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Agua" data-price="10">
-      Agregar
-      </button>
-    </div>
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">Agua</h4>
+
+  <select id="aguaOption" class="border rounded p-1 w-full mt-1">
+    <option value="6">Agua chica</option>
+    <option value="12">Agua grande</option>
+  </select>
+
+  <p class="mt-2">$<span id="aguaPrice">6</span></p>
+
+  <button id="addAgua"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    Agregar
+  </button>
+</div>
 
     <div class="border p-4 bg-white rounded shadow">
       <h4 class="font-semibold">Jugo</h4>
