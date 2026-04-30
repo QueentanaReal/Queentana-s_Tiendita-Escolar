@@ -17,16 +17,12 @@
   </button>
 </header>
 
-<!-- PEGA AQUÍ -->
-<div id="sideMenu" class="hidden fixed top-0 left-0 h-full w-64 bg-white shadow-lg p-6 z-50">
-  <button id="closeMenu" class="text-xl mb-4">✖</button>
-
-  <h2 class="text-xl font-bold mb-4">Menú</h2>
-
-  <ul class="space-y-3">
-    <li><a href="#menu">📋 Menú Diario</a></li>
+<!-- MENÚ DESPLEGABLE -->
+<div id="menu" class="hidden bg-white shadow-lg p-4">
+  <ul class="space-y-2 font-semibold">
+    <li><a href="#menuDiario">📋 Menú Diario</a></li>
     <li><a href="#bebidas">🥤 Bebidas</a></li>
-    <li><a href="#especial">⭐ Especial</a></li>
+    <li><a href="#especial">⭐ Platillo especial</a></li>
     <li><a href="#maestros">🎓 Maestros</a></li>
     <li><a href="#temporada">🍂 Temporada</a></li>
   </ul>
