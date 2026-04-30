@@ -17,6 +17,22 @@
   </button>
 </header>
 
+<!-- PEGA AQUÍ -->
+<div id="sideMenu" class="hidden fixed top-0 left-0 h-full w-64 bg-white shadow-lg p-6 z-50">
+  <button id="closeMenu" class="text-xl mb-4">✖</button>
+
+  <h2 class="text-xl font-bold mb-4">Menú</h2>
+
+  <ul class="space-y-3">
+    <li><a href="#menu">📋 Menú Diario</a></li>
+    <li><a href="#bebidas">🥤 Bebidas</a></li>
+    <li><a href="#especial">⭐ Especial</a></li>
+    <li><a href="#maestros">🎓 Maestros</a></li>
+    <li><a href="#temporada">🍂 Temporada</a></li>
+  </ul>
+</div>
+
+<div id="toast"></div>
 <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"></div>
 <audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
