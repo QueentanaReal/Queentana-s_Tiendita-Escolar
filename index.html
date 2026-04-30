@@ -99,14 +99,22 @@
   </button>
 </div>
 
-    <div class="border p-4 bg-white rounded shadow">
-      <h4 class="font-semibold">Jugo</h4>
-      <p>$12</p>
-      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Jugo" data-price="12">
-      Agregar
-      </button>
-    </div>
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">Jugo</h4>
+
+  <select id="jugoOption" class="border rounded p-1 w-full mt-1">
+    <option>🟦 Frutas Tropicales</option>
+    <option>🟨 Mango con Manzana</option>
+    <option>🟥 Mix de Manzanas</option>
+  </select>
+
+  <p class="mt-2">$12</p>
+
+  <button id="addJugo"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    Agregar
+  </button>
+</div>
 
   </div>
 </section>
@@ -329,7 +337,15 @@ document.getElementById("addAgua").addEventListener("click", () => {
 
   addToCart(tipo, precio);
 });
+  
+// JUGO
+document.getElementById("addJugo").addEventListener("click", () => {
+  const jugoOption = document.getElementById("jugoOption");
+  const sabor = jugoOption.options[jugoOption.selectedIndex].text;
 
+  addToCart("Jugo " + sabor, 12);
+});
+  
 document.getElementById("aguaOption").addEventListener("change", function () {
   document.getElementById("aguaPrice").textContent = this.value;
 });
