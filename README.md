@@ -236,6 +236,10 @@ menuBtn.onclick = () => {
   menu.classList.toggle("hidden");
 };
 
+  document.querySelectorAll("#menu a").forEach(link => {
+  link.onclick = () => menu.classList.add("hidden");
+});
+  
 // Mostrar/ocultar transferencia
 paymentMethod.addEventListener("change", () => {
   if(paymentMethod.value === "Transferencia"){
