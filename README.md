@@ -24,89 +24,146 @@
 
 <!-- MENÚ -->
 <section>
-<h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
+  <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Mini torta</h4>
-    <p>$13</p>
-    <button class="addToCart" data-name="Mini torta" data-price="13">Agregar</button>
-  </div>
+  <div class="grid md:grid-cols-3 gap-6">
 
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Mollete</h4>
-    <p>$13</p>
-    <button class="addToCart" data-name="Mollete" data-price="13">Agregar</button>
-  </div>
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Mini torta</h4>
+      <p>$13</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Mini torta" data-price="13">
+      Agregar
+      </button>
+    </div>
 
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Burrito</h4>
-    <select class="burritoOption">
-      <option>Papas con chorizo</option>
-      <option>Deshebrada</option>
-    </select>
-    <p>$24</p>
-    <button class="addBurrito" data-price="24">Agregar</button>
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Mollete</h4>
+      <p>$13</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Mollete" data-price="13">
+      Agregar
+      </button>
+    </div>
+
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Burrito</h4>
+      <select class="burritoOption border rounded p-1 w-full mt-1">
+        <option>Papas con chorizo</option>
+        <option>Deshebrada</option>
+      </select>
+      <p class="mt-2">$24</p>
+      <button class="addBurrito bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-price="24">
+      Agregar
+      </button>
+    </div>
+
   </div>
-</div>
 </section>
 
-<!-- ESPECIAL -->
+<!-- BEBIDAS -->
 <section>
-<h2 class="text-2xl font-bold mb-4">⭐ Platillo especial</h2>
+  <h2 class="text-2xl font-bold mb-4">🥤 Bebidas</h2>
 
-<div class="border p-4 bg-white rounded shadow max-w-sm">
-  <h4>Platillo del día</h4>
-  <p>$30</p>
-  <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-  data-name="Platillo del día" data-price="30">
-  Agregar
-  </button>
-</div>
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Agua</h4>
+      <p>$10</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Agua" data-price="10">
+      Agregar
+      </button>
+    </div>
+
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Jugo</h4>
+      <p>$12</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Jugo" data-price="12">
+      Agregar
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- PLATILLO ESPECIAL -->
+<section>
+  <h2 class="text-2xl font-bold mb-4">⭐ Platillo especial</h2>
+
+  <div class="max-w-sm border p-4 bg-white rounded shadow">
+    <h4 class="font-semibold">Platillo del día</h4>
+    <p>$30</p>
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+    data-name="Platillo del día" data-price="30">
+    Agregar
+    </button>
+  </div>
 </section>
 
 <!-- MAESTROS -->
 <section>
-<h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
+  <h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
 
-<div class="grid md:grid-cols-2 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Café</h4>
-    <p>$20</p>
-    <button class="addToCart" data-name="Café" data-price="20">Agregar</button>
-  </div>
+  <div class="grid md:grid-cols-2 gap-6">
 
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Refresco</h4>
-    <p>$25</p>
-    <button class="addToCart" data-name="Refresco" data-price="25">Agregar</button>
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Café</h4>
+      <p>$20</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Café" data-price="20">
+      Agregar
+      </button>
+    </div>
+
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Refresco</h4>
+      <p>$25</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Refresco" data-price="25">
+      Agregar
+      </button>
+    </div>
+
   </div>
-</div>
 </section>
 
 <!-- TEMPORADA -->
 <section>
-<h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
+  <h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
 
-<div class="grid md:grid-cols-3 gap-6">
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Bolis</h4>
-    <p>$10</p>
-    <button class="addToCart" data-name="Bolis" data-price="10">Agregar</button>
-  </div>
+  <div class="grid md:grid-cols-3 gap-6">
 
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Mangoneada</h4>
-    <p>$12</p>
-    <button class="addToCart" data-name="Mangoneada" data-price="12">Agregar</button>
-  </div>
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Bolis</h4>
+      <p>$10</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Bolis" data-price="10">
+      Agregar
+      </button>
+    </div>
 
-  <div class="border p-4 bg-white rounded shadow">
-    <h4>Paleta</h4>
-    <p>$25</p>
-    <button class="addToCart" data-name="Paleta" data-price="25">Agregar</button>
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Mangoneada</h4>
+      <p>$12</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Mangoneada" data-price="12">
+      Agregar
+      </button>
+    </div>
+
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">Paleta</h4>
+      <p>$25</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Paleta" data-price="25">
+      Agregar
+      </button>
+    </div>
+
   </div>
-</div>
 </section>
 
 </main>
