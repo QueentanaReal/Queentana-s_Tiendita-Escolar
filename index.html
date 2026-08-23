@@ -23,7 +23,7 @@
     <li><a href="#menuDiario">📋 Menú Diario</a></li>
     <li><a href="#bebidas">🥤 Bebidas</a></li>
     <li><a href="#especial">⭐ Platillo especial</a></li>
-    <li><a href="#maestros">🎓 Maestros</a></li>
+    <li><a href="#" id="maestrosBtn">🔒 Área de maestros</a></li>
     <li><a href="#temporada">🍂 Temporada</a></li>
   </ul>
 </div>
@@ -307,8 +307,46 @@
   </div>
 </section>
 
+  <!-- ACCESO A MAESTROS -->
+<div id="passwordModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+
+    <h3 class="text-xl font-bold mb-2">
+      🔐 Área de maestros
+    </h3>
+
+    <p class="text-sm text-gray-600 mb-4">
+      Ingresa la contraseña para acceder.
+    </p>
+
+    <input
+      type="password"
+      id="maestrosPassword"
+      placeholder="Contraseña"
+      class="border rounded p-2 w-full"
+    >
+
+    <p id="passwordError" class="hidden text-red-500 text-sm mt-2">
+      ❌ Contraseña incorrecta.
+    </p>
+
+    <button
+      id="unlockMaestros"
+      class="bg-[#C69B4B] text-white w-full py-2 rounded mt-4 font-bold">
+      🔓 Desbloquear
+    </button>
+
+    <button
+      id="closePasswordModal"
+      class="bg-gray-400 text-white w-full py-2 rounded mt-2">
+      Cancelar
+    </button>
+
+  </div>
+</div>
+  
 <!-- MAESTROS -->
-<section id="maestros">
+<section id="maestros" class="hidden">
   <h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
 
   <div class="grid md:grid-cols-2 gap-6">
@@ -616,6 +654,55 @@ document.getElementById("addJugo").addEventListener("click", () => {
 document.getElementById("aguaOption").addEventListener("change", function () {
   document.getElementById("aguaPrice").textContent = this.value;
 });
+
+  // ACCESO A MAESTROS
+
+const maestrosBtn = document.getElementById("maestrosBtn");
+const passwordModal = document.getElementById("passwordModal");
+const maestrosPassword = document.getElementById("maestrosPassword");
+const unlockMaestros = document.getElementById("unlockMaestros");
+const closePasswordModal = document.getElementById("closePasswordModal");
+const passwordError = document.getElementById("passwordError");
+const maestrosSection = document.getElementById("maestros");
+
+// AQUÍ PONES TU CONTRASEÑA
+const maestrosPasswordCorrecta = "1234";
+
+maestrosBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  passwordModal.classList.remove("hidden");
+  maestrosPassword.value = "";
+  passwordError.classList.add("hidden");
+  maestrosPassword.focus();
+});
+
+unlockMaestros.addEventListener("click", () => {
+
+  if (maestrosPassword.value === maestrosPasswordCorrecta) {
+
+    passwordModal.classList.add("hidden");
+    maestrosSection.classList.remove("hidden");
+
+    // Llevar automáticamente a la sección de maestros
+    maestrosSection.scrollIntoView({
+      behavior: "smooth"
+    });
+
+  } else {
+
+    passwordError.classList.remove("hidden");
+    maestrosPassword.value = "";
+    maestrosPassword.focus();
+
+  }
+
+});
+
+closePasswordModal.addEventListener("click", () => {
+  passwordModal.classList.add("hidden");
+});
+  
 // WhatsApp
 document.getElementById("sendWhatsApp").onclick = ()=>{
   if(cart.length === 0) return alert("Carrito vacío");
