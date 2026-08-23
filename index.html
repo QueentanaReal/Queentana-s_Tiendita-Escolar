@@ -201,14 +201,29 @@
     Agregar
   </button>
 </div>
-
-    <div class="border p-4 bg-white rounded shadow">
+    
+<div class="border p-4 bg-white rounded shadow">
   <h4 class="font-semibold">Agua fresca</h4>
 
   <select id="aguaOption" class="border rounded p-1 w-full mt-1">
     <option value="10">Chica</option>
     <option value="25">Grande</option>
   </select>
+
+  <select id="aguaSabor" class="border rounded p-1 w-full mt-2">
+    <option value="Frutas Tropicales">🟦 Frutas Tropicales</option>
+    <option value="Mango con Manzana">🟨 Mango con Manzana</option>
+    <option value="Mix de Manzanas">🟥 Mix de Manzanas</option>
+  </select>
+
+  <p class="mt-2">$<span id="aguaPrice">10</span></p>
+
+  <button id="addAgua"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    Agregar
+  </button>
+</div>
+
 
 <div class="border p-4 bg-white rounded shadow">
   <h4 class="font-semibold">Jugo</h4>
@@ -226,9 +241,6 @@
     Agregar
   </button>
 </div>
-
-  </div>
-</section>
 
 <!-- PLATILLO ESPECIAL -->
 <section id="especial">
