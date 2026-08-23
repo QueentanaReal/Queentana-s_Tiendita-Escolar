@@ -453,6 +453,35 @@ document.getElementById("burritoOption").addEventListener("change", function () 
   document.getElementById("burritoPrice").textContent = this.value;
 });
 
+  // GELATINA
+document.getElementById("addGelatina").addEventListener("click", () => {
+  const gelatinaOption = document.getElementById("gelatinaOption");
+
+  const sabor = gelatinaOption.options[gelatinaOption.selectedIndex].text;
+  const precio = gelatinaOption.value;
+
+  addToCart("Gelatina " + sabor, precio);
+});
+
+document.getElementById("gelatinaOption").addEventListener("change", function () {
+  document.getElementById("gelatinaPrice").textContent = this.value;
+});
+
+
+// YOGURTH
+document.getElementById("addYogurth").addEventListener("click", () => {
+  const yogurthOption = document.getElementById("yogurthOption");
+
+  const topping = yogurthOption.options[yogurthOption.selectedIndex].text;
+  const precio = yogurthOption.value;
+
+  addToCart("Yogurth " + topping, precio);
+});
+
+document.getElementById("yogurthOption").addEventListener("change", function () {
+  document.getElementById("yogurthPrice").textContent = this.value;
+});
+  
 // AGUA
 document.getElementById("addAgua").addEventListener("click", () => {
   const aguaOption = document.getElementById("aguaOption");
