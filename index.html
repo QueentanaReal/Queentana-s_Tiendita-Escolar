@@ -39,14 +39,23 @@
 
   <div class="grid md:grid-cols-3 gap-6">
 
-    <div class="border p-4 bg-white rounded shadow">
-      <h4 class="font-semibold">Mini torta</h4>
-      <p>$13</p>
-      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Mini torta" data-price="13">
-      Agregar
-      </button>
-    </div>
+ <div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">Lonche / Torta</h4>
+
+  <select id="tortaOption" class="border rounded p-1 w-full mt-1">
+    <option value="15">Mitad sencillo</option>
+    <option value="30">Entero sencillo</option>
+    <option value="20">Mitad especial</option>
+    <option value="40">Entero especial</option>
+  </select>
+
+  <p class="mt-2">$<span id="tortaPrice">15</span></p>
+
+  <button id="addTorta"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    Agregar
+  </button>
+</div>
 
     <div class="border p-4 bg-white rounded shadow">
       <h4 class="font-semibold">Mollete</h4>
@@ -453,6 +462,20 @@ document.getElementById("burritoOption").addEventListener("change", function () 
   document.getElementById("burritoPrice").textContent = this.value;
 });
 
+// LONCHE / TORTA
+document.getElementById("addTorta").addEventListener("click", () => {
+  const tortaOption = document.getElementById("tortaOption");
+
+  const tipo = tortaOption.options[tortaOption.selectedIndex].text;
+  const precio = tortaOption.value;
+
+  addToCart("Lonche / Torta " + tipo, precio);
+});
+
+document.getElementById("tortaOption").addEventListener("change", function () {
+  document.getElementById("tortaPrice").textContent = this.value;
+});
+  
   // GELATINA
 document.getElementById("addGelatina").addEventListener("click", () => {
   const gelatinaOption = document.getElementById("gelatinaOption");
