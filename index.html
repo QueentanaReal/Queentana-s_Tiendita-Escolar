@@ -201,7 +201,8 @@
     Agregar
   </button>
 </div>
-    
+
+    <!-- AGUA FRESCA -->
 <div class="border p-4 bg-white rounded shadow">
   <h4 class="font-semibold">Agua fresca</h4>
 
@@ -209,8 +210,10 @@
     <option value="10">Chica</option>
     <option value="25">Grande</option>
   </select>
-   <button id="addAguaFresca"
-       <select id="aguaFrescaSabor" class="border rounded p-1 w-full mt-2">
+
+  <p class="mt-2">$<span id="aguaFrescaPrice">10</span></p>
+
+  <button id="addAguaFresca"
     class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
     Agregar
   </button>
@@ -553,16 +556,14 @@ document.getElementById("addAgua").addEventListener("click", () => {
   addToCart(tipo, precio);
 });
 
-  // AGUA FRESCA
+// AGUA FRESCA
 document.getElementById("addAguaFresca").addEventListener("click", () => {
   const aguaFrescaOption = document.getElementById("aguaFrescaOption");
-  const aguaFrescaSabor = document.getElementById("aguaFrescaSabor");
 
-  const tamaño = aguaFrescaOption.options[aguaFrescaOption.selectedIndex].text;
-  const sabor = aguaFrescaSabor.options[aguaFrescaSabor.selectedIndex].text;
+  const tipo = aguaFrescaOption.options[aguaFrescaOption.selectedIndex].text;
   const precio = aguaFrescaOption.value;
 
-  addToCart("Agua fresca " + tamaño + " - " + sabor, precio);
+  addToCart("Agua fresca " + tipo, precio);
 });
 
 document.getElementById("aguaFrescaOption").addEventListener("change", function () {
