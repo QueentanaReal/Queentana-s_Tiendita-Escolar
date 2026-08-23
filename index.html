@@ -85,6 +85,21 @@
 
   </div>
 
+  <div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">Fruta</h4>
+
+  <select id="frutaOption" class="border rounded p-1 w-full mt-1">
+    <option value="15">Chica</option>
+    <option value="30">Grande</option>
+  </select>
+
+  <p class="mt-2">$<span id="frutaPrice">15</span></p>
+
+  <button id="addFruta"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    Agregar
+  </button>
+</div>
 
   <!-- POSTRES -->
   <div class="mt-10">
@@ -175,8 +190,8 @@
   <h4 class="font-semibold">Agua</h4>
 
   <select id="aguaOption" class="border rounded p-1 w-full mt-1">
-    <option value="10">Agua chica</option>
-    <option value="25">Agua grande</option>
+    <option value="6">Agua chica</option>
+    <option value="12">Agua grande</option>
   </select>
 
   <p class="mt-2">$<span id="aguaPrice">6</span></p>
@@ -186,6 +201,14 @@
     Agregar
   </button>
 </div>
+
+    <div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">Agua fresca</h4>
+
+  <select id="aguaOption" class="border rounded p-1 w-full mt-1">
+    <option value="10">Chica</option>
+    <option value="25">Grande</option>
+  </select>
 
 <div class="border p-4 bg-white rounded shadow">
   <h4 class="font-semibold">Jugo</h4>
@@ -475,6 +498,20 @@ document.getElementById("addTorta").addEventListener("click", () => {
 document.getElementById("tortaOption").addEventListener("change", function () {
   document.getElementById("tortaPrice").textContent = this.value;
 });
+
+  // FRUTA
+document.getElementById("addFruta").addEventListener("click", () => {
+  const frutaOption = document.getElementById("frutaOption");
+
+  const tipo = frutaOption.options[frutaOption.selectedIndex].text;
+  const precio = frutaOption.value;
+
+  addToCart("Fruta " + tipo, precio);
+});
+
+document.getElementById("frutaOption").addEventListener("change", function () {
+  document.getElementById("frutaPrice").textContent = this.value;
+});
   
   // GELATINA
 document.getElementById("addGelatina").addEventListener("click", () => {
@@ -514,6 +551,22 @@ document.getElementById("addAgua").addEventListener("click", () => {
   const precio = aguaOption.value;
 
   addToCart(tipo, precio);
+});
+
+// AGUA FRESCA
+document.getElementById("addAgua").addEventListener("click", () => {
+  const aguaOption = document.getElementById("aguaOption");
+  const aguaSabor = document.getElementById("aguaSabor");
+
+  const tamaño = aguaOption.options[aguaOption.selectedIndex].text;
+  const sabor = aguaSabor.options[aguaSabor.selectedIndex].text;
+  const precio = aguaOption.value;
+
+  addToCart("Agua fresca " + tamaño + " - " + sabor, precio);
+});
+
+document.getElementById("aguaOption").addEventListener("change", function () {
+  document.getElementById("aguaPrice").textContent = this.value;
 });
   
 // JUGO
