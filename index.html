@@ -141,20 +141,45 @@
 
   </div>
 
-  <div class="border p-4 bg-white rounded shadow">
-  <h4 class="font-semibold">Fruta</h4>
+  <!-- FRUTA -->
+<div class="border p-4 bg-white rounded shadow hover:shadow-lg transition">
 
-  <select id="frutaOption" class="border rounded p-1 w-full mt-1">
-    <option value="15">Chica</option>
-    <option value="30">Grande</option>
-  </select>
+  <h4 class="font-semibold text-lg">🍓 Fruta</h4>
 
-  <p class="mt-2">$<span id="frutaPrice">15</span></p>
+  <div class="mt-2 space-y-2">
 
-  <button id="addFruta"
-    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
-    Agregar
-  </button>
+    <!-- CHICA -->
+    <div class="bg-[#F9F6F0] rounded-lg p-2">
+      <p class="font-semibold">🍎 Fruta chica</p>
+      <p class="text-sm text-gray-600">
+        🍓 Porción individual
+      </p>
+      <p class="font-bold mt-1">$15</p>
+
+      <button
+        id="addFruta"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-1">
+        Agregar
+      </button>
+    </div>
+
+    <!-- GRANDE -->
+    <div class="bg-[#F9F6F0] rounded-lg p-2">
+      <p class="font-semibold">🍉 Fruta grande</p>
+      <p class="text-sm text-gray-600">
+        🍓 Porción grande
+      </p>
+      <p class="font-bold mt-1">$30</p>
+
+      <button
+        id="addFrutaGrande"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-1">
+        Agregar
+      </button>
+    </div>
+
+  </div>
+
 </div>
 
   <!-- POSTRES -->
