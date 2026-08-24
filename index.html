@@ -121,95 +121,121 @@
 </div>
 
   <!-- POSTRES -->
-  <div class="mt-10">
-    <h3 class="text-xl font-bold mb-4">🍰 Postres</h3>
+<div class="mt-10">
+  <h3 class="text-xl font-bold mb-4">🍰 Postres</h3>
 
-    <div class="grid md:grid-cols-3 gap-6">
+  <div class="grid md:grid-cols-3 gap-6">
 
-      <!-- GELATINA -->
-      <div class="border p-4 bg-white rounded shadow">
-        <h4 class="font-semibold">Gelatina</h4>
+    <!-- GELATINA NORMAL -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🍮 Gelatina</h4>
 
-        <select id="gelatinaOption" class="border rounded p-1 w-full mt-1">
-          <option value="12">Fresa</option>
-          <option value="12">Uva</option>
-          <option value="12">Naranja</option>
-          <option value="12">Mango</option>
-          <option value="12">Piña</option>
-          <option value="12">Cereza</option>
-          <option value="12">Mora</option>
-          <option value="30">Mosaico</option>
-        </select>
+      <p class="text-sm text-gray-600 mb-2">
+        🍓 Gelatina de un solo sabor
+      </p>
 
-        <p class="mt-2">$<span id="gelatinaPrice">10</span></p>
+      <select id="gelatinaOption" class="border rounded p-1 w-full mt-1">
+        <option value="10">🍓 Fresa</option>
+        <option value="10">🍇 Uva</option>
+        <option value="10">🍊 Naranja</option>
+        <option value="10">🥭 Mango</option>
+        <option value="10">🍍 Piña</option>
+        <option value="10">🍒 Cereza</option>
+        <option value="10">🫐 Mora</option>
+      </select>
 
-        <button id="addGelatina"
-          class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
-          Agregar
-        </button>
-      </div>
+      <p class="mt-2">
+        💰 $<span id="gelatinaPrice">10</span>
+      </p>
 
-
-      <!-- CEREAL -->
-<div class="border p-4 bg-white rounded shadow">
-  <h4 class="font-semibold">🥣 Cereal</h4>
-
-  <select id="cerealOption" class="border rounded p-1 w-full mt-1">
-    <option value="15">🥣 Cereal sencillo</option>
-    <option value="20">🍌 Cereal con plátano</option>
-  </select>
-
-  <div class="mt-2 text-sm text-gray-600">
-    <p id="cerealIncludes">
-      <strong>Incluye:</strong> 🥣 Cereal
-    </p>
-  </div>
-
-  <p class="mt-2 font-semibold">
-    💰 $<span id="cerealPrice">15</span>
-  </p>
-
-  <button id="addCereal"
-    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
-    🛒 Agregar
-  </button>
-</div>
-
-      <!-- YOGURTH -->
-<div class="border p-4 bg-white rounded shadow">
-  <h4 class="font-semibold">🥣 Yogurth</h4>
-
-  <select id="yogurthOption" class="border rounded p-1 w-full mt-1">
-    <option value="20">🥣 Sin topping</option>
-    <option value="35">🍬 Cacahuate dulce</option>
-    <option value="35">🌰 Nuez</option>
-    <option value="35">🥣 Granola</option>
-    <option value="35">🌈 Chispas de payaso</option>
-    <option value="35">🍫 Chispas de chocolate</option>
-    <option value="35">🍯 Miel de abeja</option>
-  </select>
-
-  <p class="mt-2">💰 $<span id="yogurthPrice">20</span></p>
-
-  <button id="addYogurth"
-    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
-    🛒 Agregar
-  </button>
-</div>
-
-      <!-- CARLOTA -->
-      <div class="border p-4 bg-white rounded shadow">
-        <h4 class="font-semibold">Carlota</h4>
-        <p>$35</p>
-
-        <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Carlota" data-price="35">
-        Agregar
-        </button>
-      </div>
-
+      <button id="addGelatina"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+        🛒 Agregar
+      </button>
     </div>
+
+
+    <!-- GELATINA MOSAICO -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🌈 Gelatina Mosaico</h4>
+
+      <p class="text-sm text-gray-600 mb-2">
+        ✨ Diferentes sabores en un solo postre
+      </p>
+
+      <p class="mt-2">
+        💰 $30
+      </p>
+
+      <button
+        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+        data-name="🌈 Gelatina Mosaico"
+        data-price="30">
+        🛒 Agregar
+      </button>
+    </div>
+
+
+    <!-- CEREAL -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🥣 Cereal</h4>
+
+      <select id="cerealOption" class="border rounded p-1 w-full mt-1">
+        <option value="15">🥣 Cereal</option>
+        <option value="20">🍌 Cereal con plátano</option>
+      </select>
+
+      <p class="mt-2">
+        💰 $<span id="cerealPrice">15</span>
+      </p>
+
+      <button id="addCereal"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+        🛒 Agregar
+      </button>
+    </div>
+
+
+    <!-- YOGURTH -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🥣 Yogurth</h4>
+
+      <select id="yogurthOption" class="border rounded p-1 w-full mt-1">
+        <option value="20">🥣 Sin topping</option>
+        <option value="35">🍬 Cacahuate dulce</option>
+        <option value="35">🌰 Nuez</option>
+        <option value="35">🥣 Granola</option>
+        <option value="35">🌈 Chispas de payaso</option>
+        <option value="35">🍫 Chispas de chocolate</option>
+        <option value="35">🍯 Miel de abeja</option>
+      </select>
+
+      <p class="mt-2">
+        💰 $<span id="yogurthPrice">20</span>
+      </p>
+
+      <button id="addYogurth"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+        🛒 Agregar
+      </button>
+    </div>
+
+
+    <!-- CARLOTA -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🍋 Carlota</h4>
+
+      <p>$35</p>
+
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+        data-name="Carlota"
+        data-price="35">
+        🛒 Agregar
+      </button>
+    </div>
+
   </div>
+</div>
 
 </section>
 
