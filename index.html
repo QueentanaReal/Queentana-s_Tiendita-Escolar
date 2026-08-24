@@ -301,6 +301,21 @@
 
 </section>
 
+  <!-- TIP DEL DÍA -->
+<div class="max-w-2xl mx-auto my-8">
+  <div class="bg-white/90 border border-[#C69B4B] rounded-2xl shadow-md p-5 text-center">
+
+    <p class="text-sm font-bold text-[#C69B4B] mb-2">
+      💡 Tip del día
+    </p>
+
+    <p id="dailyTip" class="text-gray-700">
+      😊 Cuidarte también significa disfrutar, descansar y pasar un buen rato.
+    </p>
+
+  </div>
+</div>
+  
 <!-- BEBIDAS -->
 <section id="bebidas">
   <h2 class="text-2xl font-bold mb-4">🥤 Bebidas</h2>
@@ -772,6 +787,23 @@ document.getElementById("yogurthOption").addEventListener("change", function () 
 });
 
 
+  // TIP DEL DÍA
+const dailyTips = [
+  "🏃‍♀️ No olvides realizar alguna actividad física por lo menos 30 minutos al día.",
+  "💧 Recuerda mantenerte bien hidratado durante el día.",
+  "🍎 Una alimentación variada ayuda a mantener tu cuerpo con energía.",
+  "🧠 También es importante darle pequeños descansos a tu mente.",
+  "😴 Dormir bien ayuda a tu cuerpo y a tu mente a recuperarse.",
+  "☀️ Un poco de movimiento y aire libre también puede ser un buen descanso.",
+  "📚 Estudiar es importante, pero descansar también.",
+  "😊 Cuidarte también significa disfrutar, descansar y pasar un buen rato."
+];
+
+const randomTip =
+  dailyTips[Math.floor(Math.random() * dailyTips.length)];
+
+document.getElementById("dailyTip").textContent = randomTip;
+  
 // AGUA
 document.getElementById("addAgua").addEventListener("click", () => {
   const aguaOption = document.getElementById("aguaOption");
