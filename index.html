@@ -699,6 +699,7 @@ document.getElementById("burritoOption").addEventListener("change", function () 
   document.getElementById("burritoPrice").textContent = this.value;
 });
 
+
 // LONCHE / TORTA
 document.getElementById("addTorta").addEventListener("click", () => {
   const tortaOption = document.getElementById("tortaOption");
@@ -706,67 +707,15 @@ document.getElementById("addTorta").addEventListener("click", () => {
   const tipo = tortaOption.options[tortaOption.selectedIndex].text;
   const precio = tortaOption.value;
 
-  addToCart("Lonche " + tipo, precio);
+  addToCart("🥪 Lonche " + tipo, precio);
 });
 
 document.getElementById("tortaOption").addEventListener("change", function () {
-
-  const includes = document.getElementById("tortaIncludes");
-  const price = document.getElementById("tortaPrice");
-
-  price.textContent = this.value;
-
-  switch (this.value) {
-
-    case "15":
-      includes.innerHTML =
-        "<strong>Incluye:</strong> medio lonche, salchicha, lechuga, jamón, tomate y mayonesa";
-      break;
-
-    case "30":
-      includes.innerHTML =
-        "<strong>Incluye:</strong> salchicha, jamón, lechuga, tomate y mayonesa";
-      break;
-
-    case "20":
-      includes.innerHTML =
-        "<strong>Incluye:</strong> mayonesa, aguacate, jamón, salchicha, lechuga, tomate y queso";
-      break;
-
-    case "40":
-      includes.innerHTML =
-        "<strong>Incluye:</strong> mayonesa, aguacate, jamón, salchicha, lechuga, tomate y queso";
-      break;
-  }
-
+  document.getElementById("tortaPrice").textContent = this.value;
 });
 
-  // MOLLETE
-document.getElementById("addMollete").addEventListener("click", () => {
-  const molleteOption = document.getElementById("molleteOption");
 
-  const tipo = molleteOption.options[molleteOption.selectedIndex].text;
-  const precio = molleteOption.value;
-
-  addToCart("Mollete " + tipo, precio);
-});
-
-document.getElementById("molleteOption").addEventListener("change", function () {
-
-  const includes = document.getElementById("molleteIncludes");
-  const price = document.getElementById("molletePrice");
-
-  price.textContent = this.value;
-
-  if (this.value === "15") {
-    includes.innerHTML = "<strong>Incluye:</strong> frijoles y queso";
-  } else {
-    includes.innerHTML = "<strong>Incluye:</strong> guisado y queso";
-  }
-
-});
-
-  // CEREAL
+// CEREAL
 document.getElementById("addCereal").addEventListener("click", () => {
   const cerealOption = document.getElementById("cerealOption");
 
@@ -777,42 +726,30 @@ document.getElementById("addCereal").addEventListener("click", () => {
 });
 
 document.getElementById("cerealOption").addEventListener("change", function () {
-
-  const includes = document.getElementById("cerealIncludes");
-  const price = document.getElementById("cerealPrice");
-
-  price.textContent = this.value;
-
-  if (this.value === "15") {
-    includes.innerHTML = "<strong>Incluye:</strong> 🥣 Cereal";
-  } else {
-    includes.innerHTML = "<strong>Incluye:</strong> 🥣 Cereal + 🍌 Plátano";
-  }
-
+  document.getElementById("cerealPrice").textContent = this.value;
 });
-  
-  // FRUTA
+
+
+// FRUTA CHICA
 document.getElementById("addFruta").addEventListener("click", () => {
-  const frutaOption = document.getElementById("frutaOption");
-
-  const tipo = frutaOption.options[frutaOption.selectedIndex].text;
-  const precio = frutaOption.value;
-
-  addToCart("Fruta " + tipo, precio);
+  addToCart("🍓 Fruta chica", 15);
 });
 
-document.getElementById("frutaOption").addEventListener("change", function () {
-  document.getElementById("frutaPrice").textContent = this.value;
+
+// FRUTA GRANDE
+document.getElementById("addFrutaGrande").addEventListener("click", () => {
+  addToCart("🍉 Fruta grande", 30);
 });
-  
-  // GELATINA
+
+
+// GELATINA
 document.getElementById("addGelatina").addEventListener("click", () => {
   const gelatinaOption = document.getElementById("gelatinaOption");
 
   const sabor = gelatinaOption.options[gelatinaOption.selectedIndex].text;
   const precio = gelatinaOption.value;
 
-  addToCart("Gelatina " + sabor, precio);
+  addToCart("🍮 Gelatina " + sabor, precio);
 });
 
 document.getElementById("gelatinaOption").addEventListener("change", function () {
@@ -827,23 +764,28 @@ document.getElementById("addYogurth").addEventListener("click", () => {
   const topping = yogurthOption.options[yogurthOption.selectedIndex].text;
   const precio = yogurthOption.value;
 
-  addToCart("Yogurth " + topping, precio);
+  addToCart("🥣 Yogurth " + topping, precio);
 });
 
 document.getElementById("yogurthOption").addEventListener("change", function () {
   document.getElementById("yogurthPrice").textContent = this.value;
 });
-  
+
+
 // AGUA
 document.getElementById("addAgua").addEventListener("click", () => {
   const aguaOption = document.getElementById("aguaOption");
-  const aguaPrice = document.getElementById("aguaPrice");
 
   const tipo = aguaOption.options[aguaOption.selectedIndex].text;
   const precio = aguaOption.value;
 
   addToCart(tipo, precio);
 });
+
+document.getElementById("aguaOption").addEventListener("change", function () {
+  document.getElementById("aguaPrice").textContent = this.value;
+});
+
 
 // AGUA FRESCA
 document.getElementById("addAguaFresca").addEventListener("click", () => {
@@ -852,27 +794,25 @@ document.getElementById("addAguaFresca").addEventListener("click", () => {
   const tipo = aguaFrescaOption.options[aguaFrescaOption.selectedIndex].text;
   const precio = aguaFrescaOption.value;
 
-  addToCart("Agua fresca " + tipo, precio);
+  addToCart("🧃 Agua fresca " + tipo, precio);
 });
 
 document.getElementById("aguaFrescaOption").addEventListener("change", function () {
   document.getElementById("aguaFrescaPrice").textContent = this.value;
 });
-  
+
+
 // JUGO
 document.getElementById("addJugo").addEventListener("click", () => {
   const jugoOption = document.getElementById("jugoOption");
+
   const sabor = jugoOption.options[jugoOption.selectedIndex].text;
 
-  addToCart("Jugo " + sabor, 12);
-});
-  
-document.getElementById("aguaOption").addEventListener("change", function () {
-  document.getElementById("aguaPrice").textContent = this.value;
+  addToCart("🧃 Jugo " + sabor, 12);
 });
 
-  // ACCESO A MAESTROS
 
+// ACCESO A MAESTROS
 const maestrosBtn = document.getElementById("maestrosBtn");
 const passwordModal = document.getElementById("passwordModal");
 const maestrosPassword = document.getElementById("maestrosPassword");
@@ -900,7 +840,6 @@ unlockMaestros.addEventListener("click", () => {
     passwordModal.classList.add("hidden");
     maestrosSection.classList.remove("hidden");
 
-    // Llevar automáticamente a la sección de maestros
     maestrosSection.scrollIntoView({
       behavior: "smooth"
     });
