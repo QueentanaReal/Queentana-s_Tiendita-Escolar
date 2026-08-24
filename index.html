@@ -85,16 +85,22 @@
   </button>
 </div>
 
-    <!-- BURRITO -->
+    <!-- BURRITOS -->
 <div class="border p-4 bg-white rounded shadow">
-  <h4 class="font-semibold">🌯 Burrito</h4>
+  <h4 class="font-semibold">🌯 Burritos</h4>
+
+  <p class="text-sm text-gray-600 mb-2">
+    ✨ Elige tu opción
+  </p>
 
   <select id="burritoOption" class="border rounded p-1 w-full mt-1">
-    <option value="29">🌶️ Papas con chorizo</option>
-    <option value="28">🥩 Deshebrada</option>
+    <option value="25">🌯 Burrito — $25</option>
+    <option value="35">🌯 Burrito — $35</option>
   </select>
 
-  <p class="mt-2">💰 $<span id="burritoPrice">29</span></p>
+  <p class="mt-2">
+    💰 $<span id="burritoPrice">25</span>
+  </p>
 
   <button id="addBurrito"
     class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
@@ -628,10 +634,9 @@ document.querySelectorAll(".addToCart").forEach(btn=>{
 document.getElementById("addBurrito").addEventListener("click", () => {
   const burritoOption = document.getElementById("burritoOption");
 
-  const tipo = burritoOption.options[burritoOption.selectedIndex].text;
   const precio = burritoOption.value;
 
-  addToCart("Burrito " + tipo, precio);
+  addToCart("🌯 Burrito", precio);
 });
 
 document.getElementById("burritoOption").addEventListener("change", function () {
