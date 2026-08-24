@@ -49,6 +49,12 @@
     <option value="40">Entero especial</option>
   </select>
 
+  <div class="mt-2 text-sm text-gray-600">
+    <p id="tortaIncludes">
+      <strong>Incluye:</strong> medio lonche, salchicha, lechuga, jamón, tomate y mayonesa
+    </p>
+  </div>
+
   <p class="mt-2">$<span id="tortaPrice">15</span></p>
 
   <button id="addTorta"
@@ -58,13 +64,26 @@
 </div>
 
     <div class="border p-4 bg-white rounded shadow">
-      <h4 class="font-semibold">Mollete</h4>
-      <p>$13</p>
-      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      data-name="Mollete" data-price="13">
-      Agregar
-      </button>
-    </div>
+  <h4 class="font-semibold">Mollete</h4>
+
+  <select id="molleteOption" class="border rounded p-1 w-full mt-1">
+    <option value="15">Mollete sencillo</option>
+    <option value="30">Mollete especial</option>
+  </select>
+
+  <div class="mt-2 text-sm text-gray-600">
+    <p id="molleteIncludes">
+      <strong>Incluye:</strong> frijoles y queso
+    </p>
+  </div>
+
+  <p class="mt-2">$<span id="molletePrice">15</span></p>
+
+  <button id="addMollete"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    Agregar
+  </button>
+</div>
 
     <div class="border p-4 bg-white rounded shadow">
       <h4 class="font-semibold">Burrito</h4>
@@ -568,11 +587,64 @@ document.getElementById("addTorta").addEventListener("click", () => {
   const tipo = tortaOption.options[tortaOption.selectedIndex].text;
   const precio = tortaOption.value;
 
-  addToCart("Lonche / Torta " + tipo, precio);
+  addToCart("Lonche " + tipo, precio);
 });
 
 document.getElementById("tortaOption").addEventListener("change", function () {
-  document.getElementById("tortaPrice").textContent = this.value;
+
+  const includes = document.getElementById("tortaIncludes");
+  const price = document.getElementById("tortaPrice");
+
+  price.textContent = this.value;
+
+  switch (this.value) {
+
+    case "15":
+      includes.innerHTML =
+        "<strong>Incluye:</strong> medio lonche, salchicha, lechuga, jamón, tomate y mayonesa";
+      break;
+
+    case "30":
+      includes.innerHTML =
+        "<strong>Incluye:</strong> salchicha, jamón, lechuga, tomate y mayonesa";
+      break;
+
+    case "20":
+      includes.innerHTML =
+        "<strong>Incluye:</strong> mayonesa, aguacate, jamón, salchicha, lechuga, tomate y queso";
+      break;
+
+    case "40":
+      includes.innerHTML =
+        "<strong>Incluye:</strong> mayonesa, aguacate, jamón, salchicha, lechuga, tomate y queso";
+      break;
+  }
+
+});
+
+  // MOLLETE
+document.getElementById("addMollete").addEventListener("click", () => {
+  const molleteOption = document.getElementById("molleteOption");
+
+  const tipo = molleteOption.options[molleteOption.selectedIndex].text;
+  const precio = molleteOption.value;
+
+  addToCart("Mollete " + tipo, precio);
+});
+
+document.getElementById("molleteOption").addEventListener("change", function () {
+
+  const includes = document.getElementById("molleteIncludes");
+  const price = document.getElementById("molletePrice");
+
+  price.textContent = this.value;
+
+  if (this.value === "15") {
+    includes.innerHTML = "<strong>Incluye:</strong> frijoles y queso";
+  } else {
+    includes.innerHTML = "<strong>Incluye:</strong> guisado y queso";
+  }
+
 });
 
   // FRUTA
