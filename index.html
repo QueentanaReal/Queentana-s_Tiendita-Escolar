@@ -131,13 +131,13 @@
         <h4 class="font-semibold">Gelatina</h4>
 
         <select id="gelatinaOption" class="border rounded p-1 w-full mt-1">
-          <option value="10">Fresa</option>
-          <option value="10">Uva</option>
-          <option value="10">Naranja</option>
-          <option value="10">Mango</option>
-          <option value="10">Piña</option>
-          <option value="10">Cereza</option>
-          <option value="10">Mora</option>
+          <option value="12">Fresa</option>
+          <option value="12">Uva</option>
+          <option value="12">Naranja</option>
+          <option value="12">Mango</option>
+          <option value="12">Piña</option>
+          <option value="12">Cereza</option>
+          <option value="12">Mora</option>
           <option value="30">Mosaico</option>
         </select>
 
@@ -151,15 +151,29 @@
 
 
       <!-- CEREAL -->
-      <div class="border p-4 bg-white rounded shadow">
-        <h4 class="font-semibold">Cereal</h4>
-        <p>$15</p>
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">🥣 Cereal</h4>
 
-        <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Cereal" data-price="15">
-        Agregar
-        </button>
-      </div>
+  <select id="cerealOption" class="border rounded p-1 w-full mt-1">
+    <option value="15">🥣 Cereal sencillo</option>
+    <option value="20">🍌 Cereal con plátano</option>
+  </select>
+
+  <div class="mt-2 text-sm text-gray-600">
+    <p id="cerealIncludes">
+      <strong>Incluye:</strong> 🥣 Cereal
+    </p>
+  </div>
+
+  <p class="mt-2 font-semibold">
+    💰 $<span id="cerealPrice">15</span>
+  </p>
+
+  <button id="addCereal"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    🛒 Agregar
+  </button>
+</div>
 
 
       <!-- YOGURTH -->
@@ -168,10 +182,10 @@
 
         <select id="yogurthOption" class="border rounded p-1 w-full mt-1">
           <option value="20">Sin topping</option>
-          <option value="40">Granola</option>
-          <option value="40">Chispas de chocolate</option>
-          <option value="40">Chispas de colores</option>
-          <option value="40">Fruta</option>
+          <option value="35">Granola</option>
+          <option value="35">Chispas de chocolate</option>
+          <option value="35">Chispas de colores</option>
+          <option value="35">Fruta</option>
         </select>
 
         <p class="mt-2">$<span id="yogurthPrice">20</span></p>
@@ -647,6 +661,31 @@ document.getElementById("molleteOption").addEventListener("change", function () 
 
 });
 
+  // CEREAL
+document.getElementById("addCereal").addEventListener("click", () => {
+  const cerealOption = document.getElementById("cerealOption");
+
+  const tipo = cerealOption.options[cerealOption.selectedIndex].text;
+  const precio = cerealOption.value;
+
+  addToCart(tipo, precio);
+});
+
+document.getElementById("cerealOption").addEventListener("change", function () {
+
+  const includes = document.getElementById("cerealIncludes");
+  const price = document.getElementById("cerealPrice");
+
+  price.textContent = this.value;
+
+  if (this.value === "15") {
+    includes.innerHTML = "<strong>Incluye:</strong> 🥣 Cereal";
+  } else {
+    includes.innerHTML = "<strong>Incluye:</strong> 🥣 Cereal + 🍌 Plátano";
+  }
+
+});
+  
   // FRUTA
 document.getElementById("addFruta").addEventListener("click", () => {
   const frutaOption = document.getElementById("frutaOption");
