@@ -39,49 +39,37 @@
 
   <div class="grid md:grid-cols-3 gap-6">
 
- <div class="border p-4 bg-white rounded shadow">
-  <h4 class="font-semibold">Lonche / Torta</h4>
+ <!-- LONCHE / TORTA -->
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">🥪 Lonche / Torta</h4>
+
+  <p class="text-sm text-gray-600 mb-2">
+    ✨ Elige tu tamaño y preparación
+  </p>
 
   <select id="tortaOption" class="border rounded p-1 w-full mt-1">
-    <option value="15">Mitad sencillo</option>
-    <option value="30">Entero sencillo</option>
-    <option value="20">Mitad especial</option>
-    <option value="40">Entero especial</option>
+    <option value="15">🥪 Mitad sencillo — $15</option>
+<option value="30">🥪 Entero sencillo — $30</option>
+<option value="20">🥪 Mitad especial — $20</option>
+<option value="40">🥪 Entero especial — $40</option>
   </select>
 
-  <div class="mt-2 text-sm text-gray-600">
-    <p id="tortaIncludes">
-      <strong>Incluye:</strong> medio lonche, salchicha, lechuga, jamón, tomate y mayonesa
+  <div class="mt-3 p-3 bg-[#F9F6F0] rounded-lg">
+    <p class="font-semibold text-sm">🥬 Incluye:</p>
+
+    <p class="text-sm text-gray-600 mt-1">
+      🌭 Salchicha · 🍖 Jamón · 🥬 Lechuga · 🍅 Tomate ·
+      🥄 Mayonesa
     </p>
   </div>
 
-  <p class="mt-2">$<span id="tortaPrice">15</span></p>
+  <p class="mt-3">
+    💰 $<span id="tortaPrice">15</span>
+  </p>
 
   <button id="addTorta"
     class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
-    Agregar
-  </button>
-</div>
-
-    <div class="border p-4 bg-white rounded shadow">
-  <h4 class="font-semibold">Mollete</h4>
-
-  <select id="molleteOption" class="border rounded p-1 w-full mt-1">
-    <option value="15">Mollete sencillo</option>
-    <option value="30">Mollete especial</option>
-  </select>
-
-  <div class="mt-2 text-sm text-gray-600">
-    <p id="molleteIncludes">
-      <strong>Incluye:</strong> frijoles y queso
-    </p>
-  </div>
-
-  <p class="mt-2">$<span id="molletePrice">15</span></p>
-
-  <button id="addMollete"
-    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
-    Agregar
+    🛒 Agregar
   </button>
 </div>
 
