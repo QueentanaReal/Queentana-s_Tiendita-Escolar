@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Queentana´s Tiendita Escolar</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
+   <style>
 
     /* =====================================================
        ANIMACIÓN DE ENTRADA - QUEENTANA REAL
@@ -118,982 +115,474 @@
 
 </div>
 
+  
+</head>
 
-<!-- =====================================================
-     ENCABEZADO
-     ===================================================== -->
+<body class="bg-[#F9F6F0] text-[#1F1F1F]">
 
-<header
-  class="bg-[#C69B4B] text-white p-4 shadow-lg flex items-center justify-between"
->
-
-  <button
-    id="menuBtn"
-    class="text-2xl"
-  >
-    ☰
-  </button>
-
-
-  <h1 class="text-xl md:text-2xl font-bold">
-    👑 Queentana´s Tiendita
-  </h1>
-
-
-  <button
-    id="cartBtn"
-    class="bg-white text-[#C69B4B] px-3 py-1 rounded-lg shadow font-bold"
-  >
+<header class="bg-[#C69B4B] text-white p-4 shadow-lg flex items-center justify-between">
+  <button id="menuBtn" class="text-2xl">☰</button>
+  <h1 class="text-xl md:text-2xl font-bold">👑 Queentana´s Tiendita</h1>
+  <button id="cartBtn" class="bg-white text-[#C69B4B] px-3 py-1 rounded-lg shadow font-bold">
     🛒 (<span id="cartCount">0</span>)
   </button>
-
 </header>
 
-
-<!-- =====================================================
-     MENÚ DESPLEGABLE
-     ===================================================== -->
-
-<div
-  id="menu"
-  class="hidden absolute top-16 left-0 w-full bg-white shadow-lg p-4 z-50"
->
-
+<!-- MENÚ DESPLEGABLE -->
+<div id="menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-lg p-4 z-50">
   <ul class="space-y-2 font-semibold">
-
-    <li>
-      <a href="#menuDiario">
-        📋 Menú Diario
-      </a>
-    </li>
-
-    <li>
-      <a href="#bebidas">
-        🥤 Bebidas
-      </a>
-    </li>
-
-    <li>
-      <a href="#especial">
-        ⭐ Platillo especial
-      </a>
-    </li>
-
-    <li>
-      <a href="#" id="maestrosBtn">
-        🔒 Área de maestros
-      </a>
-    </li>
-
-    <li>
-      <a href="#temporada">
-        🍂 Temporada
-      </a>
-    </li>
-
+    <li><a href="#menuDiario">📋 Menú Diario</a></li>
+    <li><a href="#bebidas">🥤 Bebidas</a></li>
+    <li><a href="#especial">⭐ Platillo especial</a></li>
+    <li><a href="#" id="maestrosBtn">🔒 Área de maestros</a></li>
+    <li><a href="#temporada">🍂 Temporada</a></li>
   </ul>
-
 </div>
 
-
-<!-- =====================================================
-     MENSAJE TOAST
-     ===================================================== -->
-
-<div
-  id="toast"
-  class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"
-></div>
-
-
-<audio
-  id="sound"
-  src="https://www.soundjay.com/buttons/sounds/button-3.mp3"
-></audio>
-
-
-<!-- =====================================================
-     CONTENIDO PRINCIPAL
-     ===================================================== -->
+<div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-2 rounded-lg opacity-0 transition duration-300 z-50"></div>
+<audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
 <main class="p-6 space-y-12">
 
-
-<!-- =====================================================
-     MENÚ DIARIO
-     ===================================================== -->
-
+<!-- MENÚ -->
 <section id="menuDiario">
-
-  <h2 class="text-2xl font-bold mb-4">
-    📋 Menú Diario
-  </h2>
-
+  <h2 class="text-2xl font-bold mb-4">📋 Menú Diario</h2>
 
   <div class="grid md:grid-cols-3 gap-6">
 
+ <!-- LONCHE / TORTA -->
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">🥪 Lonche / Torta</h4>
 
-    <!-- =================================================
-         LONCHE / TORTA
-         ================================================= -->
+  <p class="text-sm text-gray-600 mb-2">
+    ✨ Elige tu tamaño y preparación
+  </p>
 
-    <div class="border p-4 bg-white rounded shadow">
+  <select id="tortaOption" class="border rounded p-1 w-full mt-1">
+    <option value="15">🥪 Mitad sencillo</option>
+<option value="30">🥪 Entero sencillo</option>
+<option value="20">🥪 Mitad especial</option>
+<option value="40">🥪 Entero especial</option>
+  </select>
 
-      <h4 class="font-semibold">
-        🥪 Lonche / Torta
-      </h4>
+  <div class="mt-3 p-3 bg-[#F9F6F0] rounded-lg">
+    <p class="font-semibold text-sm">🥬 Incluye:</p>
 
+    <p class="text-sm text-gray-600 mt-1">
+      🌭 Salchicha · 🍖 Jamón · 🥬 Lechuga · 🍅 Tomate ·
+      🥄 Mayonesa
+    </p>
+  </div>
 
-      <p class="text-sm text-gray-600 mb-2">
-        ✨ Elige tu tamaño y preparación
+  <p class="mt-3">
+    💰 $<span id="tortaPrice">15</span>
+  </p>
+
+  <button id="addTorta"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    🛒 Agregar
+  </button>
+</div>
+    
+<!-- MOLLETES -->
+<div class="border p-4 bg-white rounded shadow hover:shadow-lg transition">
+
+  <h4 class="font-semibold text-lg">🥖 Mollete</h4>
+
+  <div class="mt-2 space-y-2">
+
+    <!-- SENCILLO -->
+    <div class="bg-[#F9F6F0] rounded-lg p-2">
+      <p class="font-semibold">🫘 Mollete sencillo</p>
+      <p class="text-sm text-gray-600">
+        🧀 Incluye: frijoles y queso
       </p>
-
-
-      <select
-        id="tortaOption"
-        class="border rounded p-1 w-full mt-1"
-      >
-
-        <option value="15">
-          🥪 Mitad sencillo
-        </option>
-
-        <option value="30">
-          🥪 Entero sencillo
-        </option>
-
-        <option value="20">
-          🥪 Mitad especial
-        </option>
-
-        <option value="40">
-          🥪 Entero especial
-        </option>
-
-      </select>
-
-
-      <!-- INFORMACIÓN DE INGREDIENTES -->
-
-      <div class="mt-3 p-3 bg-[#F9F6F0] rounded-lg">
-
-        <p
-          id="tortaIncludes"
-          class="text-sm text-gray-600"
-        >
-          <strong>Incluye:</strong>
-          medio lonche, salchicha, lechuga,
-          jamón, tomate y mayonesa
-        </p>
-
-      </div>
-
-
-      <p class="mt-3">
-        💰 $<span id="tortaPrice">15</span>
-      </p>
-
+      <p class="font-bold mt-1">$15</p>
 
       <button
-        id="addTorta"
-        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      >
-        🛒 Agregar
+        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-1"
+        data-name="Mollete sencillo"
+        data-price="15">
+        Agregar
       </button>
-
     </div>
 
-
-
-    <!-- =================================================
-         MOLLETES
-         ================================================= -->
-
-    <div
-      class="border p-4 bg-white rounded shadow hover:shadow-lg transition"
-    >
-
-      <h4 class="font-semibold text-lg">
-        🥖 Mollete
-      </h4>
-
-
-      <select
-        id="molleteOption"
-        class="border rounded p-1 w-full mt-2"
-      >
-
-        <option value="15">
-          🫘 Mollete sencillo
-        </option>
-
-        <option value="30">
-          ✨ Mollete especial
-        </option>
-
-      </select>
-
-
-      <div
-        class="mt-3 p-3 bg-[#F9F6F0] rounded-lg"
-      >
-
-        <p
-          id="molleteIncludes"
-          class="text-sm text-gray-600"
-        >
-          <strong>Incluye:</strong>
-          frijoles y queso
-        </p>
-
-      </div>
-
-
-      <p class="font-bold mt-2">
-        💰 $<span id="molletePrice">15</span>
+    <!-- ESPECIAL -->
+    <div class="bg-[#F9F6F0] rounded-lg p-2">
+      <p class="font-semibold">✨ Mollete especial</p>
+      <p class="text-sm text-gray-600">
+        🍽️ Incluye: guisado y queso
       </p>
-
+      <p class="font-bold mt-1">$30</p>
 
       <button
-        id="addMollete"
-        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      >
-        🛒 Agregar
+        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-1"
+        data-name="Mollete especial"
+        data-price="30">
+        Agregar
       </button>
-
     </div>
 
+  </div>
 
+</div>
+    
+    <!-- BURRITOS -->
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">🌯 Burritos</h4>
 
-    <!-- =================================================
-         BURRITOS
-         ================================================= -->
+  <p class="text-sm text-gray-600 mb-2">
+    ✨ Elige tu opción
+  </p>
 
+  <select id="burritoOption" class="border rounded p-1 w-full mt-1">
+    <option value="25">🌯 Burrito — $25</option>
+    <option value="35">🌯 Burrito — $35</option>
+  </select>
+
+  <p class="mt-2">
+    💰 $<span id="burritoPrice">25</span>
+  </p>
+
+  <button id="addBurrito"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    🛒 Agregar
+  </button>
+</div>
+
+  </div>
+
+  <!-- FRUTA -->
+<div class="border p-4 bg-white rounded shadow hover:shadow-lg transition">
+
+  <h4 class="font-semibold text-lg">🍓 Fruta</h4>
+
+  <div class="mt-2 space-y-2">
+
+    <!-- CHICA -->
+    <div class="bg-[#F9F6F0] rounded-lg p-2">
+      <p class="font-semibold">🍎 Fruta chica</p>
+      <p class="text-sm text-gray-600">
+        🍓 Porción individual
+      </p>
+      <p class="font-bold mt-1">$15</p>
+
+      <button
+        id="addFruta"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-1">
+        Agregar
+      </button>
+    </div>
+
+    <!-- GRANDE -->
+    <div class="bg-[#F9F6F0] rounded-lg p-2">
+      <p class="font-semibold">🍉 Fruta grande</p>
+      <p class="text-sm text-gray-600">
+        🍓 Porción grande
+      </p>
+      <p class="font-bold mt-1">$30</p>
+
+      <button
+        id="addFrutaGrande"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-1">
+        Agregar
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- POSTRES -->
+<div class="mt-10">
+  <h3 class="text-xl font-bold mb-4">🍰 Postres</h3>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <!-- GELATINA NORMAL -->
     <div class="border p-4 bg-white rounded shadow">
-
-      <h4 class="font-semibold">
-        🌯 Burritos
-      </h4>
-
+      <h4 class="font-semibold">🍮 Gelatina</h4>
 
       <p class="text-sm text-gray-600 mb-2">
-        ✨ Elige tu opción
+        🍓 Gelatina de un solo sabor
       </p>
 
-
-      <select
-        id="burritoOption"
-        class="border rounded p-1 w-full mt-1"
-      >
-
-        <option value="25">
-          🌯 Burrito — $25
-        </option>
-
-        <option value="35">
-          🌯 Burrito — $35
-        </option>
-
+      <select id="gelatinaOption" class="border rounded p-1 w-full mt-1">
+        <option value="10">🍓 Fresa</option>
+        <option value="10">🍇 Uva</option>
+        <option value="10">🍊 Naranja</option>
+        <option value="10">🥭 Mango</option>
+        <option value="10">🍍 Piña</option>
+        <option value="10">🍒 Cereza</option>
+        <option value="10">🫐 Mora</option>
       </select>
-
 
       <p class="mt-2">
-        💰 $<span id="burritoPrice">25</span>
+        💰 $<span id="gelatinaPrice">10</span>
       </p>
 
-
-      <button
-        id="addBurrito"
-        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      >
+      <button id="addGelatina"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
         🛒 Agregar
       </button>
+    </div>
 
+
+    <!-- GELATINA MOSAICO -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🌈 Gelatina Mosaico</h4>
+
+      <p class="text-sm text-gray-600 mb-2">
+        ✨ Diferentes sabores en un solo postre
+      </p>
+
+      <p class="mt-2">
+        💰 $30
+      </p>
+
+      <button
+        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+        data-name="🌈 Gelatina Mosaico"
+        data-price="30">
+        🛒 Agregar
+      </button>
+    </div>
+
+
+    <!-- CEREAL -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🥣 Cereal</h4>
+
+      <select id="cerealOption" class="border rounded p-1 w-full mt-1">
+        <option value="15">🥣 Cereal</option>
+        <option value="20">🍌 Cereal con plátano</option>
+      </select>
+
+      <p class="mt-2">
+        💰 $<span id="cerealPrice">15</span>
+      </p>
+
+      <button id="addCereal"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+        🛒 Agregar
+      </button>
+    </div>
+
+
+    <!-- YOGURTH -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🥣 Yogurth</h4>
+
+      <select id="yogurthOption" class="border rounded p-1 w-full mt-1">
+        <option value="20">🥣 Sin topping</option>
+        <option value="35">🍬 Cacahuate dulce</option>
+        <option value="35">🌰 Nuez</option>
+        <option value="35">🥣 Granola</option>
+        <option value="35">🌈 Chispas de payaso</option>
+        <option value="35">🍫 Chispas de chocolate</option>
+        <option value="35">🍯 Miel de abeja</option>
+      </select>
+
+      <p class="mt-2">
+        💰 $<span id="yogurthPrice">20</span>
+      </p>
+
+      <button id="addYogurth"
+        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+        🛒 Agregar
+      </button>
+    </div>
+
+
+    <!-- CARLOTA -->
+    <div class="border p-4 bg-white rounded shadow">
+      <h4 class="font-semibold">🍋 Carlota</h4>
+
+      <p>$35</p>
+
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+        data-name="Carlota"
+        data-price="35">
+        🛒 Agregar
+      </button>
     </div>
 
   </div>
-
-
-
-  <!-- ===================================================
-       FRUTA
-       =================================================== -->
-
-  <div class="border p-4 bg-white rounded shadow hover:shadow-lg transition mt-6">
-
-    <h4 class="font-semibold text-lg">
-      🍓 Fruta
-    </h4>
-
-
-    <div class="mt-2 space-y-2">
-
-
-      <!-- FRUTA CHICA -->
-
-      <div class="bg-[#F9F6F0] rounded-lg p-2">
-
-        <p class="font-semibold">
-          🍎 Fruta chica
-        </p>
-
-        <p class="text-sm text-gray-600">
-          🍓 Porción individual
-        </p>
-
-        <p class="font-bold mt-1">
-          $15
-        </p>
-
-
-        <button
-          id="addFruta"
-          class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-1"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-
-
-      <!-- FRUTA GRANDE -->
-
-      <div class="bg-[#F9F6F0] rounded-lg p-2">
-
-        <p class="font-semibold">
-          🍉 Fruta grande
-        </p>
-
-        <p class="text-sm text-gray-600">
-          🍓 Porción grande
-        </p>
-
-        <p class="font-bold mt-1">
-          $30
-        </p>
-
-
-        <button
-          id="addFrutaGrande"
-          class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-1"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ===================================================
-       POSTRES
-       =================================================== -->
-
-  <div class="mt-10">
-
-    <h3 class="text-xl font-bold mb-4">
-      🍰 Postres
-    </h3>
-
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-
-      <!-- GELATINA NORMAL -->
-
-      <div class="border p-4 bg-white rounded shadow">
-
-        <h4 class="font-semibold">
-          🍮 Gelatina
-        </h4>
-
-
-        <p class="text-sm text-gray-600 mb-2">
-          🍓 Gelatina de un solo sabor
-        </p>
-
-
-        <select
-          id="gelatinaOption"
-          class="border rounded p-1 w-full mt-1"
-        >
-
-          <option value="10">
-            🍓 Fresa
-          </option>
-
-          <option value="10">
-            🍇 Uva
-          </option>
-
-          <option value="10">
-            🍊 Naranja
-          </option>
-
-          <option value="10">
-            🥭 Mango
-          </option>
-
-          <option value="10">
-            🍍 Piña
-          </option>
-
-          <option value="10">
-            🍒 Cereza
-          </option>
-
-          <option value="10">
-            🫐 Mora
-          </option>
-
-        </select>
-
-
-        <p class="mt-2">
-          💰 $<span id="gelatinaPrice">10</span>
-        </p>
-
-
-        <button
-          id="addGelatina"
-          class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-
-
-      <!-- GELATINA MOSAICO -->
-
-      <div class="border p-4 bg-white rounded shadow">
-
-        <h4 class="font-semibold">
-          🌈 Gelatina Mosaico
-        </h4>
-
-
-        <p class="text-sm text-gray-600 mb-2">
-          ✨ Diferentes sabores en un solo postre
-        </p>
-
-
-        <p class="mt-2">
-          💰 $30
-        </p>
-
-
-        <button
-          class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-          data-name="🌈 Gelatina Mosaico"
-          data-price="30"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-
-
-      <!-- CEREAL -->
-
-      <div class="border p-4 bg-white rounded shadow">
-
-        <h4 class="font-semibold">
-          🥣 Cereal
-        </h4>
-
-
-        <select
-          id="cerealOption"
-          class="border rounded p-1 w-full mt-1"
-        >
-
-          <option value="15">
-            🥣 Cereal
-          </option>
-
-          <option value="20">
-            🍌 Cereal con plátano
-          </option>
-
-        </select>
-
-
-        <div
-          class="mt-2 text-sm text-gray-600"
-        >
-
-          <p id="cerealIncludes">
-            <strong>Incluye:</strong>
-            🥣 Cereal
-          </p>
-
-        </div>
-
-
-        <p class="mt-2">
-          💰 $<span id="cerealPrice">15</span>
-        </p>
-
-
-        <button
-          id="addCereal"
-          class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-
-
-      <!-- YOGURTH -->
-
-      <div class="border p-4 bg-white rounded shadow">
-
-        <h4 class="font-semibold">
-          🥣 Yogurth
-        </h4>
-
-
-        <select
-          id="yogurthOption"
-          class="border rounded p-1 w-full mt-1"
-        >
-
-          <option value="20">
-            🥣 Sin topping
-          </option>
-
-          <option value="35">
-            🍬 Cacahuate dulce
-          </option>
-
-          <option value="35">
-            🌰 Nuez
-          </option>
-
-          <option value="35">
-            🥣 Granola
-          </option>
-
-          <option value="35">
-            🌈 Chispas de payaso
-          </option>
-
-          <option value="35">
-            🍫 Chispas de chocolate
-          </option>
-
-          <option value="35">
-            🍯 Miel de abeja
-          </option>
-
-        </select>
-
-
-        <p class="mt-2">
-          💰 $<span id="yogurthPrice">20</span>
-        </p>
-
-
-        <button
-          id="addYogurth"
-          class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-
-
-      <!-- CARLOTA -->
-
-      <div class="border p-4 bg-white rounded shadow">
-
-        <h4 class="font-semibold">
-          🍋 Carlota
-        </h4>
-
-
-        <p class="mt-2">
-          💰 $35
-        </p>
-
-
-        <button
-          class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-          data-name="Carlota"
-          data-price="35"
-        >
-          🛒 Agregar
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
+  <!-- TIP DEL DÍA -->
+<div class="max-w-2xl mx-auto my-8">
+  <div class="bg-white/90 border border-[#C69B4B] rounded-2xl shadow-md p-5 text-center">
 
+    <p class="text-sm font-bold text-[#C69B4B] mb-2">
+      💡 Tip del día
+    </p>
 
-<!-- =====================================================
-     BEBIDAS
-     ===================================================== -->
+    <p id="dailyTip" class="text-gray-700">
+      😊 Cuidarte también significa disfrutar, descansar y pasar un buen rato.
+    </p>
 
+  </div>
+</div>
+  
+<!-- BEBIDAS -->
 <section id="bebidas">
-
-  <h2 class="text-2xl font-bold mb-4">
-    🥤 Bebidas
-  </h2>
-
+  <h2 class="text-2xl font-bold mb-4">🥤 Bebidas</h2>
 
   <div class="grid md:grid-cols-2 gap-6">
 
-
     <!-- AGUA -->
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">💧 Agua</h4>
 
-    <div class="border p-4 bg-white rounded shadow">
+  <p class="text-sm text-gray-600 mb-2">
+    🧊 Refrescante y lista para acompañar tu comida
+  </p>
 
-      <h4 class="font-semibold">
-        💧 Agua
-      </h4>
+  <select id="aguaOption" class="border rounded p-1 w-full mt-1">
+    <option value="6">💧 Agua chica</option>
+    <option value="12">💦 Agua grande</option>
+  </select>
 
+  <p class="mt-2">
+    💰 $<span id="aguaPrice">6</span>
+  </p>
 
-      <p class="text-sm text-gray-600 mb-2">
-        🧊 Refrescante y lista para acompañar tu comida
-      </p>
-
-
-      <select
-        id="aguaOption"
-        class="border rounded p-1 w-full mt-1"
-      >
-
-        <option value="6">
-          💧 Agua chica
-        </option>
-
-        <option value="12">
-          💦 Agua grande
-        </option>
-
-      </select>
-
-
-      <p class="mt-2">
-        💰 $<span id="aguaPrice">6</span>
-      </p>
-
-
-      <button
-        id="addAgua"
-        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      >
-        🛒 Agregar
-      </button>
-
-    </div>
-
-
+  <button id="addAgua"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    🛒 Agregar
+  </button>
+</div>
 
     <!-- AGUA FRESCA -->
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">🧃 Agua fresca</h4>
 
-    <div class="border p-4 bg-white rounded shadow">
+  <p class="text-sm text-gray-600 mb-2">
+    💦 Refrescante y deliciosa
+  </p>
 
-      <h4 class="font-semibold">
-        🧃 Agua fresca
-      </h4>
+  <select id="aguaFrescaOption" class="border rounded p-1 w-full mt-1">
+    <option value="10">🥤 Chica</option>
+    <option value="25">🥤 Grande</option>
+  </select>
 
+  <p class="mt-2">
+    💰 $<span id="aguaFrescaPrice">10</span>
+  </p>
 
-      <p class="text-sm text-gray-600 mb-2">
-        💦 Refrescante y deliciosa
-      </p>
-
-
-      <select
-        id="aguaFrescaOption"
-        class="border rounded p-1 w-full mt-1"
-      >
-
-        <option value="10">
-          🥤 Chica
-        </option>
-
-        <option value="25">
-          🥤 Grande
-        </option>
-
-      </select>
-
-
-      <p class="mt-2">
-        💰 $<span id="aguaFrescaPrice">10</span>
-      </p>
-
-
-      <button
-        id="addAguaFresca"
-        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      >
-        🛒 Agregar
-      </button>
-
-    </div>
-
-
+  <button id="addAguaFresca"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    🛒 Agregar
+  </button>
+</div>
 
     <!-- JUGO -->
+<div class="border p-4 bg-white rounded shadow">
+  <h4 class="font-semibold">🧃 Jugo</h4>
 
-    <div class="border p-4 bg-white rounded shadow">
+  <p class="text-sm text-gray-600 mb-2">
+    ✨ Elige tu favorito
+  </p>
 
-      <h4 class="font-semibold">
-        🧃 Jugo
-      </h4>
+  <select id="jugoOption" class="border rounded p-1 w-full mt-1">
+    <option>🟦 Frutas Tropicales</option>
+    <option>🟨 Mango con Manzana</option>
+    <option>🟥 Mix de Manzanas</option>
+  </select>
 
+  <p class="mt-2">
+    💰 $12
+  </p>
 
-      <p class="text-sm text-gray-600 mb-2">
-        ✨ Elige tu favorito
-      </p>
-
-
-      <select
-        id="jugoOption"
-        class="border rounded p-1 w-full mt-1"
-      >
-
-        <option>
-          🟦 Frutas Tropicales
-        </option>
-
-        <option>
-          🟨 Mango con Manzana
-        </option>
-
-        <option>
-          🟥 Mix de Manzanas
-        </option>
-
-      </select>
-
-
-      <p class="mt-2">
-        💰 $12
-      </p>
-
-
-      <button
-        id="addJugo"
-        class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-      >
-        🛒 Agregar
-      </button>
-
-    </div>
+  <button id="addJugo"
+    class="bg-[#C69B4B] text-white px-3 py-1 rounded mt-2">
+    🛒 Agregar
+  </button>
+</div>
 
   </div>
-
 </section>
-
-
-
-<!-- =====================================================
-     PLATILLO ESPECIAL
-     ===================================================== -->
-
+    
+<!-- PLATILLO ESPECIAL -->
 <section id="especial">
+  <h2 class="text-2xl font-bold mb-4">⭐ Platillo especial</h2>
 
-  <h2 class="text-2xl font-bold mb-4">
-    ⭐ Platillo especial
-  </h2>
-
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-
-    <!-- LUNES -->
-
-    <div class="max-w-sm border p-4 bg-white rounded shadow">
-
-      <p class="text-sm font-bold text-gray-600">
-        Lunes
-      </p>
-
-      <h4 class="font-semibold">
-        Papa asada
-      </h4>
-
-      <p>
-        $35
-      </p>
-
-
-      <button
-        class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-        data-name="Platillo especial - Papa asada"
-        data-price="35"
-      >
-        Agregar
-      </button>
-
-    </div>
-
-
-
-    <!-- MARTES -->
-
-    <div class="max-w-sm border p-4 bg-white rounded shadow">
-
-      <p class="text-sm font-bold text-gray-600">
-        Martes
-      </p>
-
-      <h4 class="font-semibold">
-        Hot Cakes
-      </h4>
-
-      <p>
-        $12 c/u
-      </p>
-
-
-      <button
-        class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-        data-name="Platillo especial - Hot Cakes"
-        data-price="12"
-      >
-        Agregar
-      </button>
-
-    </div>
-
-
-
-    <!-- MIÉRCOLES -->
-
-    <div class="max-w-sm border p-4 bg-white rounded shadow">
-
-      <p class="text-sm font-bold text-gray-600">
-        Miércoles
-      </p>
-
-      <h4 class="font-semibold">
-        Ensalada de atún con sopa
-      </h4>
-
-      <p>
-        $30
-      </p>
-
-
-      <button
-        class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-        data-name="Platillo especial - Ensalada de atún con sopa"
-        data-price="30"
-      >
-        Agregar
-      </button>
-
-    </div>
-
-
-
-    <!-- JUEVES -->
-
-    <div class="max-w-sm border p-4 bg-white rounded shadow">
-
-      <p class="text-sm font-bold text-gray-600">
-        Jueves
-      </p>
-
-      <h4 class="font-semibold">
-        Tostadas de pechuga de pollo
-      </h4>
-
-      <p>
-        $25
-      </p>
-
-
-      <button
-        class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-        data-name="Platillo especial - Tostadas de pechuga de pollo"
-        data-price="25"
-      >
-        Agregar
-      </button>
-
-    </div>
-
-
-
-    <!-- VIERNES -->
-
-    <div class="max-w-sm border p-4 bg-white rounded shadow">
-
-      <p class="text-sm font-bold text-gray-600">
-        Viernes
-      </p>
-
-      <h4 class="font-semibold">
-        Platillo
-      </h4>
-
-      <p>
-        Incluye: guisado, verdura, frijoles y sopa
-      </p>
-
-      <p>
-        $65
-      </p>
-
-
-      <button
-        class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
-        data-name="Platillo especial - Platillo del día"
-        data-price="65"
-      >
-        Agregar
-      </button>
-
-    </div>
-
+  <div class="max-w-sm border p-4 bg-white rounded shadow">
+    <p class="text-sm font-bold text-gray-600">Lunes</p>
+    <h4 class="font-semibold">Papa asada</h4>
+    <p>$35</p>
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+  data-name="Platillo especial - Papa asada"
+  data-price="35">
+  Agregar
+</button>
   </div>
-
 </section>
 
+    <div class="max-w-sm border p-4 bg-white rounded shadow">
+    <p class="text-sm font-bold text-gray-600">Martes</p>
+    <h4 class="font-semibold">Hot Cakes</h4>
+    <p>$12 c/u</p>
+<button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+  data-name="Platillo especial - Hot Cakes"
+  data-price="12">
+  Agregar
+</button>
+  </div>
+</section>
 
+    <div class="max-w-sm border p-4 bg-white rounded shadow">
+    <p class="text-sm font-bold text-gray-600">Miércoles</p>
+    <h4 class="font-semibold">Ensalada de atún con sopa</h4>
+    <p>$30</p>
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+  data-name="Platillo especial - Ensalada de atún con sopa"
+  data-price="30">
+  Agregar
+</button>
+  </div>
+</section>
 
-<!-- =====================================================
-     ACCESO A MAESTROS
-     ===================================================== -->
+    <div class="max-w-sm border p-4 bg-white rounded shadow">
+    <p class="text-sm font-bold text-gray-600">Jueves</p>
+    <h4 class="font-semibold">Tostadas de pechuga de pollo</h4>
+    <p>$25</p>
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+  data-name="Platillo especial - Tostadas de pechuga de pollo"
+  data-price="25">
+  Agregar
+</button>
+  </div>
+</section>
 
-<div
-  id="passwordModal"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
->
+  <div class="max-w-sm border p-4 bg-white rounded shadow">
+    <p class="text-sm font-bold text-gray-600">Viernes</p>
+    <h4 class="font-semibold">Platillo</h4>
+    <p>Incluye: guisado, verdura, frijoles y sopa</p>
+    <p>$65</p>
 
+    <button class="addToCart bg-green-600 text-white px-3 py-1 rounded mt-2"
+  data-name="Platillo especial - Platillo del día"
+  data-price="65">
+  Agregar
+</button>
+  </div>
+</section>
+
+  <!-- ACCESO A MAESTROS -->
+<div id="passwordModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
   <div class="bg-white p-6 rounded-lg shadow-lg w-80">
-
 
     <h3 class="text-xl font-bold mb-2">
       🔐 Área de maestros
     </h3>
 
-
     <p class="text-sm text-gray-600 mb-4">
       Ingresa la contraseña para acceder.
     </p>
-
 
     <input
       type="password"
@@ -1102,1239 +591,441 @@
       class="border rounded p-2 w-full"
     >
 
-
-    <p
-      id="passwordError"
-      class="hidden text-red-500 text-sm mt-2"
-    >
+    <p id="passwordError" class="hidden text-red-500 text-sm mt-2">
       ❌ Contraseña incorrecta.
     </p>
 
-
     <button
       id="unlockMaestros"
-      class="bg-[#C69B4B] text-white w-full py-2 rounded mt-4 font-bold"
-    >
+      class="bg-[#C69B4B] text-white w-full py-2 rounded mt-4 font-bold">
       🔓 Desbloquear
     </button>
 
-
     <button
       id="closePasswordModal"
-      class="bg-gray-400 text-white w-full py-2 rounded mt-2"
-    >
+      class="bg-gray-400 text-white w-full py-2 rounded mt-2">
       Cancelar
     </button>
 
   </div>
-
 </div>
-
-
-
-<!-- =====================================================
-     MAESTROS
-     ===================================================== -->
-
-<section
-  id="maestros"
-  class="hidden"
->
-
-  <h2 class="text-2xl font-bold mb-4">
-    🎓 Exclusivo Maestros
-  </h2>
-
+  
+<!-- MAESTROS -->
+<section id="maestros" class="hidden">
+  <h2 class="text-2xl font-bold mb-4">🎓 Exclusivo Maestros</h2>
 
   <div class="grid md:grid-cols-2 gap-6">
 
-
     <div class="border p-4 bg-white rounded shadow">
-
-      <h4 class="font-semibold">
-        Café
-      </h4>
-
-      <p>
-        $20
-      </p>
-
-
-      <button
-        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Café"
-        data-price="20"
-      >
-        Agregar
+      <h4 class="font-semibold">Café</h4>
+      <p>$20</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Café" data-price="20">
+      Agregar
       </button>
-
     </div>
 
-
-
     <div class="border p-4 bg-white rounded shadow">
-
-      <h4 class="font-semibold">
-        Refresco
-      </h4>
-
-      <p>
-        $25
-      </p>
-
-
-      <button
-        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Refresco"
-        data-price="25"
-      >
-        Agregar
+      <h4 class="font-semibold">Refresco</h4>
+      <p>$25</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Refresco" data-price="25">
+      Agregar
       </button>
-
     </div>
 
   </div>
-
 </section>
 
-
-
-<!-- =====================================================
-     TEMPORADA
-     ===================================================== -->
-
-<section id="temporada">
-
-  <h2 class="text-2xl font-bold mb-4">
-    🍂 Temporada
-  </h2>
-
+<!-- TEMPORADA -->
+<section id="temporada">  
+  <h2 class="text-2xl font-bold mb-4">🍂 Temporada</h2>
 
   <div class="grid md:grid-cols-3 gap-6">
 
-
     <div class="border p-4 bg-white rounded shadow">
-
-      <h4 class="font-semibold">
-        Bolis
-      </h4>
-
-      <p>
-        $10
-      </p>
-
-
-      <button
-        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Bolis"
-        data-price="10"
-      >
-        Agregar
+      <h4 class="font-semibold">Bolis</h4>
+      <p>$10</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Bolis" data-price="10">
+      Agregar
       </button>
-
     </div>
 
-
-
     <div class="border p-4 bg-white rounded shadow">
-
-      <h4 class="font-semibold">
-        Mangoneada
-      </h4>
-
-      <p>
-        $12
-      </p>
-
-
-      <button
-        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Mangoneada"
-        data-price="12"
-      >
-        Agregar
+      <h4 class="font-semibold">Mangoneada</h4>
+      <p>$12</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Mangoneada" data-price="12">
+      Agregar
       </button>
-
     </div>
 
-
-
     <div class="border p-4 bg-white rounded shadow">
-
-      <h4 class="font-semibold">
-        Esquimal
-      </h4>
-
-      <p>
-        $25
-      </p>
-
-
-      <button
-        class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
-        data-name="Esquimal"
-        data-price="25"
-      >
-        Agregar
+      <h4 class="font-semibold">Esquimal</h4>
+      <p>$25</p>
+      <button class="addToCart bg-[#C69B4B] text-white px-3 py-1 rounded mt-2"
+      data-name="Esquimal" data-price="25">
+      Agregar
       </button>
-
     </div>
 
   </div>
-
 </section>
 
 </main>
 
-
-
-<!-- =====================================================
-     CARRITO
-     ===================================================== -->
-
-<div
-  id="cartModal"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
->
-
+<!-- CARRITO -->
+<div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
   <div class="bg-white p-6 rounded w-80">
-
-
-    <h3 class="text-xl font-bold mb-3">
-      🛒 Tu pedido
-    </h3>
-
-
+    
     <ul id="cartItems"></ul>
+    <p class="mt-2">Total: $<span id="cartTotal">0</span></p>
 
+   <select id="paymentMethod" class="border p-2 mt-2 w-full">
+  <option value="">Selecciona método de pago</option>
+  <option value="Transferencia">Transferencia</option>
+  <option value="Efectivo">Efectivo</option>
+  <option value="Pago rápido">Pago rápido</option>
+</select>
 
-    <p class="mt-2 font-bold">
-      Total: $<span id="cartTotal">0</span>
-    </p>
-
-
-
-    <!-- MÉTODO DE PAGO -->
-
-    <select
-      id="paymentMethod"
-      class="border p-2 mt-2 w-full"
-    >
-
-      <option value="">
-        Selecciona método de pago
-      </option>
-
-      <option value="Transferencia">
-        Transferencia
-      </option>
-
-      <option value="Efectivo">
-        Efectivo
-      </option>
-
-      <option value="Pago rápido">
-        Pago rápido
-      </option>
-
-    </select>
-
-
-
-    <!-- TRANSFERENCIA -->
-
-    <div
-      id="transferInfo"
-      class="hidden mt-3 p-3 border rounded bg-gray-100 text-sm"
-    >
-
-      <p class="font-bold">
-        💳 Datos para transferencia:
-      </p>
-
-      <p>
-        Tarjeta: 4152 3143 0956 2018
-      </p>
-
+    <div id="transferInfo" class="hidden mt-3 p-3 border rounded bg-gray-100 text-sm">
+      <p class="font-bold">💳 Datos para transferencia:</p>
+      <p>Tarjeta: 4152 3143 0956 2018</p>
       <p class="mt-2 text-green-700 font-semibold">
         📸 Manda tu comprobante de pago
       </p>
-
     </div>
 
+    <div id="quickPayInfo" class="hidden mt-3 p-3 border rounded bg-gray-100 text-sm">
+  <p class="font-bold">⚡ Pago rápido con Mercado Pago</p>
 
+  <p class="mt-2">
+    Tu pedido se enviará por WhatsApp.
+    Recibirás el enlace de pago por WhatsApp.
+  </p>
 
-    <!-- PAGO RÁPIDO -->
+  <p class="mt-3 text-green-700 font-semibold">
+    📸 Una vez realizado el pago, manda tu comprobante por WhatsApp.
+  </p>
+</div>
 
-    <div
-      id="quickPayInfo"
-      class="hidden mt-3 p-3 border rounded bg-gray-100 text-sm"
-    >
-
-      <p class="font-bold">
-        ⚡ Pago rápido con Mercado Pago
-      </p>
-
-
-      <p class="mt-2">
-        Tu pedido se enviará por WhatsApp.
-        Recibirás el enlace de pago por WhatsApp.
-      </p>
-
-
-      <p class="mt-3 text-green-700 font-semibold">
-        📸 Una vez realizado el pago,
-        manda tu comprobante por WhatsApp.
-      </p>
-
-    </div>
-
-
-
-    <!-- WHATSAPP -->
-
-    <button
-      id="sendWhatsApp"
-      class="bg-green-600 text-white w-full py-2 mt-3 rounded font-bold shadow"
-    >
-      📲 Enviar pedido por WhatsApp
+    <button id="sendWhatsApp"
+    class="bg-green-600 text-white w-full py-2 mt-3 rounded font-bold shadow">
+    📲 Enviar pedido por WhatsApp
     </button>
 
-
-
-    <!-- CERRAR -->
-
-    <button
-      id="closeCart"
-      class="bg-gray-400 text-white w-full py-2 mt-2 rounded shadow"
-    >
-      Cerrar
+    <button id="closeCart"
+    class="bg-gray-400 text-white w-full py-2 mt-2 rounded shadow">
+    Cerrar
     </button>
 
   </div>
-
 </div>
 
-
-
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
-
 <script>
-
 let cart = [];
 
+const cartBtn = document.getElementById("cartBtn");
+const cartModal = document.getElementById("cartModal");
+const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
 
+const toast = document.getElementById("toast");
+const sound = document.getElementById("sound");
 
-/* =====================================================
-   ELEMENTOS
-   ===================================================== */
+const paymentMethod = document.getElementById("paymentMethod");
+const transferInfo = document.getElementById("transferInfo");
+const quickPayInfo = document.getElementById("quickPayInfo");
 
-const cartBtn =
-  document.getElementById("cartBtn");
-
-const cartModal =
-  document.getElementById("cartModal");
-
-const closeCart =
-  document.getElementById("closeCart");
-
-const cartItems =
-  document.getElementById("cartItems");
-
-const cartCount =
-  document.getElementById("cartCount");
-
-const cartTotal =
-  document.getElementById("cartTotal");
-
-const toast =
-  document.getElementById("toast");
-
-const sound =
-  document.getElementById("sound");
-
-const paymentMethod =
-  document.getElementById("paymentMethod");
-
-const transferInfo =
-  document.getElementById("transferInfo");
-
-const quickPayInfo =
-  document.getElementById("quickPayInfo");
-
-
-
-/* =====================================================
-   MENÚ
-   ===================================================== */
-
-const menuBtn =
-  document.getElementById("menuBtn");
-
-const menu =
-  document.getElementById("menu");
-
+  const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
 
 menuBtn.onclick = () => {
-
   menu.classList.toggle("hidden");
-
 };
 
-
-document.querySelectorAll("#menu a").forEach(link => {
-
-  link.addEventListener("click", () => {
-
-    menu.classList.add("hidden");
-
+document.querySelectorAll('#menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.add('hidden');
   });
-
 });
-
-
-
-/* =====================================================
-   MÉTODO DE PAGO
-   ===================================================== */
-
+  
+// Mostrar información según método de pago
 paymentMethod.addEventListener("change", () => {
 
   transferInfo.classList.add("hidden");
-
   quickPayInfo.classList.add("hidden");
 
-
-  if (paymentMethod.value === "Transferencia") {
-
+  if(paymentMethod.value === "Transferencia"){
     transferInfo.classList.remove("hidden");
-
   }
 
-
-  if (paymentMethod.value === "Pago rápido") {
-
+  if(paymentMethod.value === "Pago rápido"){
     quickPayInfo.classList.remove("hidden");
-
   }
 
 });
 
+cartBtn.onclick = () => cartModal.classList.remove("hidden");
+closeCart.onclick = () => cartModal.classList.add("hidden");
 
-
-/* =====================================================
-   CARRITO
-   ===================================================== */
-
-cartBtn.onclick = () => {
-
-  cartModal.classList.remove("hidden");
-
-};
-
-
-closeCart.onclick = () => {
-
-  cartModal.classList.add("hidden");
-
-};
-
-
-
-/* =====================================================
-   TOAST
-   ===================================================== */
-
-function showToast(text) {
-
+function showToast(text){
   toast.textContent = text;
-
   toast.classList.remove("opacity-0");
-
-
-  if (sound) {
-
-    sound.play().catch(() => {});
-
-  }
-
-
-  setTimeout(() => {
-
-    toast.classList.add("opacity-0");
-
-  }, 1500);
-
+  sound.play();
+  setTimeout(()=> toast.classList.add("opacity-0"),1500);
 }
 
-
-
-/* =====================================================
-   AGREGAR AL CARRITO
-   ===================================================== */
-
-function addToCart(name, price) {
-
-  cart.push({
-
-    name: name,
-
-    price: parseFloat(price)
-
-  });
-
-
+function addToCart(name, price){
+  cart.push({name, price: parseFloat(price)});
   renderCart();
-
   showToast(name + " agregado");
-
 }
 
-
-
-/* =====================================================
-   ELIMINAR DEL CARRITO
-   ===================================================== */
-
-function removeItem(i) {
-
-  cart.splice(i, 1);
-
+function removeItem(i){
+  cart.splice(i,1);
   renderCart();
-
 }
 
-
-
-/* =====================================================
-   MOSTRAR CARRITO
-   ===================================================== */
-
-function renderCart() {
-
+function renderCart(){
   cartItems.innerHTML = "";
-
   let total = 0;
 
-
-  cart.forEach((item, i) => {
-
+  cart.forEach((item, i)=>{
     total += item.price;
-
-
     cartItems.innerHTML += `
-
-      <li class="flex justify-between items-center border-b py-2">
-
-        <span>
-          ${item.name} - $${item.price}
-        </span>
-
-        <button
-          onclick="removeItem(${i})"
-          class="text-red-500 ml-2"
-        >
-          ✕
-        </button>
-
+      <li class="flex justify-between items-center">
+        ${item.name} - $${item.price}
+        <button onclick="removeItem(${i})" class="text-red-500">✕</button>
       </li>
-
     `;
-
   });
-
 
   cartTotal.textContent = total;
-
   cartCount.textContent = cart.length;
-
 }
 
+document.querySelectorAll(".addToCart").forEach(btn=>{
+  btn.onclick = ()=> addToCart(btn.dataset.name, btn.dataset.price);
+});
 
+// BURRITO
+document.getElementById("addBurrito").addEventListener("click", () => {
+  const burritoOption = document.getElementById("burritoOption");
 
-/* =====================================================
-   BOTONES GENERALES
-   ===================================================== */
+  const precio = burritoOption.value;
 
-document.querySelectorAll(".addToCart").forEach(btn => {
+  addToCart("🌯 Burrito", precio);
+});
 
-  btn.onclick = () => {
-
-    addToCart(
-      btn.dataset.name,
-      btn.dataset.price
-    );
-
-  };
-
+document.getElementById("burritoOption").addEventListener("change", function () {
+  document.getElementById("burritoPrice").textContent = this.value;
 });
 
 
+// LONCHE / TORTA
+document.getElementById("addTorta").addEventListener("click", () => {
+  const tortaOption = document.getElementById("tortaOption");
 
-/* =====================================================
-   BURRITO
-   ===================================================== */
+  const tipo = tortaOption.options[tortaOption.selectedIndex].text;
+  const precio = tortaOption.value;
 
-document
-  .getElementById("addBurrito")
-  .addEventListener("click", () => {
+  addToCart("🥪 Lonche " + tipo, precio);
+});
 
-    const burritoOption =
-      document.getElementById("burritoOption");
+document.getElementById("tortaOption").addEventListener("change", function () {
+  document.getElementById("tortaPrice").textContent = this.value;
+});
 
-    const precio =
-      burritoOption.value;
 
-    addToCart(
-      "🌯 Burrito",
-      precio
-    );
+// CEREAL
+document.getElementById("addCereal").addEventListener("click", () => {
+  const cerealOption = document.getElementById("cerealOption");
 
-  });
+  const tipo = cerealOption.options[cerealOption.selectedIndex].text;
+  const precio = cerealOption.value;
 
+  addToCart(tipo, precio);
+});
 
-document
-  .getElementById("burritoOption")
-  .addEventListener("change", function () {
+document.getElementById("cerealOption").addEventListener("change", function () {
+  document.getElementById("cerealPrice").textContent = this.value;
+});
 
-    document.getElementById("burritoPrice").textContent =
-      this.value;
 
-  });
+// FRUTA CHICA
+document.getElementById("addFruta").addEventListener("click", () => {
+  addToCart("🍓 Fruta chica", 15);
+});
 
 
+// FRUTA GRANDE
+document.getElementById("addFrutaGrande").addEventListener("click", () => {
+  addToCart("🍉 Fruta grande", 30);
+});
 
-/* =====================================================
-   LONCHE / TORTA
-   ===================================================== */
 
-document
-  .getElementById("addTorta")
-  .addEventListener("click", () => {
+// GELATINA
+document.getElementById("addGelatina").addEventListener("click", () => {
+  const gelatinaOption = document.getElementById("gelatinaOption");
 
-    const tortaOption =
-      document.getElementById("tortaOption");
+  const sabor = gelatinaOption.options[gelatinaOption.selectedIndex].text;
+  const precio = gelatinaOption.value;
 
-    const tipo =
-      tortaOption.options[
-        tortaOption.selectedIndex
-      ].text;
+  addToCart("🍮 Gelatina " + sabor, precio);
+});
 
-    const precio =
-      tortaOption.value;
+document.getElementById("gelatinaOption").addEventListener("change", function () {
+  document.getElementById("gelatinaPrice").textContent = this.value;
+});
 
 
-    addToCart(
-      "Lonche " + tipo,
-      precio
-    );
+// YOGURTH
+document.getElementById("addYogurth").addEventListener("click", () => {
+  const yogurthOption = document.getElementById("yogurthOption");
 
-  });
+  const topping = yogurthOption.options[yogurthOption.selectedIndex].text;
+  const precio = yogurthOption.value;
 
+  addToCart("🥣 Yogurth " + topping, precio);
+});
 
-document
-  .getElementById("tortaOption")
-  .addEventListener("change", function () {
+document.getElementById("yogurthOption").addEventListener("change", function () {
+  document.getElementById("yogurthPrice").textContent = this.value;
+});
 
-    const includes =
-      document.getElementById("tortaIncludes");
 
-    const price =
-      document.getElementById("tortaPrice");
+  // TIP DEL DÍA
+const dailyTips = [
+  "🏃‍♀️ No olvides realizar alguna actividad física por lo menos 30 minutos al día.",
+  "💧 Recuerda mantenerte bien hidratado durante el día.",
+  "🍎 Una alimentación variada ayuda a mantener tu cuerpo con energía.",
+  "🧠 También es importante darle pequeños descansos a tu mente.",
+  "😴 Dormir bien ayuda a tu cuerpo y a tu mente a recuperarse.",
+  "☀️ Un poco de movimiento y aire libre también puede ser un buen descanso.",
+  "📚 Estudiar es importante, pero descansar también.",
+  "😊 Cuidarte también significa disfrutar, descansar y pasar un buen rato."
+];
 
+const randomTip =
+  dailyTips[Math.floor(Math.random() * dailyTips.length)];
 
-    price.textContent =
-      this.value;
+document.getElementById("dailyTip").textContent = randomTip;
+  
+// AGUA
+document.getElementById("addAgua").addEventListener("click", () => {
+  const aguaOption = document.getElementById("aguaOption");
 
+  const tipo = aguaOption.options[aguaOption.selectedIndex].text;
+  const precio = aguaOption.value;
 
-    switch (this.value) {
+  addToCart(tipo, precio);
+});
 
-      case "15":
+document.getElementById("aguaOption").addEventListener("change", function () {
+  document.getElementById("aguaPrice").textContent = this.value;
+});
 
-        includes.innerHTML =
-          "<strong>Incluye:</strong> medio lonche, salchicha, lechuga, jamón, tomate y mayonesa";
 
-        break;
+// AGUA FRESCA
+document.getElementById("addAguaFresca").addEventListener("click", () => {
+  const aguaFrescaOption = document.getElementById("aguaFrescaOption");
 
+  const tipo = aguaFrescaOption.options[aguaFrescaOption.selectedIndex].text;
+  const precio = aguaFrescaOption.value;
 
-      case "30":
+  addToCart("🧃 Agua fresca " + tipo, precio);
+});
 
-        includes.innerHTML =
-          "<strong>Incluye:</strong> salchicha, jamón, lechuga, tomate y mayonesa";
+document.getElementById("aguaFrescaOption").addEventListener("change", function () {
+  document.getElementById("aguaFrescaPrice").textContent = this.value;
+});
 
-        break;
 
+// JUGO
+document.getElementById("addJugo").addEventListener("click", () => {
+  const jugoOption = document.getElementById("jugoOption");
 
-      case "20":
+  const sabor = jugoOption.options[jugoOption.selectedIndex].text;
 
-        includes.innerHTML =
-          "<strong>Incluye:</strong> mayonesa, aguacate, jamón, salchicha, lechuga, tomate y queso";
+  addToCart("🧃 Jugo " + sabor, 12);
+});
 
-        break;
 
+// ACCESO A MAESTROS
+const maestrosBtn = document.getElementById("maestrosBtn");
+const passwordModal = document.getElementById("passwordModal");
+const maestrosPassword = document.getElementById("maestrosPassword");
+const unlockMaestros = document.getElementById("unlockMaestros");
+const closePasswordModal = document.getElementById("closePasswordModal");
+const passwordError = document.getElementById("passwordError");
+const maestrosSection = document.getElementById("maestros");
 
-      case "40":
-
-        includes.innerHTML =
-          "<strong>Incluye:</strong> mayonesa, aguacate, jamón, salchicha, lechuga, tomate y queso";
-
-        break;
-
-    }
-
-  });
-
-
-
-/* =====================================================
-   MOLLETE
-   ===================================================== */
-
-document
-  .getElementById("addMollete")
-  .addEventListener("click", () => {
-
-    const molleteOption =
-      document.getElementById("molleteOption");
-
-    const tipo =
-      molleteOption.options[
-        molleteOption.selectedIndex
-      ].text;
-
-    const precio =
-      molleteOption.value;
-
-
-    addToCart(
-      tipo,
-      precio
-    );
-
-  });
-
-
-document
-  .getElementById("molleteOption")
-  .addEventListener("change", function () {
-
-    const includes =
-      document.getElementById("molleteIncludes");
-
-    const price =
-      document.getElementById("molletePrice");
-
-
-    price.textContent =
-      this.value;
-
-
-    if (this.value === "15") {
-
-      includes.innerHTML =
-        "<strong>Incluye:</strong> frijoles y queso";
-
-    } else {
-
-      includes.innerHTML =
-        "<strong>Incluye:</strong> guisado y queso";
-
-    }
-
-  });
-
-
-
-/* =====================================================
-   CEREAL
-   ===================================================== */
-
-document
-  .getElementById("addCereal")
-  .addEventListener("click", () => {
-
-    const cerealOption =
-      document.getElementById("cerealOption");
-
-    const tipo =
-      cerealOption.options[
-        cerealOption.selectedIndex
-      ].text;
-
-    const precio =
-      cerealOption.value;
-
-
-    addToCart(
-      tipo,
-      precio
-    );
-
-  });
-
-
-document
-  .getElementById("cerealOption")
-  .addEventListener("change", function () {
-
-    const includes =
-      document.getElementById("cerealIncludes");
-
-    const price =
-      document.getElementById("cerealPrice");
-
-
-    price.textContent =
-      this.value;
-
-
-    if (this.value === "15") {
-
-      includes.innerHTML =
-        "<strong>Incluye:</strong> 🥣 Cereal";
-
-    } else {
-
-      includes.innerHTML =
-        "<strong>Incluye:</strong> 🥣 Cereal + 🍌 Plátano";
-
-    }
-
-  });
-
-
-
-/* =====================================================
-   FRUTA
-   ===================================================== */
-
-document
-  .getElementById("addFruta")
-  .addEventListener("click", () => {
-
-    addToCart(
-      "🍎 Fruta chica",
-      15
-    );
-
-  });
-
-
-document
-  .getElementById("addFrutaGrande")
-  .addEventListener("click", () => {
-
-    addToCart(
-      "🍉 Fruta grande",
-      30
-    );
-
-  });
-
-
-
-/* =====================================================
-   GELATINA
-   ===================================================== */
-
-document
-  .getElementById("addGelatina")
-  .addEventListener("click", () => {
-
-    const gelatinaOption =
-      document.getElementById("gelatinaOption");
-
-    const sabor =
-      gelatinaOption.options[
-        gelatinaOption.selectedIndex
-      ].text;
-
-    const precio =
-      gelatinaOption.value;
-
-
-    addToCart(
-      "Gelatina " + sabor,
-      precio
-    );
-
-  });
-
-
-document
-  .getElementById("gelatinaOption")
-  .addEventListener("change", function () {
-
-    document.getElementById("gelatinaPrice").textContent =
-      this.value;
-
-  });
-
-
-
-/* =====================================================
-   YOGURTH
-   ===================================================== */
-
-document
-  .getElementById("addYogurth")
-  .addEventListener("click", () => {
-
-    const yogurthOption =
-      document.getElementById("yogurthOption");
-
-    const topping =
-      yogurthOption.options[
-        yogurthOption.selectedIndex
-      ].text;
-
-    const precio =
-      yogurthOption.value;
-
-
-    addToCart(
-      "Yogurth " + topping,
-      precio
-    );
-
-  });
-
-
-document
-  .getElementById("yogurthOption")
-  .addEventListener("change", function () {
-
-    document.getElementById("yogurthPrice").textContent =
-      this.value;
-
-  });
-
-
-
-/* =====================================================
-   AGUA
-   ===================================================== */
-
-document
-  .getElementById("addAgua")
-  .addEventListener("click", () => {
-
-    const aguaOption =
-      document.getElementById("aguaOption");
-
-    const tipo =
-      aguaOption.options[
-        aguaOption.selectedIndex
-      ].text;
-
-    const precio =
-      aguaOption.value;
-
-
-    addToCart(
-      tipo,
-      precio
-    );
-
-  });
-
-
-document
-  .getElementById("aguaOption")
-  .addEventListener("change", function () {
-
-    document.getElementById("aguaPrice").textContent =
-      this.value;
-
-  });
-
-
-
-/* =====================================================
-   AGUA FRESCA
-   ===================================================== */
-
-document
-  .getElementById("addAguaFresca")
-  .addEventListener("click", () => {
-
-    const aguaFrescaOption =
-      document.getElementById("aguaFrescaOption");
-
-    const tipo =
-      aguaFrescaOption.options[
-        aguaFrescaOption.selectedIndex
-      ].text;
-
-    const precio =
-      aguaFrescaOption.value;
-
-
-    addToCart(
-      "Agua fresca " + tipo,
-      precio
-    );
-
-  });
-
-
-document
-  .getElementById("aguaFrescaOption")
-  .addEventListener("change", function () {
-
-    document.getElementById("aguaFrescaPrice").textContent =
-      this.value;
-
-  });
-
-
-
-/* =====================================================
-   JUGO
-   ===================================================== */
-
-document
-  .getElementById("addJugo")
-  .addEventListener("click", () => {
-
-    const jugoOption =
-      document.getElementById("jugoOption");
-
-    const sabor =
-      jugoOption.options[
-        jugoOption.selectedIndex
-      ].text;
-
-
-    addToCart(
-      "Jugo " + sabor,
-      12
-    );
-
-  });
-
-
-
-/* =====================================================
-   ACCESO A MAESTROS
-   ===================================================== */
-
-const maestrosBtn =
-  document.getElementById("maestrosBtn");
-
-const passwordModal =
-  document.getElementById("passwordModal");
-
-const maestrosPassword =
-  document.getElementById("maestrosPassword");
-
-const unlockMaestros =
-  document.getElementById("unlockMaestros");
-
-const closePasswordModal =
-  document.getElementById("closePasswordModal");
-
-const passwordError =
-  document.getElementById("passwordError");
-
-const maestrosSection =
-  document.getElementById("maestros");
-
-
-
-/* =====================================================
-   CONTRASEÑA
-   ===================================================== */
-
-const maestrosPasswordCorrecta =
-  "1234";
-
-
-
-/* ABRIR MODAL */
+// AQUÍ PONES TU CONTRASEÑA
+const maestrosPasswordCorrecta = "1234";
 
 maestrosBtn.addEventListener("click", (e) => {
-
   e.preventDefault();
 
-
   passwordModal.classList.remove("hidden");
-
   maestrosPassword.value = "";
-
   passwordError.classList.add("hidden");
-
   maestrosPassword.focus();
-
 });
-
-
-
-/* DESBLOQUEAR */
 
 unlockMaestros.addEventListener("click", () => {
 
-  if (
-    maestrosPassword.value ===
-    maestrosPasswordCorrecta
-  ) {
+  if (maestrosPassword.value === maestrosPasswordCorrecta) {
 
     passwordModal.classList.add("hidden");
-
     maestrosSection.classList.remove("hidden");
 
-
     maestrosSection.scrollIntoView({
-
       behavior: "smooth"
-
     });
 
   } else {
 
     passwordError.classList.remove("hidden");
-
     maestrosPassword.value = "";
-
     maestrosPassword.focus();
 
   }
 
 });
 
-
-
-/* CERRAR */
-
 closePasswordModal.addEventListener("click", () => {
-
   passwordModal.classList.add("hidden");
-
 });
+  
+// WhatsApp
+document.getElementById("sendWhatsApp").onclick = ()=>{
+  if(cart.length === 0) return alert("Carrito vacío");
 
+  const payment = paymentMethod.value;
+  if(!payment) return alert("Selecciona método de pago");
 
+  const folio = Math.floor(100000 + Math.random() * 900000);
 
-/* =====================================================
-   PERMITIR ENTER EN LA CONTRASEÑA
-   ===================================================== */
+  let msg = "🧾 Pedido:%0A";
+  msg += "Folio: " + folio + "%0A%0A";
 
-maestrosPassword.addEventListener("keydown", (e) => {
+  cart.forEach(i=> msg += "- " + i.name + "%0A");
 
-  if (e.key === "Enter") {
+  msg += "%0ATotal $" + cartTotal.textContent + "%0A";
+  msg += "Pago: " + payment + "%0A";
 
-    unlockMaestros.click();
-
+  if(payment === "Transferencia"){
+    msg += "Tarjeta: 4152 3143 0956 2018%0A";
+    msg += "Enviar comprobante 📸";
   }
 
-});
-
-
-
-/* =====================================================
-   WHATSAPP
-   ===================================================== */
-
-document
-  .getElementById("sendWhatsApp")
-  .onclick = () => {
-
-
-    if (cart.length === 0) {
-
-      return alert("Carrito vacío");
-
-    }
-
-
-    const payment =
-      paymentMethod.value;
-
-
-    if (!payment) {
-
-      return alert(
-        "Selecciona método de pago"
-      );
-
-    }
-
-
-    const folio =
-      Math.floor(
-        100000 +
-        Math.random() * 900000
-      );
-
-
-    let msg =
-      "🧾 Pedido:%0A";
-
-
-    msg +=
-      "Folio: " +
-      folio +
-      "%0A%0A";
-
-
-    cart.forEach(item => {
-
-      msg +=
-        "- " +
-        item.name +
-        " $" +
-        item.price +
-        "%0A";
-
-    });
-
-
-    msg +=
-      "%0ATotal $" +
-      cartTotal.textContent +
-      "%0A";
-
-
-    msg +=
-      "Pago: " +
-      payment +
-      "%0A";
-
-
-    if (
-      payment === "Transferencia"
-    ) {
-
-      msg +=
-        "Tarjeta: 4152 3143 0956 2018%0A";
-
-      msg +=
-        "Enviar comprobante 📸";
-
-    }
-
-
-    if (
-      payment === "Pago rápido"
-    ) {
-
-      msg +=
-        "Solicitar enlace de pago de Mercado Pago por WhatsApp.";
-
-    }
-
-
-    window.open(
-      "https://wa.me/526143515170?text=" +
-      msg
-    );
-
-  };
-
+  window.open("https://wa.me/526143515170?text=" + msg);
+};
 </script>
 
-
 </body>
-
 </html>
