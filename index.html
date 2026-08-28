@@ -8,18 +8,12 @@
 
   <style>
 
-     /* =====================================================
-        PANTALLA NEGRA - ¿LIST@S PARA EL RECREO?
+     <style>
+
+  /* =====================================================
+     PANTALLA NEGRA - ¿LIST@S PARA EL RECREO?
      ===================================================== */
 
-<div id="welcomeScreen">
-
-  <div id="welcomeText">
-    🍴 ¿LIST@S PARA EL RECREO?
-  </div>
-
-</div>
-    
   #welcomeScreen {
     position: fixed;
     inset: 0;
@@ -41,12 +35,10 @@
   #welcomeText {
     font-size: 2rem;
     font-weight: bold;
-
     padding: 20px;
 
     animation: welcomeEntrada 1.2s ease;
   }
-
 
   @keyframes welcomeEntrada {
 
@@ -67,7 +59,6 @@
 
   }
 
-
   @keyframes welcomeSalida {
 
     0% {
@@ -82,7 +73,8 @@
     }
 
   }
-    
+
+
   /* =====================================================
      ANIMACIÓN DE ENTRADA - QUEENTANA REAL
      ===================================================== */
@@ -91,7 +83,6 @@
     position: fixed;
     inset: 0;
 
-    /* Fondo crema de la página */
     background: #FEFEF5;
 
     display: flex;
@@ -179,7 +170,20 @@
 
 
 <!-- =====================================================
-     PANTALLA DE ENTRADA
+     PANTALLA DE BIENVENIDA
+     ===================================================== -->
+
+<div id="welcomeScreen">
+
+  <div id="welcomeText">
+    🍴 ¿LIST@S PARA EL RECREO?
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     PANTALLA DE ENTRADA - QUEENTANA REAL
      ===================================================== -->
 
 <div id="introScreen">
