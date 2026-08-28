@@ -757,9 +757,26 @@
   <div class="bg-white p-6 rounded w-80">
     
     <ul id="cartItems"></ul>
-    <p class="mt-2">Total: $<span id="cartTotal">0</span></p>
+<p class="mt-2">Total: $<span id="cartTotal">0</span></p>
 
-   <select id="paymentMethod" class="border p-2 mt-2 w-full">
+<!-- PLANTEL -->
+<div class="mt-4">
+  <label for="school" class="font-bold block mb-2">
+    📍 ¿Dónde recogerás tu pedido?
+  </label>
+
+  <select
+    id="school"
+    class="border rounded p-2 w-full"
+  >
+    <option value="">Selecciona tu plantel</option>
+    <option value="Ortiz|🔵">🔵 Ortiz Martín Larriba</option>
+    <option value="Real de Minas|🟣">🟣 Real de Minas</option>
+    <option value="Técnica 99|🟠">🟠 Técnica 99</option>
+  </select>
+</div>
+
+<select id="paymentMethod" class="border p-2 mt-4 w-full">
   <option value="">Selecciona método de pago</option>
   <option value="Transferencia">Transferencia</option>
   <option value="Efectivo">Efectivo</option>
@@ -816,6 +833,8 @@ const sound = document.getElementById("sound");
 const paymentMethod = document.getElementById("paymentMethod");
 const transferInfo = document.getElementById("transferInfo");
 const quickPayInfo = document.getElementById("quickPayInfo");
+
+const school = document.getElementById("school");
 
   const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
@@ -1079,28 +1098,74 @@ closePasswordModal.addEventListener("click", () => {
 });
   
 // WhatsApp
-document.getElementById("sendWhatsApp").onclick = ()=>{
-  if(cart.length === 0) return alert("Carrito vacío");
+document.getElementById("sendWhatsApp").onclick = () => {
 
-  const payment = paymentMethod.value;
-  if(!payment) return alert("Selecciona método de pago");
-
-  const folio = Math.floor(100000 + Math.random() * 900000);
-
-  let msg = "🧾 Pedido:%0A";
-  msg += "Folio: " + folio + "%0A%0A";
-
-  cart.forEach(i=> msg += "- " + i.name + "%0A");
-
-  msg += "%0ATotal $" + cartTotal.textContent + "%0A";
-  msg += "Pago: " + payment + "%0A";
-
-  if(payment === "Transferencia"){
-    msg += "Tarjeta: 4152 3143 0956 2018%0A";
-    msg += "Enviar comprobante 📸";
+  // Verificar carrito
+  if (cart.length === 0) {
+    return alert("Carrito vacío");
   }
 
-  window.open("https://wa.me/526143515170?text=" + msg);
+  // Verificar plantel
+  if (!school.value) {
+    return alert("Selecciona tu plantel");
+  }
+
+  // Verificar método de pago
+  const payment = paymentMethod.value;
+
+  if (!payment) {
+    return alert("Selecciona método de pago");
+  }
+
+  // Obtener información del plantel
+  const schoolData = school.value.split("|");
+
+  const schoolName = schoolData[0];
+  const schoolEmoji = schoolData[1];
+
+  // Generar folio
+  const folio = Math.floor(100000 + Math.random() * 900000);
+
+  // Crear mensaje
+  let msg = "";
+
+  msg += schoolEmoji + " PEDIDO — " + schoolName + "\n";
+  msg += "━━━━━━━━━━━━━━━━━━\n";
+  msg += "🧾 Folio: " + folio + "\n\n";
+
+  msg += "🛒 PEDIDO:\n";
+
+  cart.forEach((item) => {
+    msg += "• " + item.name + " — $" + item.price + "\n";
+  });
+
+  msg += "\n💰 Total: $" + cartTotal.textContent + "\n";
+  msg += "💳 Pago: " + payment + "\n";
+
+  // Información adicional según el pago
+  if (payment === "Transferencia") {
+
+    msg += "\n💳 Datos de transferencia:\n";
+    msg += "Tarjeta: 4152 3143 0956 2018\n";
+    msg += "📸 Enviar comprobante";
+
+  }
+
+  if (payment === "Pago rápido") {
+
+    msg += "\n⚡ Pago rápido con Mercado Pago\n";
+    msg += "📸 Enviar comprobante";
+
+  }
+
+  // Convertir mensaje para URL
+  const encodedMessage = encodeURIComponent(msg);
+
+  // Abrir WhatsApp
+  window.open(
+    "https://wa.me/526143515170?text=" + encodedMessage,
+    "_blank"
+  );
 };
 </script>
 
