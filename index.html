@@ -8,63 +8,72 @@
 
   <style>
 
-    /* =====================================================
-   PANTALLA PREVIA - ¿LIST@S PARA EL RECREO?
-   ===================================================== */
+     /* =====================================================
+        PANTALLA NEGRA - ¿LIST@S PARA EL RECREO?
+     ===================================================== */
 
-#welcomeScreen {
-  position: fixed;
-  inset: 0;
+  #welcomeScreen {
+    position: fixed;
+    inset: 0;
 
-  background: #000;
+    background: #000000;
+    color: white;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-  z-index: 10000;
+    z-index: 10000;
 
-  animation: welcomeSalida 1s ease forwards;
-  animation-delay: 2.5s;
-}
-
-#welcomeScreen p {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-
-  animation: textoEntrada 1.2s ease;
-}
-
-@keyframes textoEntrada {
-
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
+    animation: welcomeSalida 1s ease forwards;
+    animation-delay: 2.5s;
   }
 
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  #welcomeText {
+    font-size: 2rem;
+    font-weight: bold;
+
+    padding: 20px;
+
+    animation: welcomeEntrada 1.2s ease;
   }
 
-}
 
-@keyframes welcomeSalida {
+  @keyframes welcomeEntrada {
 
-  0% {
-    opacity: 1;
-    visibility: visible;
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    60% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
   }
 
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
 
-}
+  @keyframes welcomeSalida {
+
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+  }
     
   /* =====================================================
      ANIMACIÓN DE ENTRADA - QUEENTANA REAL
