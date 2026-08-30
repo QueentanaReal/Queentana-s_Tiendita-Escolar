@@ -1143,16 +1143,32 @@ document.getElementById("sendWhatsApp").onclick = () => {
     return alert("Selecciona método de pago");
   }
 
-  // Obtener información del plantel
+  // ==========================================
+  // DATOS DEL PLANTEL
+  // ==========================================
+
   const schoolData = school.value.split("|");
 
   const schoolName = schoolData[0];
   const schoolEmoji = schoolData[1];
 
-  // Generar folio
-  const folio = Math.floor(100000 + Math.random() * 900000);
+  // ==========================================
+// WHATSAPP PRINCIPAL — MAMÁ
+// ==========================================
 
-  // Crear mensaje
+const numeroMama = "526143515170";
+  
+  // ==========================================
+  // GENERAR FOLIO
+  // ==========================================
+
+  const folio =
+    Math.floor(100000 + Math.random() * 900000);
+
+  // ==========================================
+  // CREAR MENSAJE
+  // ==========================================
+
   let msg = "";
 
   msg += schoolEmoji + " PEDIDO — " + schoolName + "\n";
@@ -1162,37 +1178,69 @@ document.getElementById("sendWhatsApp").onclick = () => {
   msg += "🛒 PEDIDO:\n";
 
   cart.forEach((item) => {
-    msg += "• " + item.name + " — $" + item.price + "\n";
+
+    msg +=
+      "• " +
+      item.name +
+      " — $" +
+      item.price +
+      "\n";
+
   });
 
-  msg += "\n💰 Total: $" + cartTotal.textContent + "\n";
-  msg += "💳 Pago: " + payment + "\n";
+  msg +=
+    "\n💰 Total: $" +
+    cartTotal.textContent +
+    "\n";
 
-  // Información adicional según el pago
+  msg +=
+    "💳 Pago: " +
+    payment +
+    "\n";
+
+  // ==========================================
+  // INFORMACIÓN DEL PAGO
+  // ==========================================
+
   if (payment === "Transferencia") {
 
-    msg += "\n💳 Datos de transferencia:\n";
-    msg += "Tarjeta: 4152 3143 0956 2018\n";
-    msg += "📸 Enviar comprobante";
+    msg +=
+      "\n💳 Pago por transferencia\n";
+
+    msg +=
+      "📸 Comprobante pendiente\n";
+
+  }
+
+  if (payment === "Efectivo") {
+
+    msg +=
+      "\n💵 Pago en efectivo\n";
 
   }
 
   if (payment === "Pago rápido") {
 
-    msg += "\n⚡ Pago rápido con Mercado Pago\n";
-    msg += "📸 Enviar comprobante";
+    msg +=
+      "\n⚡ Pago rápido con Mercado Pago\n";
 
   }
 
-  // Convertir mensaje para URL
-  const encodedMessage = encodeURIComponent(msg);
+  // ==========================================
+  // ABRIR WHATSAPP DEL ENCARGADO
+  // ==========================================
 
-  // Abrir WhatsApp
+  const encodedMessage =
+    encodeURIComponent(msg);
+
   window.open(
-    "https://wa.me/526143515170?text=" + encodedMessage,
-    "_blank"
-  );
-};
+  "https://wa.me/" +
+  numeroMama +
+  "?text=" +
+  encodedMessage,
+  "_blank"
+);
+
 </script>
 
 </body>
