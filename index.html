@@ -1124,11 +1124,23 @@ closePasswordModal.addEventListener("click", () => {
 });
   
 // WhatsApp
-document.getElementById("sendWhatsApp").onclick = () => {
+  
+// ==========================================
+// ENVIAR PEDIDO
+// ==========================================
+
+document.getElementById("sendWhatsApp").onclick = async () => {
 
   // Verificar carrito
   if (cart.length === 0) {
     return alert("Carrito vacío");
+  }
+
+  // Verificar nombre
+  const nombre = document.getElementById("nombreCliente").value.trim();
+
+  if (!nombre) {
+    return alert("Escribe tu nombre y apellido");
   }
 
   // Verificar plantel
@@ -1153,12 +1165,6 @@ document.getElementById("sendWhatsApp").onclick = () => {
   const schoolEmoji = schoolData[1];
 
   // ==========================================
-// WHATSAPP PRINCIPAL — MAMÁ
-// ==========================================
-
-const numeroMama = "526143515170";
-  
-  // ==========================================
   // GENERAR FOLIO
   // ==========================================
 
@@ -1166,14 +1172,76 @@ const numeroMama = "526143515170";
     Math.floor(100000 + Math.random() * 900000);
 
   // ==========================================
-  // CREAR MENSAJE
+  // PAGO RÁPIDO - MERCADO PAGO
   // ==========================================
+
+  if (payment === "Pago rápido") {
+
+    try {
+
+      const response = await fetch(
+        "https://queentana-s-tiendita-escolar.onrender.com/crear-pago",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+
+            items: cart.map(item => ({
+              name: item.name,
+              price: Number(item.price)
+            })),
+
+            folio: folio,
+
+            nombre: nombre,
+
+            plantel: schoolName
+
+          })
+
+        }
+      );
+
+      const data = await response.json();
+
+      if (!data.ok) {
+        throw new Error(data.error || "No se pudo crear el pago");
+      }
+
+      // Abrir Mercado Pago
+      window.location.href = data.init_point;
+
+      return;
+
+    } catch (error) {
+
+      console.error("Error Mercado Pago:", error);
+
+      alert(
+        "No se pudo generar el pago con Mercado Pago. Intenta nuevamente."
+      );
+
+      return;
+    }
+
+  }
+
+  // ==========================================
+  // WHATSAPP
+  // ==========================================
+
+  const numeroMama = "526143515170";
 
   let msg = "";
 
   msg += schoolEmoji + " PEDIDO — " + schoolName + "\n";
   msg += "━━━━━━━━━━━━━━━━━━\n";
-  msg += "🧾 Folio: " + folio + "\n\n";
+  msg += "🧾 Folio: " + folio + "\n";
+  msg += "👤 Nombre: " + nombre + "\n\n";
 
   msg += "🛒 PEDIDO:\n";
 
@@ -1198,10 +1266,6 @@ const numeroMama = "526143515170";
     payment +
     "\n";
 
-  // ==========================================
-  // INFORMACIÓN DEL PAGO
-  // ==========================================
-
   if (payment === "Transferencia") {
 
     msg +=
@@ -1219,29 +1283,19 @@ const numeroMama = "526143515170";
 
   }
 
-  if (payment === "Pago rápido") {
-
-    msg +=
-      "\n⚡ Pago rápido con Mercado Pago\n";
-
-  }
-
-  // ==========================================
-  // ABRIR WHATSAPP DEL ENCARGADO
-  // ==========================================
-
   const encodedMessage =
     encodeURIComponent(msg);
 
   window.open(
-  "https://wa.me/" +
-  numeroMama +
-  "?text=" +
-  encodedMessage,
-  "_blank"
-);
+    "https://wa.me/" +
+    numeroMama +
+    "?text=" +
+    encodedMessage,
+    "_blank"
+  );
 
-  };
+};
+  
   
 </script>
 
